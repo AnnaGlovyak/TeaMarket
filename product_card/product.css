@@ -216,6 +216,18 @@ body::-webkit-scrollbar-thumb {
 .modal-text {
     padding-right: 45px;
 }
+
 .modal-text-paragraph {
     text-align: justify;
+}
+
+a.btn.btn-white.pro-title {
+    background: rgba(199, 255, 161, 0.5);
+    margin-top: 10px;
+    color: black;
+    font-weight: 400;
+}
+
+a.btn.btn-white.pro-title:hover {
+    background: rgba(199, 255, 161, 1);
 }

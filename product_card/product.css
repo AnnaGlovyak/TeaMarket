@@ -7,8 +7,8 @@ body {
 
     -moz-scrollbar-width: thin;
     scrollbar-width: thin;
-    -moz-scrollbar-color: yellowgreen rgb(89, 124, 19);
-    scrollbar-color: yellowgreen rgb(89, 124, 19);
+    -moz-scrollbar-color: yellowgreen rgb(168, 224, 56);
+    scrollbar-color: yellowgreen rgb(168, 224, 56);
     padding-right: 0px !important;
 }
 
@@ -21,11 +21,11 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: rgb(108, 150, 24);
+    background-color: rgb(124, 173, 25);
 
     border-radius: 20px;
 
-    border: 3px solid rgb(89, 124, 19);
+    border: 1px solid rgb(168, 224, 56);
 }
 
 ::selection {

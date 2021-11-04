@@ -4,11 +4,11 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="product.css" />
-        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
         <link rel="icon" type="image/png" href="/product_card/img/cup.png" />
-        <title>Shop product list - Bootdey.com</title>
+        <title>Shop product list</title>
     </head>
     <body>
         <div class="container bootdey">
@@ -123,8 +123,10 @@
                         </form>
                     </div>
                 </section>
+
                 <section class="panel">
                     <header class="panel-heading">Best Seller</header>
+                    <!-- Side bar -->
                     <div class="panel-body">
                         <div class="best-seller">
                             <article class="media">
@@ -132,8 +134,8 @@
                                     <img src="./img/syao-hun-pao-1.jpg" width="220px" height="200px" />
                                 </a>
                                 <div class="media-body">
-                                    <span data-toggle="modal" data-target="#exampleModalCenter">
-                                        <a href="#" class="p-head">Xiao Hong Pao</a>
+                                    <span onclick="document.getElementById('id01').style.display='block'">
+                                        <a class="p-head">Xiao Hong Pao</a>
                                     </span>
                                     <p>The best White Tea Bags provide harmony in a cup.</p>
                                 </div>
@@ -161,19 +163,6 @@
                 </section>
             </div>
             <div class="col-md-9">
-                <section class="panel">
-                    <div class="panel-body">
-                        <div class="pull-right">
-                            <ul class="pagination pagination-sm pro-page-list">
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">»</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
                 <div class="row product-list">
                     <div class="col-md-4">
                         <section class="panel">
@@ -185,7 +174,7 @@
                             </div>
 
                             <div class="panel-body text-center">
-                                <span onclick="document.getElementById('id01').style.display='block'" class="w3-button">
+                                <span onclick="document.getElementById('id01').style.display='block'">
                                     <h4>
                                         <a href="#" class="btn btn-white pro-title">Xiao Hong Pao</a>
                                     </h4>
@@ -250,6 +239,18 @@
                         </section>
                     </div>
                 </div>
+                <section class="panel pagination-main">
+                    <div class="panel-body">
+                        <div class="pull-right">
+                            <ul class="pagination pagination-sm pro-page-list">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
 
@@ -267,13 +268,15 @@
                         <br />
                         <h4>Xiao Hong Pao</h4>
                         <p class="modal-text-paragraph">
-                            Pine Needle Tea Facts and Considerations Most people are familiar with the pine tree.
-                            However, if you’re wondering, “Are all Pine Needles safe for Tea?”, the answer is no. Our
-                            infusion is the product of the White Pine, which is not only safe but also brimming with
-                            vitamins, minerals and antioxidants. Other species may contain toxins that cause adverse
-                            side effects. Your best bet, then, is to err on the side of caution and buy Pine Needle Tea
-                            from us. Now that’s out of the way, we can concentrate on talking about its potential.
-                            Eastern White Pines (Pinus strobus) grow to heights of up to 55 metres (180 feet).
+                            <span class="modal-text-paragraph-span"> Pine</span> Needle Tea Facts and Considerations
+                            Most people are familiar with the pine tree. However, if you’re wondering, “Are all Pine
+                            Needles safe for Tea?”, the answer is no. Our infusion is the product of the White Pine,
+                            which is not only safe but also brimming with vitamins, minerals and antioxidants. Other
+                            species may contain toxins that cause adverse side effects. <br />
+                            <span class="modal-text-paragraph-span"> Your </span>best bet, then, is to err on the side
+                            of caution and buy Pine Needle Tea from us. Now that’s out of the way, we can concentrate on
+                            talking about its potential. Eastern White Pines (Pinus strobus) grow to heights of up to 55
+                            metres (180 feet).
                         </p>
                         <div class="product_meta">
                             <span class="posted_in">

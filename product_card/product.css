@@ -281,47 +281,19 @@ a.btn.btn-white.pro-title:hover {
     }
 }
 
-@keyframes fadeout {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+.w3-modal-content {
+    border-radius: 5px;
 }
 
-@-moz-keyframes fadeout {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+.w3-display-topright {
+    border-radius: 0 5px 0 0;
 }
 
-@-webkit-keyframes fadeout {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+.pagination-main .panel-body {
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
-@-ms-keyframes fadeout {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-@-o-keyframes fadeout {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+.modal-text-paragraph-span {
+    padding-left: 10px;
 }

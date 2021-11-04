@@ -309,3 +309,7 @@ a.btn.btn-white.pro-title:hover {
 .modal-text-paragraph-span {
     padding-left: 10px;
 }
+
+.nav.justify-content-between {
+    margin: 0 auto;
+}

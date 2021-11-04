@@ -228,6 +228,18 @@ a.btn.btn-white.pro-title:hover {
     background: rgba(199, 255, 161, 1);
 }
 
+.modal-text-paragraph-span {
+    padding-left: 10px;
+}
+
+.w3-modal-content {
+    border-radius: 5px;
+}
+
+.w3-display-topright {
+    border-radius: 0 5px 0 0;
+}
+
 #id01 {
     -webkit-animation: fadein 0.25s;
     -moz-animation: fadein 0.25s;

@@ -1,9 +1,9 @@
-html, body {
+html,
+body {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 16px;
 }
-
 
 /* products style */
 body {
@@ -222,7 +222,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .modal-text {
-    padding-right: 45px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .modal-text-paragraph {
@@ -240,7 +241,6 @@ a.btn.btn-white.pro-title:hover {
     background: rgba(199, 255, 161, 1);
 }
 /* products style */
-
 
 .top-bar {
     background: #99bd03;
@@ -272,7 +272,8 @@ a.btn.btn-white.pro-title:hover {
     margin-bottom: 0;
 }
 
-.top-bar a.login-btn i, .top-bar a.signup-btn i {
+.top-bar a.login-btn i,
+.top-bar a.signup-btn i {
     margin-right: 10px;
 }
 
@@ -291,11 +292,13 @@ a.btn.btn-white.pro-title:hover {
     border-radius: 50%;
     margin: 0;
 }
-a:focus, a:hover {
+a:focus,
+a:hover {
     color: #348e7b;
     text-decoration: underline;
 }
-.top-bar a.login-btn, .top-bar a.signup-btn {
+.top-bar a.login-btn,
+.top-bar a.signup-btn {
     color: #eee;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -344,7 +347,7 @@ a:focus, a:hover {
     visibility: visible;
     transform-origin: bottom left;
 }
-.nav-link:hover  .nav-text-wrapper{
+.nav-link:hover .nav-text-wrapper {
     color: #99bd03;
     transition: all 0.3s ease;
 }
@@ -374,7 +377,7 @@ a:focus, a:hover {
 }
 
 .shop-count::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: -3px;
@@ -399,7 +402,6 @@ a:focus, a:hover {
 }
 
 .main {
-    
     margin-top: 20px;
     height: 100%;
 }
@@ -414,11 +416,11 @@ a:focus, a:hover {
 
 /* footer */
 
-a:hover{
-    text-decoration:none;
+a:hover {
+    text-decoration: none;
 }
 .section-padding {
-	padding: 30px 0;
+    padding: 30px 0;
 }
 .bottom {
     background-color: #303030;
@@ -441,6 +443,85 @@ a:hover{
 .copyright p span {
     color: #d1caca;
 }
-.bottom .copyright p, .bottom .copyright a:hover{
+.bottom .copyright p,
+.bottom .copyright a:hover {
     color: #6c6d83;
+}
+
+.w3-modal-content {
+    border-radius: 5px;
+}
+
+.w3-display-topright {
+    border-radius: 0 5px 0 0;
+}
+
+.pagination-main .panel-body {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.modal-text-paragraph-span {
+    padding-left: 10px;
+}
+
+#id01 {
+    -webkit-animation: fadein 0.25s;
+    -moz-animation: fadein 0.25s;
+    -ms-animation: fadein 0.25s;
+    -o-animation: fadein 0.25s;
+    animation: fadein 0.25s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.btn.btn-secondary:hover {
+    background-color: #d9d9d9;
+}
+
+.bottom.section-padding {
+    padding: 10px 0;
 }

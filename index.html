@@ -30,7 +30,7 @@
                 <div class="container">
                     <div class="row d-flex align-items-center" style="padding-left: 30px !important">
                         <div class="col-md-7 d-md-block d-none">
-                            <p>+1 (212) 465-6741, +1 (917) 373-7055 | New York, Madison Square Garden 7</p>
+                            <p>+1 (212) 465-6741, +1 (917) 373-7055 | 452 5th Ave, New York</p>
                         </div>
                         <div class="col-md-5">
                             <div class="d-flex justify-content-md-end justify-content-between">
@@ -66,9 +66,10 @@
                     <div class="row d-flex align-items-center" style="padding-left: 30px !important">
                         <div class="col-md-2 d-md-block d-none">
                             <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/The_Kent_%26_Sussex_Tea_and_Coffee_Company_Logo.png/799px-The_Kent_%26_Sussex_Tea_and_Coffee_Company_Logo.png"
+                                src="https://images.squarespace-cdn.com/content/v1/5e90e0d3fd34337555885037/1588188575105-LPZBEZFQW8GJPIW6P1PY/New+Nature+Store+Logo-Black.png"
                                 alt="teaclub logo"
                                 width="145px"
+                                style="margin-left: 7px;"
                             />
                         </div>
                         <div class="col-md-6">
@@ -86,6 +87,13 @@
                                                 >Coffee<i class="fas fa-angle-down px-2"></i></span
                                         ></a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"
+                                            ><span class="nav-text-wrapper"
+                                                >Orders History<i class="fas fa-angle-down px-2"></i></span
+                                        ></a>
+                                    </li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -139,91 +147,60 @@
                             <div class="panel-body">
                                 <form role="form product-form">
                                     <div class="form-group">
-                                        <label>Package</label>
-                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                        <label>Product</label>
+                                        <select class="form-control">
+                                            <option selected value="1">Tea</option>
+                                            <option value="2">Coffee</option>
                                         </select>
-                                        <!-- <select
-                                  class="form-control hasCustomSelect"
-                                  style="
-                                      -webkit-appearance: menulist-button;
-                                      width: 231px;
-                                      position: absolute;
-                                      opacity: 0;
-                                      height: 34px;
-                                      font-size: 12px;
-                                  "
-                              >
-                                  <option>Loose Tea</option>
-                                  <option>Compressed Tea</option>
-                                  <option>Tea Bags</option>
-                              </select> -->
-                                        <span class="customSelect form-control" style="display: inline-block"
-                                            ><span class="customSelectInner" style="width: 209px; display: inline-block"
-                                                >Loose Tea</span
-                                            ></span
-                                        >
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Package</label>
+                                        <select class="form-control">
+                                            <option selected value="1">Loose Tea</option>
+                                            <option value="2">Compressed Tea</option>
+                                            <option value="3">Tea Bags</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Region</label>
-                                        <select
-                                            class="form-control hasCustomSelect"
-                                            style="
-                                                -webkit-appearance: menulist-button;
-                                                width: 231px;
-                                                position: absolute;
-                                                opacity: 0;
-                                                height: 34px;
-                                                font-size: 12px;
-                                            "
-                                        >
-                                            <option>China</option>
-                                            <option>Japan</option>
-                                            <option>Red</option>
-                                            <option>Africa</option>
-                                            <option>India</option>
+                                        <select class="form-control">
+                                            <option selected value="1">China</option>
+                                            <option value="2">Japan</option>
+                                            <option value="3">Africa</option>
+                                            <option value="4">India</option>
+                                            <option value="5">Nepali</option>
                                         </select>
-                                        <span class="customSelect form-control" style="display: inline-block"
-                                            ><span class="customSelectInner" style="width: 209px; display: inline-block"
-                                                >China</span
-                                            ></span
-                                        >
                                     </div>
                                     <div class="form-group">
                                         <label>Type</label>
-                                        <select
-                                            class="form-control hasCustomSelect"
-                                            style="
-                                                -webkit-appearance: menulist-button;
-                                                width: 231px;
-                                                position: absolute;
-                                                opacity: 0;
-                                                height: 34px;
-                                                font-size: 12px;
-                                            "
-                                        >
-                                            <option>Shen Puer</option>
-                                            <option>Sur Puer</option>
-                                            <option>Matcha</option>
-                                            <option>Heicha</option>
-                                            <option>Gaba</option>
-                                            <option>Oolong</option>
+                                        <select class="form-control">
+                                            <option selected value="1">Shen Puer</option>
+                                            <option value="2">Sur Puer</option>
+                                            <option value="3">Matcha</option>
+                                            <option value="4">Heicha</option>
+                                            <option value="5">Gaba</option>
+                                            <option value="6">Oolong</option>
                                         </select>
-                                        <span class="customSelect form-control" style="display: inline-block"
-                                            ><span class="customSelectInner" style="width: 209px; display: inline-block"
-                                                >Shen Puer</span
-                                            ></span
-                                        >
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Manufacturer</label>
+                                        <select class="form-control">
+                                            <option selected value="1">Chiyabari Tea Estate</option>
+                                            <option value="2">Flowery Orange Pekoe</option>
+                                            <option value="3">Rajmai Tea Company of Assam</option>
+                                            <option value="3">Zhejiang Tea</option>
+                                            <option value="4">Fujian Tea</option>
+                                            <option value="5">Japanese Bancha</option>
+                                            <option value="6">Nandi Highlands</option>
+                                        </select>
                                     </div>
                                     <button class="btn btn-primary" type="submit">Filter</button>
+                                </div>
                                 </form>
-                            </div>
-                        </section>
-                        <section class="panel">
+                            </section>
+                            <section class="panel">
                             <header class="panel-heading">Best Seller</header>
+                            <!-- Side bar -->
                             <div class="panel-body">
                                 <div class="best-seller">
                                     <article class="media">
@@ -232,7 +209,7 @@
                                         </a>
                                         <div class="media-body">
                                             <span onclick="document.getElementById('id01').style.display='block'">
-                                                <a class="p-head">Xiao Hong Pao</a>
+                                                <a class="p-head bestsellers">Xiao Hong Pao</a>
                                             </span>
                                             <p>The best White Tea Bags provide harmony in a cup.</p>
                                         </div>
@@ -242,7 +219,7 @@
                                             <img src="./img/cha-chzhuan-800-1.jpg" width="220px" height="200px" />
                                         </a>
                                         <div class="media-body">
-                                            <a href="#" class="p-head">Cha Zhuan</a>
+                                            <a href="#" class="p-head bestsellers">Cha Zhuan</a>
                                             <p>Translated to broadly mean ‘colourful variety’.</p>
                                         </div>
                                     </article>
@@ -251,7 +228,7 @@
                                             <img src="./img/aorashi-01.jpg" width="220px" height="200px" />
                                         </a>
                                         <div class="media-body">
-                                            <a href="#" class="p-head">Matcha "Aorashi"</a>
+                                            <a href="#" class="p-head bestsellers">Matcha "Aorashi"</a>
                                             <p>The Matcha Genmai Cha, is a blend of Matcha.</p>
                                         </div>
                                     </article>
@@ -261,6 +238,222 @@
                     </div>
                     <div class="col-md-9">
                         <div class="row product-list">
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="./img/syao-hun-pao-1.jpg" alt="image" />
+                                        <a href="#" class="adtocart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <span onclick="document.getElementById('id01').style.display='block'">
+                                            <h4>
+                                                <a href="#" class="btn btn-white pro-title">Xiao Hong Pao</a>
+                                            </h4>
+                                        </span>
+                                        <div class="panel-body text-center descriptions-block">
+                                            <div class="descriptions">100g</div>
+                                            <div class="descriptions"><u>China, Hainan</u></div>
+                                            <div class="descriptions">20 Apr 2020</div>
+                                            <div class="descriptions"><u>Formosa Oolong</u></div>
+                                            <div class="descriptions">Loose Tea</div>
+                                        </div>
+                                        <p class="price">$179.00</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="./img/cha-chzhuan-800-1.jpg" alt="image" />
+                                        <a href="#" class="adtocart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="panel-body text-center">
+                                        <h4>
+                                            <a href="#" class="btn btn-white pro-title">Cha Zhuan</a>
+                                        </h4>
+                                        <div class="panel-body text-center descriptions-block">
+                                            <div class="descriptions">50g</div>
+                                            <div class="descriptions"><u>China, Tongling</u></div>
+                                            <div class="descriptions">03 June 2006</div>
+                                            <div class="descriptions"><u>Shu Puer</u></div>
+                                            <div class="descriptions">Compressed Tea</div>
+                                        </div>
+                                        <p class="price">$158.00</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="./img/aorashi-01.jpg" alt="image" />
+                                        <a href="#" class="adtocart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4>
+                                            <a href="#" class="btn btn-white pro-title">Matcha "Aorashi"</a>
+                                        </h4>
+                                        <div class="panel-body text-center descriptions-block">
+                                            <div class="descriptions">40g</div>
+                                            <div class="descriptions"><u>Japan, Kyoto</u></div>
+                                            <div class="descriptions">16 Jan 2021</div>
+                                            <div class="descriptions"><u>Matcha Tea</u></div>
+                                            <div class="descriptions">Powder</div>
+                                        </div>
+                                        <p class="price">$211.00</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="./img/syao-hun-pao-1.jpg" alt="image" />
+                                        <a href="#" class="adtocart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <span onclick="document.getElementById('id01').style.display='block'">
+                                            <h4>
+                                                <a href="#" class="btn btn-white pro-title">Xiao Hong Pao</a>
+                                            </h4>
+                                        </span>
+                                        <div class="panel-body text-center descriptions-block">
+                                            <div class="descriptions">100g</div>
+                                            <div class="descriptions"><u>China, Hainan</u></div>
+                                            <div class="descriptions">20 Apr 2020</div>
+                                            <div class="descriptions"><u>Formosa Oolong</u></div>
+                                            <div class="descriptions">Loose Tea</div>
+                                        </div>
+                                        <p class="price">$179.00</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="./img/cha-chzhuan-800-1.jpg" alt="image" />
+                                        <a href="#" class="adtocart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="panel-body text-center">
+                                        <h4>
+                                            <a href="#" class="btn btn-white pro-title">Cha Zhuan</a>
+                                        </h4>
+                                        <div class="panel-body text-center descriptions-block">
+                                            <div class="descriptions">50g</div>
+                                            <div class="descriptions"><u>China, Tongling</u></div>
+                                            <div class="descriptions">03 June 2006</div>
+                                            <div class="descriptions"><u>Shu Puer</u></div>
+                                            <div class="descriptions">Compressed Tea</div>
+                                        </div>
+                                        <p class="price">$158.00</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="./img/aorashi-01.jpg" alt="image" />
+                                        <a href="#" class="adtocart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4>
+                                            <a href="#" class="btn btn-white pro-title">Matcha "Aorashi"</a>
+                                        </h4>
+                                        <div class="panel-body text-center descriptions-block">
+                                            <div class="descriptions">40g</div>
+                                            <div class="descriptions"><u>Japan, Kyoto</u></div>
+                                            <div class="descriptions">16 Jan 2021</div>
+                                            <div class="descriptions"><u>Matcha Tea</u></div>
+                                            <div class="descriptions">Powder</div>
+                                        </div>
+                                        <p class="price">$211.00</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="./img/syao-hun-pao-1.jpg" alt="image" />
+                                        <a href="#" class="adtocart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <span onclick="document.getElementById('id01').style.display='block'">
+                                            <h4>
+                                                <a href="#" class="btn btn-white pro-title">Xiao Hong Pao</a>
+                                            </h4>
+                                        </span>
+                                        <div class="panel-body text-center descriptions-block">
+                                            <div class="descriptions">100g</div>
+                                            <div class="descriptions"><u>China, Hainan</u></div>
+                                            <div class="descriptions">20 Apr 2020</div>
+                                            <div class="descriptions"><u>Formosa Oolong</u></div>
+                                            <div class="descriptions">Loose Tea</div>
+                                        </div>
+                                        <p class="price">$179.00</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="./img/cha-chzhuan-800-1.jpg" alt="image" />
+                                        <a href="#" class="adtocart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="panel-body text-center">
+                                        <h4>
+                                            <a href="#" class="btn btn-white pro-title">Cha Zhuan</a>
+                                        </h4>
+                                        <div class="panel-body text-center descriptions-block">
+                                            <div class="descriptions">50g</div>
+                                            <div class="descriptions"><u>China, Tongling</u></div>
+                                            <div class="descriptions">03 June 2006</div>
+                                            <div class="descriptions"><u>Shu Puer</u></div>
+                                            <div class="descriptions">Compressed Tea</div>
+                                        </div>
+                                        <p class="price">$158.00</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="panel">
+                                    <div class="pro-img-box">
+                                        <img src="./img/aorashi-01.jpg" alt="image" />
+                                        <a href="#" class="adtocart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="panel-body text-center">
+                                        <h4>
+                                            <a href="#" class="btn btn-white pro-title">Matcha "Aorashi"</a>
+                                        </h4>
+                                        <div class="panel-body text-center descriptions-block">
+                                            <div class="descriptions">40g</div>
+                                            <div class="descriptions"><u>Japan, Kyoto</u></div>
+                                            <div class="descriptions">16 Jan 2021</div>
+                                            <div class="descriptions"><u>Matcha Tea</u></div>
+                                            <div class="descriptions">Powder</div>
+                                        </div>
+                                        <p class="price">$211.00</p>
+                                    </div>
+                                </section>
+                            </div>
                             <div class="col-md-4">
                                 <section class="panel">
                                     <div class="pro-img-box">

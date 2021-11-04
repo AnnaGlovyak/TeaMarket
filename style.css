@@ -14,8 +14,8 @@ body {
 
     -moz-scrollbar-width: thin;
     scrollbar-width: thin;
-    -moz-scrollbar-color: yellowgreen rgb(168, 224, 56);
-    scrollbar-color: yellowgreen rgb(168, 224, 56);
+    -moz-scrollbar-color: 99bd03 #99bd03;
+    scrollbar-color: yellowgreen #99bd03;
     padding-right: 0px !important;
 }
 
@@ -28,11 +28,9 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: rgb(124, 173, 25);
-
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-
-    border: 1px solid rgb(168, 224, 56);
+    border: 1px solid rgb(165, 235, 26);
 }
 
 ::selection {
@@ -524,4 +522,13 @@ a:hover {
 
 .bottom.section-padding {
     padding: 10px 0;
+}
+
+.nav.justify-content-between {
+    margin: 0 auto;
+}
+
+a.p-head.bestsellers {
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 1px rgba(0, 255, 0, 0.5);
 }

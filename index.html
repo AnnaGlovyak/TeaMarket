@@ -99,7 +99,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="d-flex justify-content-md-end justify-content-between">
-                                <button type="button" class="btn btn-shop">
+                                <button type="button" class="btn btn-shop" onclick="document.querySelector('.shop').style.display='block'">
                                     <i class="fas fa-shopping-bag"></i>
                                     <span class="shop-count">0</span>
                                     0 USD
@@ -113,26 +113,28 @@
         <main class="main">
             <div class="container">
                 <div class="container bootdey">
+                        <!-- Side bar start-->
                     <div class="col-md-3">
+                      <!-- search form -->
                         <section class="panel">
-                            <div class="panel-body">
-                                <input type="text" placeholder="Keyword Search" class="form-control" />
-                            </div>
+                          <div class="panel-body">
+                              <input type="text" placeholder="Keyword Search" class="form-control" />
+                          </div>
                         </section>
                         <section class="panel">
                             <header class="panel-heading">Category</header>
                             <div class="panel-body">
                                 <ul class="nav prod-cat">
                                     <li>
-                                        <a href="#" class="active"><i class="fa fa-angle-right"></i> Tea</a>
+                                        <a href="#" class="tea-cat"><i class="fa fa-angle-right"></i> Tea</a>
                                         <ul class="nav">
-                                            <li class="active"><a href="#">- Black tea</a></li>
+                                            <li class=""><a href="#">- Black tea</a></li>
                                             <li><a href="#">- Green tea</a></li>
                                             <li><a href="#">- White tea</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-angle-right"></i> Coffee </a>
+                                        <a href="#" class="coffe-cat"><i class="fa fa-angle-right"></i> Coffee </a>
                                         <ul class="nav">
                                             <li><a href="#">- Beans coffee</a></li>
                                             <li><a href="#">- Ground coffee</a></li>
@@ -142,100 +144,200 @@
                                 </ul>
                             </div>
                         </section>
-                        <section class="panel">
-                            <header class="panel-heading">Filter</header>
+                        <!-- filter for tea -->
+                        <section class="panel tea-filter">
+                            <header class="panel-heading">Filter for tea</header>
                             <div class="panel-body">
                                 <form role="form product-form">
-                                    <div class="form-group">
-                                        <label>Product</label>
-                                        <select class="form-control">
-                                            <option selected value="1">Tea</option>
-                                            <option value="2">Coffee</option>
-                                        </select>
+                                  <div class="form-group">
+                                    <label for="customRange3">Price</label>
+                                    <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Package</label>
+                                      <select class="form-control">
+                                          <option selected value="1">Loose Tea</option>
+                                          <option value="2">Compressed Tea</option>
+                                          <option value="3">Tea Bags</option>
+                                      </select>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Region</label>
+                                      <select class="form-control">
+                                          <option selected value="1">China</option>
+                                          <option value="2">Japan</option>
+                                          <option value="3">Africa</option>
+                                          <option value="4">India</option>
+                                          <option value="5">Nepali</option>
+                                      </select>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Type</label>
+                                      <select class="form-control">
+                                          <option selected value="1">Shen Puer</option>
+                                          <option value="2">Sur Puer</option>
+                                          <option value="3">Matcha</option>
+                                          <option value="4">Heicha</option>
+                                          <option value="5">Gaba</option>
+                                          <option value="6">Oolong</option>
+                                      </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Manufacturer</label>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        Chiyabari Tea Estate
+                                      </label>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Package</label>
-                                        <select class="form-control">
-                                            <option selected value="1">Loose Tea</option>
-                                            <option value="2">Compressed Tea</option>
-                                            <option value="3">Tea Bags</option>
-                                        </select>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                      <label class="form-check-label" for="flexCheckChecked">
+                                        Flowery Orange Pekoe
+                                      </label>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Region</label>
-                                        <select class="form-control">
-                                            <option selected value="1">China</option>
-                                            <option value="2">Japan</option>
-                                            <option value="3">Africa</option>
-                                            <option value="4">India</option>
-                                            <option value="5">Nepali</option>
-                                        </select>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                      <label class="form-check-label" for="flexCheckChecked">
+                                        Rajmai Tea Company of Assam
+                                      </label>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Type</label>
-                                        <select class="form-control">
-                                            <option selected value="1">Shen Puer</option>
-                                            <option value="2">Sur Puer</option>
-                                            <option value="3">Matcha</option>
-                                            <option value="4">Heicha</option>
-                                            <option value="5">Gaba</option>
-                                            <option value="6">Oolong</option>
-                                        </select>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                      <label class="form-check-label" for="flexCheckChecked">
+                                        Zhejiang Tea
+                                      </label>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Manufacturer</label>
-                                        <select class="form-control">
-                                            <option selected value="1">Chiyabari Tea Estate</option>
-                                            <option value="2">Flowery Orange Pekoe</option>
-                                            <option value="3">Rajmai Tea Company of Assam</option>
-                                            <option value="3">Zhejiang Tea</option>
-                                            <option value="4">Fujian Tea</option>
-                                            <option value="5">Japanese Bancha</option>
-                                            <option value="6">Nandi Highlands</option>
-                                        </select>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                      <label class="form-check-label" for="flexCheckChecked">
+                                        Fujian Tea
+                                      </label>
                                     </div>
-                                    <button class="btn btn-primary" type="submit">Filter</button>
-                                </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                      <label class="form-check-label" for="flexCheckChecked">
+                                        Japanese Bancha
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                      <label class="form-check-label" for="flexCheckChecked">
+                                        Nandi Highlands
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <button class="btn btn-filter" type="submit">Filter</button>
+                                  </div>
                                 </form>
-                            </section>
-                            <section class="panel">
-                            <header class="panel-heading">Best Seller</header>
-                            <!-- Side bar -->
-                            <div class="panel-body">
-                                <div class="best-seller">
-                                    <article class="media">
-                                        <a class="pull-left thumb p-thumb">
-                                            <img src="./img/syao-hun-pao-1.jpg" width="220px" height="200px" />
-                                        </a>
-                                        <div class="media-body">
-                                            <span onclick="document.getElementById('id01').style.display='block'">
-                                                <a class="p-head bestsellers">Xiao Hong Pao</a>
-                                            </span>
-                                            <p>The best White Tea Bags provide harmony in a cup.</p>
-                                        </div>
-                                    </article>
-                                    <article class="media">
-                                        <a class="pull-left thumb p-thumb">
-                                            <img src="./img/cha-chzhuan-800-1.jpg" width="220px" height="200px" />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="#" class="p-head bestsellers">Cha Zhuan</a>
-                                            <p>Translated to broadly mean ‘colourful variety’.</p>
-                                        </div>
-                                    </article>
-                                    <article class="media">
-                                        <a class="pull-left thumb p-thumb">
-                                            <img src="./img/aorashi-01.jpg" width="220px" height="200px" />
-                                        </a>
-                                        <div class="media-body">
-                                            <a href="#" class="p-head bestsellers">Matcha "Aorashi"</a>
-                                            <p>The Matcha Genmai Cha, is a blend of Matcha.</p>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
                         </section>
+                        <!-- filter for coffee -->
+                        <section class="panel coffee-filter">
+                          <header class="panel-heading">Filter for coffee</header>
+                          <div class="panel-body">
+                              <form role="form product-form">
+                                <div class="form-group">
+                                  <label for="customRange3">Price</label>
+                                  <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                                </div>
+                                <div class="form-group">
+                                    <label>Package</label>
+                                    <select class="form-control">
+                                        <option selected value="1">Bag</option>
+                                        <option value="2">Loose Coffee</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Region</label>
+                                    <select class="form-control">
+                                        <option selected value="1">Ethiopia</option>
+                                        <option value="2">Colombia</option>
+                                        <option value="3">Brasil</option>
+                                        <option value="4">Costa Rica</option>
+                                        <option value="5">Caturra</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Roast</label>
+                                    <select class="form-control">
+                                        <option selected value="1">none</option>
+                                        <option value="2">low</option>
+                                        <option value="3">medium</option>
+                                        <option value="4">height</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                  <label>Manufacturer</label>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                      Foundation Roasters
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Heirloom
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Medellin
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Supremo
+                                    </label>
+                                  </div>
+                                </div>
+                                <button class="btn btn-filter" type="submit">Filter</button>
+                                </div>
+                              </form>
+                      </section>
+                        <!-- best-seller start-->
+                        <section class="panel">
+                          <header class="panel-heading">Best Seller</header>
+                          <div class="panel-body">
+                              <div class="best-seller">
+                                  <article class="media">
+                                      <a class="pull-left thumb p-thumb">
+                                          <img src="./img/syao-hun-pao-1.jpg" width="220px" height="200px" />
+                                      </a>
+                                      <div class="media-body">
+                                          <span onclick="document.getElementById('id01').style.display='block'">
+                                              <a class="p-head bestsellers">Xiao Hong Pao</a>
+                                          </span>
+                                          <p>The best White Tea Bags provide harmony in a cup.</p>
+                                      </div>
+                                  </article>
+                                  <article class="media">
+                                      <a class="pull-left thumb p-thumb">
+                                          <img src="./img/cha-chzhuan-800-1.jpg" width="220px" height="200px" />
+                                      </a>
+                                      <div class="media-body">
+                                          <a href="#" class="p-head bestsellers">Cha Zhuan</a>
+                                          <p>Translated to broadly mean ‘colourful variety’.</p>
+                                      </div>
+                                  </article>
+                                  <article class="media">
+                                      <a class="pull-left thumb p-thumb">
+                                          <img src="./img/aorashi-01.jpg" width="220px" height="200px" />
+                                      </a>
+                                      <div class="media-body">
+                                          <a href="#" class="p-head bestsellers">Matcha "Aorashi"</a>
+                                          <p>The Matcha Genmai Cha, is a blend of Matcha.</p>
+                                      </div>
+                                  </article>
+                              </div>
+                          </div>
+                        </section>
+                        <!-- best-seller end-->
                     </div>
+                    <!-- Side bar end-->
+                    <!-- product-list start-->
                     <div class="col-md-9">
                         <div class="row product-list">
                             <div class="col-md-4">
@@ -246,12 +348,10 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <div class="panel-body text-center">
-                                        <span onclick="document.getElementById('id01').style.display='block'">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                             <h4>
                                                 <a href="#" class="btn btn-white pro-title">Xiao Hong Pao</a>
                                             </h4>
-                                        </span>
                                         <div class="panel-body text-center descriptions-block">
                                             <div class="descriptions">100g</div>
                                             <div class="descriptions"><u>China, Hainan</u></div>
@@ -272,7 +372,7 @@
                                         </a>
                                     </div>
 
-                                    <div class="panel-body text-center">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                         <h4>
                                             <a href="#" class="btn btn-white pro-title">Cha Zhuan</a>
                                         </h4>
@@ -295,7 +395,7 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <div class="panel-body text-center">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                         <h4>
                                             <a href="#" class="btn btn-white pro-title">Matcha "Aorashi"</a>
                                         </h4>
@@ -318,12 +418,10 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <div class="panel-body text-center">
-                                        <span onclick="document.getElementById('id01').style.display='block'">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                             <h4>
                                                 <a href="#" class="btn btn-white pro-title">Xiao Hong Pao</a>
                                             </h4>
-                                        </span>
                                         <div class="panel-body text-center descriptions-block">
                                             <div class="descriptions">100g</div>
                                             <div class="descriptions"><u>China, Hainan</u></div>
@@ -344,7 +442,7 @@
                                         </a>
                                     </div>
 
-                                    <div class="panel-body text-center">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                         <h4>
                                             <a href="#" class="btn btn-white pro-title">Cha Zhuan</a>
                                         </h4>
@@ -367,7 +465,7 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <div class="panel-body text-center">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                         <h4>
                                             <a href="#" class="btn btn-white pro-title">Matcha "Aorashi"</a>
                                         </h4>
@@ -390,12 +488,10 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <div class="panel-body text-center">
-                                        <span onclick="document.getElementById('id01').style.display='block'">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                             <h4>
                                                 <a href="#" class="btn btn-white pro-title">Xiao Hong Pao</a>
                                             </h4>
-                                        </span>
                                         <div class="panel-body text-center descriptions-block">
                                             <div class="descriptions">100g</div>
                                             <div class="descriptions"><u>China, Hainan</u></div>
@@ -416,7 +512,7 @@
                                         </a>
                                     </div>
 
-                                    <div class="panel-body text-center">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                         <h4>
                                             <a href="#" class="btn btn-white pro-title">Cha Zhuan</a>
                                         </h4>
@@ -439,7 +535,7 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <div class="panel-body text-center">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                         <h4>
                                             <a href="#" class="btn btn-white pro-title">Matcha "Aorashi"</a>
                                         </h4>
@@ -462,12 +558,10 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <div class="panel-body text-center">
-                                        <span onclick="document.getElementById('id01').style.display='block'">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                             <h4>
                                                 <a href="#" class="btn btn-white pro-title">Xiao Hong Pao</a>
                                             </h4>
-                                        </span>
                                         <div class="panel-body text-center descriptions-block">
                                             <div class="descriptions">100g</div>
                                             <div class="descriptions"><u>China, Hainan</u></div>
@@ -488,7 +582,7 @@
                                         </a>
                                     </div>
 
-                                    <div class="panel-body text-center">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                         <h4>
                                             <a href="#" class="btn btn-white pro-title">Cha Zhuan</a>
                                         </h4>
@@ -511,7 +605,7 @@
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     </div>
-                                    <div class="panel-body text-center">
+                                    <div class="panel-body prod-body text-center" onclick="document.getElementById('id01').style.display='block'">
                                         <h4>
                                             <a href="#" class="btn btn-white pro-title">Matcha "Aorashi"</a>
                                         </h4>
@@ -540,6 +634,7 @@
                             </div>
                         </section>
                     </div>
+                    <!-- product-list end-->
                 </div>
             </div>
             <!-- Modal -->
@@ -606,6 +701,114 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal for shop-card -->
+            <div class="container shop">
+              <div class="shopping-cart">
+                <div class="shop-overlay"></div>
+              <!-- Title -->
+              <div class="title row justify-content-center">
+                Shopping Bag
+              </div>
+              <div class="row">
+                  <div class="col-12 products">
+                      <!-- Товар #1 -->
+                      <div class="item row justify-content-around">
+                          <div class="buttons col-1 align-self-center">
+                          <span class="delete-btn"><i class="fas fa-times"></i></span>
+                          </div>
+                  
+                          <div class="image col-3 align-self-center">
+                              <img class="picture" src="img/syao-hun-pao-1.jpg" alt="" />
+                          </div>
+                  
+                          <div class="description col-4 align-self-center">
+                              <span>Common Projects</span>
+                              <span>Bball High</span>
+                              <span>White</span>
+                          </div>
+                  
+                          <div class="quantity col-2 align-self-center">
+                              <button class="plus-btn" type="button" name="button">
+                                  <i class="fas fa-plus"></i>
+                              </button>
+                              <input type="text" name="name" value="1">
+                              <button class="minus-btn" type="button" name="button">
+                                  <i class="fas fa-minus"></i>
+                              </button>
+                          </div>
+                  
+                          <div class="total-price col-2 align-self-center">$549</div>
+                      </div>
+                  
+                      <!-- Товар #2 -->
+                      <div class="item row justify-content-around">
+                          <div class="buttons col-1 align-self-center">
+                              <span class="delete-btn"><i class="fas fa-times"></i></span>
+                          </div>
+                  
+                          <div class="image col-3 align-self-center">
+                              <img class="picture" src="img/cha-chzhuan-800-1.jpg" alt="" />
+                          </div>
+                  
+                          <div class="description col-4 align-self-center">
+                              <span>Common Projects</span>
+                              <span>Bball High</span>
+                              <span>White</span>
+                          </div>
+                  
+                          <div class="quantity col-2 align-self-center">
+                              <button class="plus-btn" type="button" name="button">
+                                  <i class="fas fa-plus"></i>
+                              </button>
+                              <input type="text" name="name" value="1">
+                              <button class="minus-btn" type="button" name="button">
+                                  <i class="fas fa-minus"></i>
+                              </button>
+                          </div>
+                  
+                          <div class="total-price col-2 align-self-center">$549</div>
+                          </div>
+                  
+                      <!-- Товар #3 -->
+                      <div class="item row justify-content-around">
+                          <div class="buttons col-1 align-self-center">
+                              <span class="delete-btn"><i class="fas fa-times"></i></span>
+                          </div>
+                  
+                          <div class="image col-3 align-self-center">
+                              <img class="picture" src="img/aorashi-01.jpg" alt="" />
+                          </div>
+                  
+                          <div class="description col-4 align-self-center">
+                              <span>Common Projects</span>
+                              <span>Bball High</span>
+                              <span>White</span>
+                          </div>
+                  
+                          <div class="quantity col-2 align-self-center">
+                              <button class="plus-btn" type="button" name="button">
+                                  <i class="fas fa-plus"></i>
+                              </button>
+                              <input type="text" name="name" value="1">
+                              <button class="minus-btn" type="button" name="button">
+                                  <i class="fas fa-minus"></i>
+                              </button>
+                          </div>
+                  
+                          <div class="total-price col-2 align-self-center">$549</div>
+                          </div>
+                  </div>
+              </div>
+              <div class="row total">
+                  <div class="col-10 total-title">
+                      Total
+                  </div>
+                  <div class="col-2 total-sum">
+                      $890
+                  </div>
+              </div>
+            </div>
+          </div>
         </main>
         <footer>
             <div class="bottom section-padding">
@@ -623,5 +826,6 @@
                 </div>
             </div>
         </footer>
+        <script src="main.js"></script>
     </body>
 </html>

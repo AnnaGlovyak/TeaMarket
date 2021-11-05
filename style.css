@@ -54,7 +54,18 @@ body::-webkit-scrollbar-thumb {
 .panel-heading {
     border-color: #eff2f7;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 700;
+    margin-left: 20px;
+    position: relative;
+}
+.panel-heading::before {
+    content: '';
+    position: absolute;
+    height: 60%;
+    bottom: 50%;
+    left: -5px;
+    transform: translate(0, 50%);
+    border-left: 3px solid #99bd03;
 }
 
 .panel-title {
@@ -64,6 +75,12 @@ body::-webkit-scrollbar-thumb {
     margin-bottom: 0;
     margin-top: 0;
     font-family: 'Open Sans', sans-serif;
+}
+
+.btn-filter {
+    background-color: #99bd03;
+    color: white;
+    font-weight: 700;
 }
 
 .prod-cat li a {
@@ -105,6 +122,10 @@ body::-webkit-scrollbar-thumb {
 
 .pro-page-list {
     margin: 5px 0 0 0;
+}
+.pagination-sm > li > a {
+    font-weight: 500;
+    color: black;
 }
 
 .product-list img {
@@ -191,7 +212,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .quantity {
-    width: 120px;
+    width: 140px;
 }
 
 .pro-img-list {
@@ -239,6 +260,27 @@ a.btn.btn-white.pro-title {
 
 a.btn.btn-white.pro-title:hover {
     background: rgba(199, 255, 161, 1);
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 15px;
+    /* margin-top: 20px; */
+}
+
+.form-check-label label {
+    font-weight: 300;
+    /* margin-bottom: 0;
+    margin-top: 0; */
+}
+
+.tea-filter,
+.coffee-filter {
+    display: none;
+}
+
+.prod-body {
+    cursor: pointer;
 }
 
 .top-bar {
@@ -549,4 +591,189 @@ a:hover {
 a.p-head.bestsellers {
     color: rgb(0, 0, 0);
     text-shadow: 1px 1px 1px rgba(0, 255, 0, 0.5);
+}
+
+/* Modal shop-card */
+.shop {
+    display: none;
+}
+
+.shop::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.425);
+    overflow: hidden;
+}
+
+.shopping-cart {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 750px;
+    width: 100%;
+    min-height: 223px;
+    margin: 80px auto;
+    background: #ffffff;
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 25px;
+    border-bottom: 1px solid #e1e8ee;
+    padding: 20px 30px;
+    color: #99bd03;
+    font-weight: 500;
+}
+
+.item {
+    height: 120px;
+    display: flex;
+    border-bottom: 1px solid #e1e8ee;
+}
+
+.buttons {
+    position: relative;
+}
+.delete-btn {
+    margin: 0 20px;
+    display: inline-block;
+    cursor: pointer;
+    color: #fc5959;
+}
+
+.is-active {
+    animation-name: animate;
+    animation-duration: 0.8s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(28);
+    animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+    0% {
+        background-position: left;
+    }
+    50% {
+        background-position: right;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+.image {
+    /* margin-right: 50px; */
+}
+
+.description {
+    /* padding-top: 10px; */
+}
+
+.description span {
+    display: block;
+    font-size: 14px;
+    color: #43484d;
+    font-weight: 400;
+}
+
+.description span:first-child {
+    margin-bottom: 5px;
+}
+
+.description span:last-child {
+    font-weight: 300;
+    margin-top: 8px;
+    color: #86939e;
+}
+
+.quantity {
+    /* padding-top: 20px; */
+}
+
+.quantity input {
+    -webkit-appearance: none;
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #454d43;
+    font-weight: 300;
+}
+
+.shopping-cart button[class*='btn'] {
+    width: 30px;
+    height: 30px;
+    background-color: #e3eee18c;
+    color: #99bd03;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.minus-btn img {
+    margin-bottom: 3px;
+}
+.plus-btn img {
+    margin-top: 2px;
+}
+
+button:focus,
+input:focus {
+    outline: 0;
+}
+.total-price {
+    width: 83px;
+    text-align: center;
+    font-size: 16px;
+    color: #fc5959;
+    font-weight: 500;
+}
+
+.total-title,
+.total-sum {
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+    padding: 10px 20px;
+}
+.image {
+    width: 100px;
+}
+.picture {
+    width: 100%;
+}
+
+@media (max-width: 540px) {
+    .shopping-cart {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    .item {
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .image {
+        object-fit: contain;
+        /* width: 50%; */
+    }
+    .picture {
+        object-fit: cover;
+    }
+
+    .quantity,
+    .description {
+        width: 100%;
+        text-align: center;
+        margin: 6px 0;
+    }
 }

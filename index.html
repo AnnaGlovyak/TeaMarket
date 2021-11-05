@@ -702,7 +702,7 @@
                 </div>
             </div>
             <!-- Modal for shop-card -->
-            <div class="container shop">
+            <div class="container shop" id="id02">
               <div class="shopping-cart">
                 <div class="shop-overlay"></div>
               <!-- Title -->
@@ -796,7 +796,8 @@
                           </div>
                   
                           <div class="total-price col-2 align-self-center">$549</div>
-                          </div>
+                        </div>
+                        
                   </div>
               </div>
               <div class="row total">
@@ -806,7 +807,18 @@
                   <div class="col-2 total-sum">
                       $890
                   </div>
-              </div>
+                  <div class="modal-footer">
+                      <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                      onclick="document.getElementById('id02').style.display='none'"
+                      style='width:75px'
+                      >
+                      Close
+                    </button>
+                </div>
+            </div>
             </div>
           </div>
         </main>

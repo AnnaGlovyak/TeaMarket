@@ -523,7 +523,8 @@ a:hover {
     padding-left: 10px;
 }
 
-#id01 {
+#id01,
+#id02 {
     -webkit-animation: fadein 0.25s;
     -moz-animation: fadein 0.25s;
     -ms-animation: fadein 0.25s;

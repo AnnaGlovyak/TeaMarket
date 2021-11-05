@@ -5,7 +5,6 @@ body {
     font-size: 16px;
 }
 
-/* products style */
 body {
     background-image: url('./img/leaves.jpg');
     background-repeat: no-repeat;
@@ -83,6 +82,7 @@ body::-webkit-scrollbar-thumb {
 .prod-cat li ul li a {
     border-bottom: none;
 }
+
 .prod-cat li ul li a:hover,
 .prod-cat li ul li a:focus,
 .prod-cat li ul li.active a,
@@ -116,6 +116,7 @@ body::-webkit-scrollbar-thumb {
 .product-list .pro-img-box {
     position: relative;
 }
+
 .adtocart {
     background: #fc5959;
     width: 50px;
@@ -173,6 +174,7 @@ body::-webkit-scrollbar-thumb {
     display: block;
     margin-bottom: 10px;
 }
+
 .product_meta a,
 .pro-price {
     color: #fc5959;
@@ -238,7 +240,6 @@ a.btn.btn-white.pro-title {
 a.btn.btn-white.pro-title:hover {
     background: rgba(199, 255, 161, 1);
 }
-/* products style */
 
 .top-bar {
     background: #99bd03;
@@ -266,6 +267,7 @@ a.btn.btn-white.pro-title:hover {
 .top-bar ul.social-custom {
     margin-left: 20px;
 }
+
 .top-bar ul {
     margin-bottom: 0;
 }
@@ -279,6 +281,7 @@ a.btn.btn-white.pro-title:hover {
     /* background: #161616; */
     color: rgb(12, 12, 12);
 }
+
 .top-bar ul.social-custom a {
     text-decoration: none !important;
     font-size: 0.7rem;
@@ -290,11 +293,13 @@ a.btn.btn-white.pro-title:hover {
     border-radius: 50%;
     margin: 0;
 }
+
 a:focus,
 a:hover {
     color: #348e7b;
     text-decoration: underline;
 }
+
 .top-bar a.login-btn,
 .top-bar a.signup-btn {
     color: #eee;
@@ -311,15 +316,19 @@ a:hover {
     border-bottom: 3px solid #99bd03;
     background-color: white;
 }
+
 .nav-text-wrapper {
     color: black;
 }
+
 .nav-link {
     position: relative;
 }
+
 .nav-link:hover {
     text-decoration: none;
 }
+
 .nav-link::after {
     display: block;
     position: absolute;
@@ -333,6 +342,7 @@ a:hover {
     transition: all 0.3s ease;
     transform-origin: bottom left;
 }
+
 .nav-link:hover::after {
     display: block;
     position: absolute;
@@ -345,10 +355,12 @@ a:hover {
     visibility: visible;
     transform-origin: bottom left;
 }
+
 .nav-link:hover .nav-text-wrapper {
     color: #99bd03;
     transition: all 0.3s ease;
 }
+
 .btn-shop {
     background-color: transparent;
     border-radius: 5px;
@@ -389,11 +401,10 @@ a:hover {
     border-color: #99bd03;
 }
 
-/* main */
-
 .banner {
     width: 100%;
 }
+
 .banner-image {
     width: 100%;
     object-fit: cover;
@@ -403,44 +414,51 @@ a:hover {
     margin-top: 20px;
     height: 100%;
 }
+
 .aside {
     background-color: wheat;
     height: 100%;
 }
+
 .catalog {
     background-color: rgba(0, 255, 255, 0.507);
     height: 100%;
 }
 
-/* footer */
-
 a:hover {
     text-decoration: none;
 }
+
 .section-padding {
     padding: 30px 0;
 }
+
 .bottom {
     background-color: #303030;
 }
+
 .bottom .copyright {
     color: #e5e5e5;
     font-weight: 600;
 }
+
 .copyright a {
     color: #99bd03;
     margin-left: 3px;
     padding-right: 3px;
 }
+
 .bottom p {
     margin-bottom: 0;
     line-height: 50px;
     font-size: 16px;
     font-weight: 400;
 }
+
 .copyright p span {
     color: #d1caca;
 }
+
 .bottom .copyright p,
 .bottom .copyright a:hover {
     color: #6c6d83;

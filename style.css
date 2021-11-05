@@ -778,3 +778,12 @@ input:focus {
         margin: 6px 0;
     }
 }
+
+.input-center {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.anime {
+    transition: 0.5s ease-in-out;
+}

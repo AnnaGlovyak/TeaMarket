@@ -1,19 +1,8 @@
-function showFilterForCategory () {
-    const choosenCategory = document.querySelector('.prod-cat');
+import { showFilterForCategory } from './filterSwitcher.js';
+import ProductController from './products/products_controller.js';
 
-    choosenCategory.addEventListener('click', function (e) {
-        const category = e.target.innerText;
-        const teaCategory = document.querySelector('.tea-filter');
-        const coffeeCategory = document.querySelector('.coffee-filter');
+const products = new ProductController();
 
-        if (category.toLowerCase().includes('tea')) {
-            teaCategory.style.display = 'block';
-            coffeeCategory.style.display = 'none';
-        } else {
-            teaCategory.style.display = 'none';
-            coffeeCategory.style.display = 'block';
+products.init();
 
-        }
-    })
-}
 showFilterForCategory();

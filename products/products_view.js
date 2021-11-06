@@ -4,6 +4,10 @@ export default class ProductsView {
         {
             name: 'productList',
             selector: '.product-list'
+        },
+        {
+            name: 'searchInput',
+            selector: '#search-input-id'
         }
     ]
 
@@ -14,13 +18,19 @@ export default class ProductsView {
         }, {})
     }
 
-    constructor () {
+    constructor ( changeSearch ) {
         this.linkDomElem();
+        this.dom.searchInput.addEventListener('change', changeSearch)
     }
 
     createList ( list ) {
         const productsHTML = list.map( el => this.renderProdCard(el));
-        this.dom.productList.insertAdjacentHTML( 'beforeend', productsHTML.join('') );
+        this.dom.productList.innerHTML = productsHTML.join('');
+    }
+
+    getSearchData () {
+        console.log(this.dom.searchInput.value)
+        return this.dom.searchInput.value;
     }
 
     renderProdCard ( { name, region, weight, price, image, description, types, kind, manufactures, packages, category, roast} ) {

@@ -20,9 +20,11 @@ export default class ProductsView {
 
     constructor ( changeSearch ) {
         this.linkDomElem();
+
         this.dom.searchInput.addEventListener('change', changeSearch)
     }
 
+    // load list
     createList ( list ) {
         const productsHTML = list.map( el => this.renderProdCard(el));
         this.dom.productList.innerHTML = productsHTML.join('');
@@ -31,8 +33,10 @@ export default class ProductsView {
     getSearchData () {
         console.log(this.dom.searchInput.value)
         return this.dom.searchInput.value;
+
     }
 
+    // display
     renderProdCard ( { name, region, weight, price, image, description, types, kind, manufactures, packages, category, roast} ) {
         if ( category === 'coffee') {
             types = roast;
@@ -40,7 +44,7 @@ export default class ProductsView {
         return `<div class="col-md-4">
                     <section class="panel product-card">
                         <div class="pro-img-box">
-                            <img src="${ image }" alt="image" />
+                            <img src="${ image }" alt="image" class="d-flex justify-content-center"/>
                             <a href="#" class="adtocart">
                                 <i class="fa fa-shopping-cart"></i>
                             </a>

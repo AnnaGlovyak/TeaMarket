@@ -5,9 +5,8 @@ export default class ProductsModel {
     loadData = async () => {
         const response = await fetch(tableSheetURL);
         const text = await response.text();
-
         this.data = this.parseTable(text);
-        console.log(this.data)
+        
         return this.data;
     }
 

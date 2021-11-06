@@ -4,6 +4,10 @@ export default class ProductsView {
         {
             name: 'productList',
             selector: '.product-list'
+        },
+        {
+            name: 'searchInput',
+            selector: '#search-input-id'
         }
     ]
 
@@ -16,13 +20,35 @@ export default class ProductsView {
 
     constructor () {
         this.linkDomElem();
+        this.renderList = [];
     }
 
+    // load list
     createList ( list ) {
-        const productsHTML = list.map( el => this.renderProdCard(el));
+        this.renderList = list;
+        const productsHTML = this.renderList.map( el => {
+            return this.renderProdCard(el)
+        });
+
+        this.dom.searchInput.addEventListener('keyup', (e) => {
+            const searchString = e.target.value.toLowerCase();
+            console.log(searchString)
+            this.filtredProducts = this.renderList.filter(product => {
+                return product.name.toLowerCase().includes(searchString) || product.package.toLowerCase().includes(searchString)|| product.description.toLowerCase().includes(searchString)
+            })
+
+            const productsHTMLnew = this.filtredProducts.map( el => {
+                return this.renderProdCard(el)
+            });
+           
+            this.dom.productList.insertAdjacentHTML('afterbegin', productsHTMLnew.join('') );
+
+        });
+        
         this.dom.productList.insertAdjacentHTML( 'beforeend', productsHTML.join('') );
     }
 
+    // display
     renderProdCard ( { name, region, weight, price, image, description, types, kind, manufactures, packages, category, roast} ) {
         if ( category === 'coffee') {
             types = roast;
@@ -30,7 +56,7 @@ export default class ProductsView {
         return `<div class="col-md-4">
                     <section class="panel product-card">
                         <div class="pro-img-box">
-                            <img src="${ image }" alt="image" />
+                            <img src="${ image }" alt="image" class="d-flex justify-content-center"/>
                             <a href="#" class="adtocart">
                                 <i class="fa fa-shopping-cart"></i>
                             </a>

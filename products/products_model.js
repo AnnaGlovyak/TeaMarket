@@ -19,7 +19,7 @@ export default class ProductsModel {
             const products = await this.loadData();
             
             this.data = products.filter(product => {
-                let dataToCheck = Object.entries(product).map( prod => prod.map( el => el.toLocaleLowerCase()));  /// check if products include searchData
+                let dataToCheck = Object.values(product).map( val =>  val.toLocaleLowerCase());  /// check if products include searchData
                 return dataToCheck.filter( el => el.includes(search)).length !== 0;
             })
             console.log('new data', this.data)

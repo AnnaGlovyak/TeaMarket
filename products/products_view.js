@@ -18,34 +18,22 @@ export default class ProductsView {
         }, {})
     }
 
-    constructor () {
+    constructor ( changeSearch ) {
         this.linkDomElem();
-        this.renderList = [];
+
+        this.dom.searchInput.addEventListener('change', changeSearch)
     }
 
     // load list
     createList ( list ) {
-        this.renderList = list;
-        const productsHTML = this.renderList.map( el => {
-            return this.renderProdCard(el)
-        });
+        const productsHTML = list.map( el => this.renderProdCard(el));
+        this.dom.productList.innerHTML = productsHTML.join('');
+    }
 
-        this.dom.searchInput.addEventListener('keyup', (e) => {
-            const searchString = e.target.value.toLowerCase();
-            console.log(searchString)
-            this.filtredProducts = this.renderList.filter(product => {
-                return product.name.toLowerCase().includes(searchString) || product.package.toLowerCase().includes(searchString)|| product.description.toLowerCase().includes(searchString)
-            })
+    getSearchData () {
+        console.log(this.dom.searchInput.value)
+        return this.dom.searchInput.value;
 
-            const productsHTMLnew = this.filtredProducts.map( el => {
-                return this.renderProdCard(el)
-            });
-           
-            this.dom.productList.insertAdjacentHTML('afterbegin', productsHTMLnew.join('') );
-
-        });
-        
-        this.dom.productList.insertAdjacentHTML( 'beforeend', productsHTML.join('') );
     }
 
     // display

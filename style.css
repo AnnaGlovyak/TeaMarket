@@ -790,3 +790,8 @@ input:focus {
         margin: 6px 0;
     }
 }
+
+.input-center {
+    margin-top: 10px;
+    display: inline-block;
+}

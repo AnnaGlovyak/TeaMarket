@@ -39,6 +39,7 @@ export default class ProductsView {
     getSearchData () {
         return this.dom.searchInput.value;
     }
+
     getProductId (event) {
         return event.target.attributes['data-product-id'].value;
     }
@@ -118,7 +119,7 @@ export default class ProductsView {
         if ( category === 'coffee') {
             types = roast;
         }
-        return `<div class="col-md-4">
+        return `<div class="col-sm-6 col-lg-4 col-12">
                     <section class="panel product-card">
                         <div class="pro-img-box">
                             <img src="${ image }" alt="image" />

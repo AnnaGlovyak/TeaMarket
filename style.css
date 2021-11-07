@@ -536,6 +536,10 @@ a:hover {
     padding-left: 10px;
 }
 
+#id01 {
+    display: block;
+}
+
 #id01,
 #id02 {
     -webkit-animation: fadein 0.25s;
@@ -543,6 +547,10 @@ a:hover {
     -ms-animation: fadein 0.25s;
     -o-animation: fadein 0.25s;
     animation: fadein 0.25s;
+}
+
+.modal-prod-picture {
+    width: 300px;
 }
 
 @keyframes fadein {

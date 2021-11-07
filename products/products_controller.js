@@ -5,7 +5,7 @@ export default class ProductController {
 
     constructor(){
         this.model = new ProductsModel();
-        this.view = new ProductsView(this.changeSearch);
+        this.view = new ProductsView(this.changeSearch, this.openModal);
     }
 
    init = async () => {
@@ -16,8 +16,14 @@ export default class ProductController {
    changeSearch = async () => {
        const searchData = this.view.getSearchData();
        const data = await this.model.getData( searchData );
-       this.view.createList( data );
-       
+       this.view.createList( data ); 
+   }
+
+   openModal = async (event) => {
+        const id = this.view.getProductId(event);
+        const modalData = await this.model.getModalData( id )
+        this.view.createModal( modalData );
+        console.log(id)
    }
 
 }

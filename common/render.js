@@ -1,15 +1,24 @@
-export default class View{
-
-    linkDomElem ( domElements ) {
-        this.dom = domElements.reduce((acc, cur) => {
-            acc[cur.name] = document.querySelector(cur.selector);
-            return acc;
-        }, {})
+export default class Render {
+    constructor({ id, name, region, weight, price, image, description, types, kind, manufactures, packages, category, roast }) {
+        this.id = id;
+        this.name = name;
+        this.region = region;
+        this.weight = weight;
+        this.price = price;
+        this.image = image;
+        this.image = image;
+        this.description = description;
+        this.types = types;
+        this.kind = kind;
+        this.manufactures = manufactures;
+        this.packages = packages;
+        this.category = category;
+        this.roast = roast;
     }
 
-    renderModal({ id, name, region, weight, price, image, description, types, kind, manufactures, packages, category, roast }) {
-        if (category === 'coffee') {
-            types = roast;
+    renderModal() {
+        if (this.category === 'coffee') {
+            this.types = this.roast;
         }
 
         return `<div id="id01" class="w3-modal" style="display: block;">
@@ -23,24 +32,24 @@ export default class View{
                             <div class="modal-text">
                                 <br />
                                 <h5 class="title row justify-content-center">
-                                    ${name}
+                                    ${this.name}
                                 </h5>
                                 <div class="row">
                                     <div class=" col-6">
-                                        <img class="modal-prod-picture" src="${image}" alt="image" />
+                                        <img class="modal-prod-picture" src="${this.image}" alt="image" />
                                     </div>
                                     <div class="modal-prod-description col-6">
                                         <p class="modal-text-paragraph"> 
-                                            ${description}
+                                            ${this.description}
                                         </p>
                                         <div class="product_meta row">
                                             <span class="posted_in">
                                                 <strong>Categories:</strong>
-                                                ${types}, ${kind} 
+                                                ${this.types}, ${this.kind} 
                                             </span>
                                             <span class="tagged_as">
                                                 <strong>Company:</strong> 
-                                                ${manufactures} , ${region}
+                                                ${this.manufactures} , ${this.region}
                                             </span>
                                         </div>
                                         <div class="m-bot15 text-center">
@@ -74,30 +83,30 @@ export default class View{
                 </div>`;
     }
 
-    renderProdCard({ id, name, region, weight, price, image, description, types, kind, manufactures, packages, category, roast }) {
-        if (category === 'coffee') {
-            types = roast;
+    renderProdCard() {
+        if (this.category === 'coffee') {
+            this.types = this.roast;
         }
 
         return `<div class="col-sm-6 col-lg-4 col-12">
                     <section class="panel product-card">
                         <div class="pro-img-box">
-                            <img src="${image}" alt="image" class="d-flex justify-content-center" />
+                            <img src="${this.image}" alt="image" class="d-flex justify-content-center" />
                             <a href="#" class="adtocart">
                                 <i class="fa fa-shopping-cart"></i>
                             </a>
                         </div>
                         <div class="product-card-body">
                                 <h4>
-                                    <a class="btn btn-card product-card-title" data-product-id="${id}">${name}</a>
+                                    <a class="btn btn-card product-card-title" data-product-id="${this.id}">${this.name}</a>
                                 </h4>
                             <div class="text-center">
-                                <div class="descriptions">${weight} g</div>
-                                <div class="descriptions">${types}, ${kind}</div>
-                                <div class="descriptions"><u>${region}</u></div>
-                                <div class="descriptions">${manufactures}</div>
+                                <div class="descriptions">${this.weight} g</div>
+                                <div class="descriptions">${this.types}, ${this.kind}</div>
+                                <div class="descriptions"><u>${this.region}</u></div>
+                                <div class="descriptions">${this.manufactures}</div>
                             </div>
-                            <p class="price">${price} $</p>
+                            <p class="price">${this.price} $</p>
                         </div>
                     </section>
                 </div>`;

@@ -10,7 +10,7 @@ export default class Publisher{
     }
 
     static unsubscribe( name, listener ) {
-        
+
     }
 
     static notify( name , data) {
@@ -19,7 +19,6 @@ export default class Publisher{
             this.listeners[name] = [];
         }
         this.listeners[name].forEach( fn => fn(data) );
-        console.log('hi from publisher', this.listeners)
     }
 
     static events = {

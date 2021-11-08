@@ -1,3 +1,4 @@
+import Publisher from '../common/publisher.js';
 import ProductsModel from './products_model.js';
 import ProductsView from './products_view.js';
 
@@ -5,7 +6,8 @@ export default class ProductController {
 
     constructor(){
         this.model = new ProductsModel();
-        this.view = new ProductsView(this.changeSearch, this.openModal);
+        this.view = new ProductsView(this.changeSearch);
+        Publisher.subscribe( Publisher.events.clickProduct, this.openModal)
     }
 
    init = async () => {
@@ -19,11 +21,9 @@ export default class ProductController {
        this.view.createList( data ); 
    }
 
-   openModal = async (event) => {
-        const id = this.view.getProductId(event);
+   openModal = async ( id ) => {
         const modalData = await this.model.getModalData( id )
-        this.view.createModal( modalData );
-        console.log(id)
+        Publisher.notify( Publisher.events.buildModal, modalData)
    }
 
 }

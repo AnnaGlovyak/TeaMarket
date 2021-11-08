@@ -26,6 +26,10 @@ export default class ProductsModel {
         return this.data;
     } 
 
+    getModalData = async ( id ) => {
+        return this.data.filter(el => el.id === id)[0];
+    }
+
     parseTable = ( text ) => {
         const rows = text.split(/\r\n/);
         const table = rows.map( row => row.split(/,(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/));

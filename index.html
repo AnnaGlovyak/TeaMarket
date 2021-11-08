@@ -28,21 +28,18 @@
         <header>
             <div class="top-bar">
                 <div class="container">
-                    <div class="row d-flex align-items-center" style="padding-left: 30px !important">
-                        <div class="col-md-7 d-md-block d-none">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-7 d-md-block d-none">
                             <p>+1 (212) 465-6741, +1 (917) 373-7055 | 452 5th Ave, New York</p>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-5 col-12">
                             <div class="d-flex justify-content-md-end justify-content-between">
                                 <ul class="list-inline contact-info d-block d-md-none">
                                     <li class="list-inline-item">
-                                        <a href="#"><i class="fa fa-phone"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#"><i class="fa fa-envelope"></i></a>
+                                        <a href="#"><i class="fa fa-phone"><span class="ps-3 fs-6 fw-normal lh-lg">+1 (212) 465-6741, +1 (917) 373-7055</span></i></a>
                                     </li>
                                 </ul>
-                                <ul class="social-custom list-inline">
+                                <ul class="social-custom list-inline d-sm-block d-none">
                                     <li class="list-inline-item">
                                         <a href="#"><i class="fa fa-facebook"></i></a>
                                     </li>
@@ -63,8 +60,8 @@
             </div>
             <div class="navigation d-flex align-items-center">
                 <div class="container">
-                    <div class="row d-flex align-items-center" style="padding-left: 30px !important">
-                        <div class="col-md-2 d-md-block d-none">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-lg-2 col-md-3 d-md-block d-none">
                             <img
                                 src="./img/logo_new.png"
                                 alt="teaclub logo"
@@ -72,9 +69,9 @@
                                 style="margin-left: 7px;"
                             />
                         </div>
-                        <div class="col-md-6">
-                            <div class="d-flex justify-content-between">
-                                <ul class="nav justify-content-between">
+                        <div class="col-lg-6 col-md-5">
+                            <div class="d-flex">
+                                <ul class="nav justify-content-sm-start justify-content-between">
                                     <li class="nav-item">
                                         <a class="nav-link active" href="#"
                                             ><span class="nav-text-wrapper"
@@ -96,7 +93,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-4">
                             <div class="d-flex justify-content-md-end justify-content-between">
                                 <button type="button" class="btn btn-shop" onclick="document.querySelector('.shop').style.display='block'">
                                     <i class="fas fa-shopping-bag"></i>
@@ -111,9 +108,9 @@
         </header>
         <main class="main" id='main_content'>
             <div class="container">
-                <div class="container bootdey">
+                <div class="row bootdey">
                     <!-- Side bar start-->
-                    <div class="col-md-3">
+                    <div class="col-0 col-md-4 col-lg-3">
                       <!-- search form -->
                         <section class="panel">
                           <div class="panel-body">
@@ -337,8 +334,8 @@
                     </div>
                     <!-- Side bar end-->
                     <!-- product-list start-->
-                    <div class="col-md-9">
-                        <div class="row product-list" id='products-list-id'>
+                    <div class="col-12 col-md-8 col-lg-9">
+                        <div class="row product-list">
                         </div>
                         <section class="panel pagination-main">
                             <div class="panel-body">
@@ -357,70 +354,7 @@
                     <!-- product-list end-->
                 </div>
             <!-- Modal -->
-            <div id="id01" class="w3-modal">
-                <div class="w3-modal-content">
-                    <span
-                        onclick="document.getElementById('id01').style.display='none';"
-                        class="w3-button w3-display-topright"
-                        >&times;</span
-                    >
-                    <div class="w3-container">
-                        <div class="modal-text">
-                            <br />
-                            <h5 class="title row justify-content-center">
-                                Xiao Hong Pao
-                            </h5>
-                            <p class="modal-text-paragraph">
-                                <span class="modal-text-paragraph-span"> Pine</span> Needle Tea Facts and Considerations
-                                Most people are familiar with the pine tree. However, if you’re wondering, “Are all Pine
-                                Needles safe for Tea?”, the answer is no. Our infusion is the product of the White Pine,
-                                which is not only safe but also brimming with vitamins, minerals and antioxidants. Other
-                                species may contain toxins that cause adverse side effects. <br />
-                                <span class="modal-text-paragraph-span"> Your </span>best bet, then, is to err on the
-                                side of caution and buy Pine Needle Tea from us. Now that’s out of the way, we can
-                                concentrate on talking about its potential. Eastern White Pines (Pinus strobus) grow to
-                                heights of up to 55 metres (180 feet).
-                            </p>
-                            <div class="product_meta text-center">
-                                <span class="posted_in">
-                                    <strong>Categories:</strong>
-                                    <a rel="tag" href="#">Formosa Oolong</a>, <a rel="tag" href="#">Loose Tea</a>,
-                                    <a rel="tag" href="#">China, Hainan</a>, <a rel="tag" href="#">100g</a>.</span
-                                >
-                                <span class="tagged_as"
-                                    ><strong>Tags:</strong> <a rel="tag" href="#">Black tea</a>,
-                                    <a rel="tag" href="#">Sur Puer</a>,
-                                    <a rel="tag" href="#">Loose Tea</a>
-                                    .</span
-                                >
-                            </div>
-                            <div class="m-bot15 text-center">
-                                <strong>Price : </strong> <span class="amount-old">$229</span>
-                                <span class="pro-price"> $179.00</span><br>
-                            </div>
-                            <div class="form-group text-center">
-                                <label>Quantity</label>
-                                <input type="quantiy" placeholder="1" class="form-control quantity input-center"/>
-                            </div>
-                            <p class="text-center">
-                                <button class="btn btn-round btn-danger" type="button">
-                                    <i class="fa fa-shopping-cart"></i> Add to Cart
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-dismiss="modal"
-                            onclick="document.getElementById('id01').style.display='none'"
-                        >
-                            Close
-                        </button>
-                    </div>
-                </div>
+            <div class="product-modal">
             </div>
             <!-- Modal for shop-card -->
             <div class="container shop" id="id02">

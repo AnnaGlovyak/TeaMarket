@@ -1,6 +1,5 @@
 html,
 body {
-    /* font-family: 'Roboto', sans-serif; */
     font-weight: 500;
     font-size: 16px;
 }
@@ -83,9 +82,6 @@ body::-webkit-scrollbar-thumb {
 
 .prod-cat li a {
     border-bottom: 1px dashed #d9d9d9;
-}
-
-.prod-cat li a {
     color: #3b3b3b;
 }
 
@@ -151,7 +147,9 @@ body::-webkit-scrollbar-thumb {
 }
 .product-list .pro-img-box {
     width: 100%;
-    height: 250px;
+    max-height: 250px;
+    text-align: center;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -457,15 +455,6 @@ a:hover {
     border-color: #99bd03;
 }
 
-.banner {
-    width: 100%;
-}
-
-.banner-image {
-    width: 100%;
-    object-fit: cover;
-}
-
 .main {
     margin-top: 20px;
     height: 100%;
@@ -537,6 +526,10 @@ a:hover {
     padding-left: 10px;
 }
 
+#id01 {
+    display: block;
+}
+
 #id01,
 #id02 {
     -webkit-animation: fadein 0.25s;
@@ -544,6 +537,10 @@ a:hover {
     -ms-animation: fadein 0.25s;
     -o-animation: fadein 0.25s;
     animation: fadein 0.25s;
+}
+
+.modal-prod-picture {
+    width: 300px;
 }
 
 @keyframes fadein {
@@ -754,6 +751,21 @@ input:focus {
     width: 100%;
 }
 
+.input-center {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.anime {
+    transition: 0.5s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+    .btn-shop {
+        width: 100%;
+    }
+}
+
 @media (max-width: 540px) {
     .shopping-cart {
         width: 100%;
@@ -765,12 +777,12 @@ input:focus {
         flex-wrap: wrap;
         justify-content: center;
     }
-    .image {
+    /* .image {
         object-fit: contain;
     }
     .picture {
         object-fit: cover;
-    }
+    } */
 
     .quantity,
     .description {

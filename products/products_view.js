@@ -1,4 +1,6 @@
-export default class ProductsView {
+import View from '../common/view.js';
+
+export default class ProductsView extends View {
 
     domElements = [
         {
@@ -15,15 +17,9 @@ export default class ProductsView {
         }
     ]
 
-    linkDomElem () {
-        this.dom = this.domElements.reduce((acc, cur) => {
-            acc[cur.name] = document.querySelector(cur.selector);
-            return acc;
-        }, {})
-    }
-
     constructor ( changeSearch, openModal ) {
-        this.linkDomElem();
+        super();
+        this.linkDomElem()
         this.dom.searchInput.addEventListener('change', changeSearch);
         this.openModal = openModal;
     }

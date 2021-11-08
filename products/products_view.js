@@ -29,6 +29,7 @@ export default class ProductsView {
     }
 
     async createList ( list ) {
+
         const productsHTML = list.map( el => this.renderProdCard(el));
         this.dom.productList.innerHTML = await productsHTML.join('');
 
@@ -38,6 +39,7 @@ export default class ProductsView {
 
     getSearchData () {
         return this.dom.searchInput.value;
+
     }
 
     getProductId (event) {
@@ -122,7 +124,7 @@ export default class ProductsView {
         return `<div class="col-sm-6 col-lg-4 col-12">
                     <section class="panel product-card">
                         <div class="pro-img-box">
-                            <img src="${ image }" alt="image" />
+                            <img src="${ image }" alt="image" class="d-flex justify-content-center"/>
                             <a href="#" class="adtocart">
                                 <i class="fa fa-shopping-cart"></i>
                             </a>

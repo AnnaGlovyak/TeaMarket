@@ -12,16 +12,16 @@ export default class ProductsModel {
     getData = async ( searchData = '' ) => {
         const search = searchData.toLocaleLowerCase();
 
+        this.data = await this.loadData();
         if ( !search.trim() === '') {  
-            this.data = await this.loadData();
+            return this.data;
         } else {
-            const products = await this.loadData();
-            this.data = products.filter(product => {
+            const products = this.data.filter(product => {
                 let dataToCheck = Object.values(product).map( val =>  val.toLocaleLowerCase());
                 return dataToCheck.filter( el => el.includes(search)).length !== 0;
             })
+            return products;
         }
-        return this.data;
     } 
 
     getModalData = async ( id ) => {
@@ -40,5 +40,9 @@ export default class ProductsModel {
             }, {})
             );
         return data;
+    }
+
+    filterData = ( { name, value } ) => {
+        return this.data.filter( el => el[name] == value);
     }
 }

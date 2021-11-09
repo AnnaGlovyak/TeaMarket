@@ -6,35 +6,36 @@ export default class ProductController {
 
     constructor(){
         this.model = new ProductsModel();
-        this.view = new ProductsView( this.changeSearch, this.getProductId );
+        this.view = new ProductsView( this.clickOnProduct );
         Publisher.subscribe( Publisher.events.clickProduct, this.openModal );
         Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData );
+        Publisher.subscribe( Publisher.events.changeSrchInp, this.dataForSearch );
     }
 
    init = async () => {
-       const data = await this.model.getData();
+       const data = await this.model.loadData();
        this.view.createList( data );
    }
 
-   changeSearch = async () => {
-       const searchData = this.view.getSearchData();
-       const data = await this.model.getData( searchData );
+   dataForSearch = ( searchData ) => {
+       const data = this.model.dataBySearch( searchData );
        this.view.createList( data ); 
    }
 
-   openModal = async ( id ) => {
-        const modalData = await this.model.getModalData( id )
-        Publisher.notify( Publisher.events.buildModal, modalData )
+   openModal = ( id ) => {
+        const modalData = this.model.getModalData( id )
+        Publisher.notify( Publisher.events.buildModal, modalData)
    }
 
-   sendFilterData = async ( filter ) => {
-       const newData = await this.model.filterData( filter );
+   sendFilterData = ( filter ) => {
+       const newData = this.model.filterData( filter );
        this.view.createList( newData );
    }
 
-   getProductId ( event ) {
-        const id = event.target.attributes['data-product-id'].value;
-        Publisher.notify( Publisher.events.clickProduct, id );
-    }
+   clickOnProduct = ( event ) => {
+    const id = this.view.getProductId( event );
+    Publisher.notify( Publisher.events.clickProduct, id);
+   }
+
 }
 

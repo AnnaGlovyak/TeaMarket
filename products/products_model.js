@@ -5,26 +5,25 @@ export default class ProductsModel {
     loadData = async () => {
         const response = await fetch(tableSheetURL);
         const text = await response.text();
-        const data = this.parseTable(text);
-        return data;
+        this.data = this.parseTable(text);
+        return this.data;
     }
 
-    getData = async ( searchData = '' ) => {
+    dataBySearch = ( searchData ) => {
         const search = searchData.toLocaleLowerCase();
 
-        this.data = await this.loadData();
         if ( !search.trim() === '') {  
             return this.data;
         } else {
             const products = this.data.filter(product => {
                 let dataToCheck = Object.values(product).map( val =>  val.toLocaleLowerCase());
                 return dataToCheck.filter( el => el.includes(search)).length !== 0;
-            })
+                })
             return products;
         }
     } 
 
-    getModalData = async ( id ) => {
+    getModalData = ( id ) => {
         return this.data.filter(el => el.id === id)[0];
     }
 

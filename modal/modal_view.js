@@ -1,5 +1,5 @@
+import renderProdModal from '../common/render_prod_modal.js'
 import View from "../common/view.js";
-
 export default class ModalView extends View {
 
     modalDomElem = [
@@ -14,8 +14,8 @@ export default class ModalView extends View {
         this.linkDomElem( this.modalDomElem );
     }
 
-    createModal = async ( data ) => {
-        const modalHTML = await this.renderModal( data );
+    createModal = ( data ) => {
+        const modalHTML = renderProdModal( data );
         this.dom.productModal.innerHTML = modalHTML;
     }
 }

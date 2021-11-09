@@ -1,3 +1,5 @@
+
+import renderProdCard from '../common/render_prod_card.js';
 import View from '../common/view.js'
 export default class ProductsView extends View {
 
@@ -12,23 +14,24 @@ export default class ProductsView extends View {
         }
     ];
 
-    constructor ( changeSearch, getProductId ) {
+    constructor ( clickOnProduct) {
         super();
         this.linkDomElem( this.domElem );
-        this.dom.searchInput.addEventListener( 'change', changeSearch );
-        this.getProductId = getProductId;
-    }
-    
-    async createList( list ) {
-        const productsHTML = list.map( el => this.renderProdCard( el ) );
-        this.dom.productList.innerHTML = await productsHTML.join( '' );
-        
-        this.domProducts = document.querySelectorAll( '.product-card-title' );
-        this.domProducts.forEach( el => el.addEventListener( 'click', this.getProductId ) );
+        this.clickOnProduct = clickOnProduct;
     }
 
-    getSearchData() {
-        return this.dom.searchInput.value;
+    createList(list) {
+        const productsHTML = list.map((el) => renderProdCard(el));
+        this.dom.productList.innerHTML = productsHTML.join('');
+        this.linkProducts();
     }
 
+    linkProducts() {
+        this.domProducts = document.querySelectorAll('.product-card-title');
+        this.domProducts.forEach( el => el.addEventListener('click', this.clickOnProduct));
+    }
+
+    getProductId (event) {
+        return  event.target.attributes['data-product-id'].value;
+    }
 }

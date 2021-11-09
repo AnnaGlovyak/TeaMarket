@@ -10,13 +10,13 @@ export default class ProductController {
         Publisher.subscribe( Publisher.events.clickProduct, this.openModal );
         Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData );
         Publisher.subscribe( Publisher.events.changeSrchInp, this.dataForSearch );
-        Publisher.subscribe( Publisher.events.renderProdOnPage, this.renderProdOnPage )
+        Publisher.subscribe( Publisher.events.renderProdOnPage, this.renderProdOnPage );
     }
 
    init = async () => {
        const data = await this.model.loadData();
        Publisher.notify( Publisher.events.loadData, data.length );
-       const products  = this.model.sliceDataBuyPage();
+       const products  = this.model.sliceDataByPage();
        this.view.createList( products );     
    }
 
@@ -26,8 +26,8 @@ export default class ProductController {
    }
 
    openModal = ( id ) => {
-        const modalData = this.model.getModalData( id )
-        Publisher.notify( Publisher.events.buildModal, modalData)
+        const modalData = this.model.getModalData( id );
+        Publisher.notify( Publisher.events.buildModal, modalData );
    }
 
    sendFilterData = ( filter ) => {
@@ -37,11 +37,11 @@ export default class ProductController {
 
    clickOnProduct = ( event ) => {
         const id = this.view.getProductId( event );
-        Publisher.notify( Publisher.events.clickProduct, id);
+        Publisher.notify( Publisher.events.clickProduct, id );
    }
 
    renderProdOnPage = ( { start, end } ) => {
-        const pageData = this.model.sliceDataBuyPage( start, end );
+        const pageData = this.model.sliceDataByPage( start, end );
         this.view.createList( pageData );
    }
 

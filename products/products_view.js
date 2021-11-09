@@ -1,7 +1,9 @@
-import View from '../common/view.js';
 
+import Publisher from '../common/publisher.js';
+import View from '../common/view.js'
 export default class ProductsView extends View {
-    domElements = [
+
+    domElem = [
         {
             name: 'productList',
             selector: '.product-list'
@@ -9,38 +11,29 @@ export default class ProductsView extends View {
         {
             name: 'searchInput',
             selector: '#search-input-id'
-        },
-        {
-            name: 'productModal',
-            selector: '.product-modal'
         }
     ];
 
-    constructor(changeSearch, openModal) {
+    constructor ( changeSearch ) {
         super();
-        this.linkDomElem();
+        this.linkDomElem( this.domElem );
         this.dom.searchInput.addEventListener('change', changeSearch);
-        this.openModal = openModal;
     }
 
     async createList(list) {
         const productsHTML = list.map((el) => this.renderProdCard(el));
         this.dom.productList.innerHTML = await productsHTML.join('');
 
-        this.domProducts = document.querySelectorAll('.product-card-title'); /////not the best place for that
-        this.domProducts.forEach((el) => el.addEventListener('click', this.openModal));
+        this.domProducts = document.querySelectorAll('.product-card-title');
+        this.domProducts.forEach( el => el.addEventListener('click', this.getProductId));
     }
 
     getSearchData() {
         return this.dom.searchInput.value;
     }
 
-    getProductId(event) {
-        return event.target.attributes['data-product-id'].value;
+    getProductId (event) {
+        const id = event.target.attributes['data-product-id'].value;
+        Publisher.notify( Publisher.events.clickProduct, id);
     }
-
-    createModal = async (data) => {
-        const modalHTML = await this.renderModal(data);
-        this.dom.productModal.innerHTML = modalHTML;
-    };
 }

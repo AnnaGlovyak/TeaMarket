@@ -1,4 +1,12 @@
-export default class View {
+export default class View{
+
+    linkDomElem ( domElements ) {
+        this.dom = domElements.reduce((acc, cur) => {
+            acc[cur.name] = document.querySelector(cur.selector);
+            return acc;
+        }, {})
+    }
+
     renderModal({ id, name, region, weight, price, image, description, types, kind, manufactures, packages, category, roast }) {
         if (category === 'coffee') {
             types = roast;
@@ -93,12 +101,5 @@ export default class View {
                         </div>
                     </section>
                 </div>`;
-    }
-
-    linkDomElem() {
-        this.dom = this.domElements.reduce((acc, { name, selector }) => {
-            acc[name] = document.querySelector(selector);
-            return acc;
-        }, {});
     }
 }

@@ -6,22 +6,20 @@ export default class ProductsModel {
         const response = await fetch(tableSheetURL);
         const text = await response.text();
         const data = this.parseTable(text);
-        console.log(data)
         return data;
     }
 
     getData = async ( searchData = '' ) => {
         const search = searchData.toLocaleLowerCase();
-        if ( search.trim() === '') {   //// check if it's empty or consists only of spaces
+
+        if ( !search.trim() === '') {  
             this.data = await this.loadData();
         } else {
             const products = await this.loadData();
-            
             this.data = products.filter(product => {
-                let dataToCheck = Object.values(product).map( val =>  val.toLocaleLowerCase());  /// check if products include searchData
+                let dataToCheck = Object.values(product).map( val =>  val.toLocaleLowerCase());
                 return dataToCheck.filter( el => el.includes(search)).length !== 0;
             })
-            console.log('new data', this.data)
         }
         return this.data;
     } 

@@ -2,23 +2,25 @@ export default class Publisher{
 
     static listeners = {}
 
-    static subscribe( name, listener ) {
-        if( !this.listeners[name] ) {
+    static set listener(name){
+        if(!this.listeners[name]){
             this.listeners[name] = [];
         }
+    }
+    
+    static subscribe(name, listener){
+        this.listener = name;
         this.listeners[name].push(listener);
     }
 
-    static unsubscribe( name, listener ) {
-
+    static unsubscribe(name, listener){
+        this.listener = name;
+        this.listeners[name] = this.listeners[name].filter(cb => cb != listener);
     }
 
-    static notify( name , data) {
-
-        if( !this.listeners[name] ) {
-            this.listeners[name] = [];
-        }
-        this.listeners[name].forEach( fn => fn(data) );
+    static notify(name, data){
+        this.listener = name;
+        this.listeners[name].forEach(listener => listener(data));
     }
 
     static events = {

@@ -121,178 +121,169 @@
                             <header class="panel-heading">Category</header>
                             <div class="panel-body">
                                 <ul class="nav prod-cat">
-                                    <li>
-                                        <a href="#" class="tea-cat"><i class="fa fa-angle-right"></i> Tea</a>
+                                    <li class="category" data-value="tea">
+                                        <i class="fa fa-angle-right"></i> Tea
                                         <ul class="nav">
-                                            <li class=""><a href="#">- Black tea</a></li>
-                                            <li><a href="#">- Green tea</a></li>
-                                            <li><a href="#">- White tea</a></li>
+                                            <li class="kind" data-value="black">- Black tea</li>
+                                            <li class="kind" data-value="green">- Green tea</li>
+                                            <li class="kind" data-value="white">- White tea</li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="#" class="coffe-cat"><i class="fa fa-angle-right"></i> Coffee </a>
+                                    <li class="category" data-value="coffee">
+                                        <i class="fa fa-angle-right"></i> Coffee
                                         <ul class="nav">
-                                            <li><a href="#">- Beans coffee</a></li>
-                                            <li><a href="#">- Ground coffee</a></li>
-                                            <li><a href="#">- Instant coffee</a></li>
+                                            <li class="kind" data-value="beans">- Beans coffee</li>
+                                            <li class="kind" data-value="ground">- Ground coffee</li>
+                                            <li class="kind" data-value="instant">- Instant coffee</li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
+                            <br>
+                            <div class="filter">
+                                <header class="panel-heading">Filter</header>
+                                <div class="panel-body">
+                                    <form role="form product-form">
+                                        <div class="form-group">
+                                            <label for="customRange3">Price</label>
+                                            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                                        </div>
+                                        <div class="tea-filter">
+                                            <div class="form-group">
+                                                <label>Package</label>
+                                                <select class="form-control">
+                                                    <option selected value="1">Loose Tea</option>
+                                                    <option value="2">Compressed Tea</option>
+                                                    <option value="3">Tea Bags</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Region</label>
+                                                <select class="form-control">
+                                                    <option selected value="1">China</option>
+                                                    <option value="2">Japan</option>
+                                                    <option value="3">Africa</option>
+                                                    <option value="4">India</option>
+                                                    <option value="5">Nepali</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Type</label>
+                                                <select class="form-control">
+                                                    <option selected value="1">Shen Puer</option>
+                                                    <option value="2">Sur Puer</option>
+                                                    <option value="3">Matcha</option>
+                                                    <option value="4">Heicha</option>
+                                                    <option value="5">Gaba</option>
+                                                    <option value="6">Oolong</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Manufacturer</label>
+                                                <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Chiyabari Tea Estate
+                                                </label>
+                                                </div>
+                                                <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Flowery Orange Pekoe
+                                                </label>
+                                                </div>
+                                                <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Rajmai Tea Company of Assam
+                                                </label>
+                                                </div>
+                                                <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Zhejiang Tea
+                                                </label>
+                                                </div>
+                                                <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Fujian Tea
+                                                </label>
+                                                </div>
+                                                <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Japanese Bancha
+                                                </label>
+                                                </div>
+                                                <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Nandi Highlands
+                                                </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="coffee-filter">
+                                            <div class="form-group">
+                                                <label>Package</label>
+                                                <select class="form-control">
+                                                    <option selected value="1">Bag</option>
+                                                    <option value="2">Loose Coffee</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Region</label>
+                                                <select class="form-control">
+                                                    <option selected value="1">Ethiopia</option>
+                                                    <option value="2">Colombia</option>
+                                                    <option value="3">Brasil</option>
+                                                    <option value="4">Costa Rica</option>
+                                                    <option value="5">Caturra</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Roast</label>
+                                                <select class="form-control">
+                                                    <option selected value="1">none</option>
+                                                    <option value="2">low</option>
+                                                    <option value="3">medium</option>
+                                                    <option value="4">height</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                            <label>Manufacturer</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                Foundation Roasters
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                Heirloom
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                Medellin
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                Supremo
+                                                </label>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-filter" type="submit">Filter</button>
+                                    </form>
+                                </div>
+                            </div>
                         </section>
-                        <!-- filter for tea -->
-                        <section class="panel tea-filter">
-                            <header class="panel-heading">Filter for tea</header>
-                            <div class="panel-body">
-                                <form role="form product-form">
-                                  <div class="form-group">
-                                    <label for="customRange3">Price</label>
-                                    <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
-                                  </div>
-                                  <div class="form-group">
-                                      <label>Package</label>
-                                      <select class="form-control">
-                                          <option selected value="1">Loose Tea</option>
-                                          <option value="2">Compressed Tea</option>
-                                          <option value="3">Tea Bags</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-group">
-                                      <label>Region</label>
-                                      <select class="form-control">
-                                          <option selected value="1">China</option>
-                                          <option value="2">Japan</option>
-                                          <option value="3">Africa</option>
-                                          <option value="4">India</option>
-                                          <option value="5">Nepali</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-group">
-                                      <label>Type</label>
-                                      <select class="form-control">
-                                          <option selected value="1">Shen Puer</option>
-                                          <option value="2">Sur Puer</option>
-                                          <option value="3">Matcha</option>
-                                          <option value="4">Heicha</option>
-                                          <option value="5">Gaba</option>
-                                          <option value="6">Oolong</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-group">
-                                    <label>Manufacturer</label>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                      <label class="form-check-label" for="flexCheckDefault">
-                                        Chiyabari Tea Estate
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                      <label class="form-check-label" for="flexCheckChecked">
-                                        Flowery Orange Pekoe
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                      <label class="form-check-label" for="flexCheckChecked">
-                                        Rajmai Tea Company of Assam
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                      <label class="form-check-label" for="flexCheckChecked">
-                                        Zhejiang Tea
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                      <label class="form-check-label" for="flexCheckChecked">
-                                        Fujian Tea
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                      <label class="form-check-label" for="flexCheckChecked">
-                                        Japanese Bancha
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                      <label class="form-check-label" for="flexCheckChecked">
-                                        Nandi Highlands
-                                      </label>
-                                    </div>
-                                  </div>
-                                  <button class="btn btn-filter" type="submit">Filter</button>
-                                  </div>
-                                </form>
-                        </section>
-                        <!-- filter for coffee -->
-                        <section class="panel coffee-filter">
-                          <header class="panel-heading">Filter for coffee</header>
-                          <div class="panel-body">
-                              <form role="form product-form">
-                                <div class="form-group">
-                                  <label for="customRange3">Price</label>
-                                  <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
-                                </div>
-                                <div class="form-group">
-                                    <label>Package</label>
-                                    <select class="form-control">
-                                        <option selected value="1">Bag</option>
-                                        <option value="2">Loose Coffee</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Region</label>
-                                    <select class="form-control">
-                                        <option selected value="1">Ethiopia</option>
-                                        <option value="2">Colombia</option>
-                                        <option value="3">Brasil</option>
-                                        <option value="4">Costa Rica</option>
-                                        <option value="5">Caturra</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Roast</label>
-                                    <select class="form-control">
-                                        <option selected value="1">none</option>
-                                        <option value="2">low</option>
-                                        <option value="3">medium</option>
-                                        <option value="4">height</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                  <label>Manufacturer</label>
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                      Foundation Roasters
-                                    </label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                      Heirloom
-                                    </label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                      Medellin
-                                    </label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                      Supremo
-                                    </label>
-                                  </div>
-                                </div>
-                                <button class="btn btn-filter" type="submit">Filter</button>
-                                </div>
-                              </form>
-                      </section>
                         <!-- best-seller start-->
                         <section class="panel">
                           <header class="panel-heading">Best Seller</header>

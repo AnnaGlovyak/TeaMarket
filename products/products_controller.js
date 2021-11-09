@@ -7,7 +7,8 @@ export default class ProductController {
     constructor(){
         this.model = new ProductsModel();
         this.view = new ProductsView(this.changeSearch);
-        Publisher.subscribe( Publisher.events.clickProduct, this.openModal)
+        Publisher.subscribe( Publisher.events.clickProduct, this.openModal );
+        Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData )
     }
 
    init = async () => {
@@ -24,6 +25,11 @@ export default class ProductController {
    openModal = async ( id ) => {
         const modalData = await this.model.getModalData( id )
         Publisher.notify( Publisher.events.buildModal, modalData)
+   }
+
+   sendFilterData = async ( filter ) => {
+       const newData = await this.model.filterData( filter );
+       this.view.createList( newData );
    }
 
 }

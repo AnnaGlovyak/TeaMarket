@@ -1,4 +1,3 @@
-import Publisher from "../common/publisher.js";
 import View from "../common/view.js";
 
 export default class FilterView extends View{

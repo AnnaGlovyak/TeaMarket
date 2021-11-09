@@ -7,7 +7,6 @@ const products = new ProductController();
 const modal = new ModalController();
 const filter = new FilterController();
 
-filter.init();
 
 products.init();
 

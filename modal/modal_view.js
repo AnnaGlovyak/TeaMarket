@@ -14,8 +14,8 @@ export default class ModalView extends View {
         this.linkDomElem( this.modalDomElem );
     }
 
-    createModal = async ( data ) => {
-        const modalHTML = await this.renderModal( data );
+    createModal = ( data ) => {
+        const modalHTML = this.renderModal( data );
         this.dom.productModal.innerHTML = modalHTML;
     }
 }

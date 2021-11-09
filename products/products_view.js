@@ -14,10 +14,9 @@ export default class ProductsView extends View {
         }
     ];
 
-    constructor ( changeSearch, clickOnProduct) {
+    constructor ( clickOnProduct) {
         super();
         this.linkDomElem( this.domElem );
-        this.dom.searchInput.addEventListener('change', changeSearch);
         this.clickOnProduct = clickOnProduct;
     }
 
@@ -30,10 +29,6 @@ export default class ProductsView extends View {
     linkProducts() {
         this.domProducts = document.querySelectorAll('.product-card-title');
         this.domProducts.forEach( el => el.addEventListener('click', this.clickOnProduct));
-    }
-
-    getSearchData() {
-        return this.dom.searchInput.value;
     }
 
     getProductId (event) {

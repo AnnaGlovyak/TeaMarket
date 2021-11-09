@@ -6,9 +6,10 @@ export default class ProductController {
 
     constructor(){
         this.model = new ProductsModel();
-        this.view = new ProductsView(this.changeSearch, this.clickOnProduct);
+        this.view = new ProductsView( this.clickOnProduct );
         Publisher.subscribe( Publisher.events.clickProduct, this.openModal );
-        Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData )
+        Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData );
+        Publisher.subscribe( Publisher.events.changeSrchInp, this.dataForSearch );
     }
 
    init = async () => {
@@ -16,8 +17,7 @@ export default class ProductController {
        this.view.createList( data );
    }
 
-   changeSearch = async () => {
-       const searchData = this.view.getSearchData();
+   dataForSearch = async ( searchData ) => {
        const data = await this.model.getData( searchData );
        this.view.createList( data ); 
    }

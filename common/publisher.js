@@ -26,8 +26,8 @@ export default class Publisher{
     static events = {
         clickProduct: 'CLICK ON PRODUCT',
         buildModal: 'BUILD MODAL',
-        searchFromInput: 'SEARCH FROM INPUT',
-        clickCategFiltr: 'CLICK ON CATEGORY'
+        changeSrchInp: 'CHANGE SEARCH INPUT',
+        clickCategFiltr: 'CLICK ON CATEGORY',
     }
 
 }

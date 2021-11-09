@@ -28,6 +28,9 @@ export default class Publisher{
         buildModal: 'BUILD MODAL',
         changeSrchInp: 'CHANGE SEARCH INPUT',
         clickCategFiltr: 'CLICK ON CATEGORY',
+        clickPagBtn: 'CLICK ON PAGGINATION BUTTON',
+        renderProdOnPage: 'RENDER PRODUCTS ON CURRENT PAGE',
+        loadData: 'LOAD DATA'
     }
 
 }

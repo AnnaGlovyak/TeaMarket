@@ -10,11 +10,14 @@ export default class ProductController {
         Publisher.subscribe( Publisher.events.clickProduct, this.openModal );
         Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData );
         Publisher.subscribe( Publisher.events.changeSrchInp, this.dataForSearch );
+        Publisher.subscribe( Publisher.events.renderProdOnPage, this.renderProdOnPage )
     }
 
    init = async () => {
        const data = await this.model.loadData();
-       this.view.createList( data );
+       Publisher.notify( Publisher.events.loadData, data.length );
+       const products  = this.model.sliceDataBuyPage();
+       this.view.createList( products );     
    }
 
    dataForSearch = ( searchData ) => {
@@ -33,8 +36,13 @@ export default class ProductController {
    }
 
    clickOnProduct = ( event ) => {
-    const id = this.view.getProductId( event );
-    Publisher.notify( Publisher.events.clickProduct, id);
+        const id = this.view.getProductId( event );
+        Publisher.notify( Publisher.events.clickProduct, id);
+   }
+
+   renderProdOnPage = ( { start, end } ) => {
+        const pageData = this.model.sliceDataBuyPage( start, end );
+        this.view.createList( pageData );
    }
 
 }

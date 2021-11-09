@@ -25,6 +25,7 @@ export default class Publisher{
         clickProduct: 'CLICK ON PRODUCT',
         buildModal: 'BUILD MODAL',
         searchFromInput: 'SEARCH FROM INPUT',
+        clickCategFiltr: 'CLICK ON CATEGORY'
     }
 
 }

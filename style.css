@@ -81,9 +81,11 @@ body::-webkit-scrollbar-thumb {
     font-weight: 700;
 }
 
-.prod-cat li a {
+.prod-cat li {
     border-bottom: 1px dashed #d9d9d9;
     color: #3b3b3b;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .prod-cat li ul {
@@ -91,16 +93,16 @@ body::-webkit-scrollbar-thumb {
     display: block;
 }
 
-.prod-cat li ul li a {
+.prod-cat li ul li {
     border-bottom: none;
 }
 
-.prod-cat li ul li a:hover,
-.prod-cat li ul li a:focus,
-.prod-cat li ul li.active a,
-.prod-cat li a:hover,
-.prod-cat li a:focus,
-.prod-cat li a.active {
+.prod-cat li ul li:hover,
+.prod-cat li ul li:focus,
+.prod-cat li ul li.active,
+.prod-cat li:hover,
+.prod-cat li:focus,
+.prod-cat li.active {
     background: none;
     color: #ff7261;
 }

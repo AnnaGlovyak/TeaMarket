@@ -1,4 +1,5 @@
 
+import renderProdCard from '../common/render_prod_card.js';
 import View from '../common/view.js'
 export default class ProductsView extends View {
 
@@ -21,7 +22,7 @@ export default class ProductsView extends View {
     }
 
     createList(list) {
-        const productsHTML = list.map((el) => this.renderProdCard(el));
+        const productsHTML = list.map((el) => renderProdCard(el));
         this.dom.productList.innerHTML = productsHTML.join('');
         this.linkProducts();
     }

@@ -6,6 +6,7 @@ export default class ProductsModel {
         const response = await fetch(tableSheetURL);
         const text = await response.text();
         this.data = this.parseTable(text);
+        // this.sliceDataBuyPage();
         return this.data;
     }
 
@@ -43,5 +44,9 @@ export default class ProductsModel {
 
     filterData = ( { name, value } ) => {
         return this.data.filter( el => el[name] == value);
+    }
+
+    sliceDataBuyPage = ( start = 0, end = 6 ) => {
+        return this.data.slice( start, end );
     }
 }

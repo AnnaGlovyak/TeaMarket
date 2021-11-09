@@ -57,6 +57,7 @@ body::-webkit-scrollbar-thumb {
     margin-left: 20px;
     position: relative;
 }
+
 .panel-heading::before {
     content: '';
     position: absolute;
@@ -119,6 +120,7 @@ body::-webkit-scrollbar-thumb {
 .pro-page-list {
     margin: 5px 0 0 0;
 }
+
 .pagination-sm > li > a {
     font-weight: 500;
     color: black;
@@ -138,6 +140,7 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     justify-content: space-between;
 }
+
 .product-card-body {
     height: 250px;
     display: flex;
@@ -145,8 +148,9 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
+
 .product-list .pro-img-box {
     width: 100%;
     max-height: 250px;
@@ -657,6 +661,7 @@ a.p-head.bestsellers {
 .buttons {
     position: relative;
 }
+
 .delete-btn {
     margin: 0 20px;
     display: inline-block;
@@ -720,9 +725,11 @@ a.p-head.bestsellers {
     border: none;
     cursor: pointer;
 }
+
 .minus-btn img {
     margin-bottom: 3px;
 }
+
 .plus-btn img {
     margin-top: 2px;
 }
@@ -731,6 +738,7 @@ button:focus,
 input:focus {
     outline: 0;
 }
+
 .total-price {
     width: 83px;
     text-align: center;
@@ -746,9 +754,11 @@ input:focus {
     color: black;
     padding: 10px 20px;
 }
+
 .image {
     width: 100px;
 }
+
 .picture {
     width: 100%;
 }

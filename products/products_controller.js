@@ -13,17 +13,17 @@ export default class ProductController {
     }
 
    init = async () => {
-       const data = await this.model.getData();
+       const data = await this.model.loadData();
        this.view.createList( data );
    }
 
-   dataForSearch = async ( searchData ) => {
-       const data = await this.model.getData( searchData );
+   dataForSearch = ( searchData ) => {
+       const data = this.model.dataBySearch( searchData );
        this.view.createList( data ); 
    }
 
-   openModal = async ( id ) => {
-        const modalData = await this.model.getModalData( id )
+   openModal = ( id ) => {
+        const modalData = this.model.getModalData( id )
         Publisher.notify( Publisher.events.buildModal, modalData)
    }
 

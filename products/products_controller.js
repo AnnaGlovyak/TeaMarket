@@ -6,9 +6,9 @@ export default class ProductController {
 
     constructor(){
         this.model = new ProductsModel();
-        this.view = new ProductsView(this.changeSearch);
+        this.view = new ProductsView( this.changeSearch, this.getProductId );
         Publisher.subscribe( Publisher.events.clickProduct, this.openModal );
-        Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData )
+        Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData );
     }
 
    init = async () => {
@@ -24,7 +24,7 @@ export default class ProductController {
 
    openModal = async ( id ) => {
         const modalData = await this.model.getModalData( id )
-        Publisher.notify( Publisher.events.buildModal, modalData)
+        Publisher.notify( Publisher.events.buildModal, modalData )
    }
 
    sendFilterData = async ( filter ) => {
@@ -32,5 +32,9 @@ export default class ProductController {
        this.view.createList( newData );
    }
 
+   getProductId ( event ) {
+        const id = event.target.attributes['data-product-id'].value;
+        Publisher.notify( Publisher.events.clickProduct, id );
+    }
 }
 

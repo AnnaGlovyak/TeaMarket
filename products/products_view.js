@@ -18,6 +18,7 @@ export default class ProductsView extends View {
         super();
         this.linkDomElem( this.domElem );
         this.clickOnProduct = clickOnProduct;
+        // this.clickOnProductCart = clickOnProductCart;
     }
 
     createList(list) {
@@ -28,6 +29,17 @@ export default class ProductsView extends View {
 
     linkProducts() {
         this.domProducts = document.querySelectorAll('.product-card-title');
+        this.domProductsCart = document.querySelectorAll('.adtocart');
+                
+        this.domProductsCart.forEach( el => {
+                el.addEventListener('click', ()=> {
+                    const id = el.attributes['data-product-id'].value;
+                    localStorage.setItem(`product-id-${id}`, id);
+            });
+            
+            // return el.addEventListener('click', this.clickOnProductCart);
+        });
+
         this.domProducts.forEach( el => el.addEventListener('click', this.clickOnProduct));
     }
 

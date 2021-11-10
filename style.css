@@ -173,6 +173,7 @@ body::-webkit-scrollbar-thumb {
     top: 40%;
     transform: translate(-50%, 40%);
     position: absolute;
+    cursor: pointer;
 }
 
 .adtocart i {

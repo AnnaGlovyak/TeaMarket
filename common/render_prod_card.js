@@ -7,7 +7,7 @@ export default function renderProdCard( data ) {
                     <section class="panel product-card">
                         <div class="pro-img-box">
                             <img src="${ data.image }" alt="image" class="d-flex justify-content-center" />
-                            <a href="#" class="adtocart">
+                            <a class="adtocart" data-product-id="${ data.id }">
                                 <i class="fa fa-shopping-cart"></i>
                             </a>
                         </div>

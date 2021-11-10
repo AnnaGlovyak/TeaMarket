@@ -30,7 +30,8 @@ export default class Publisher{
         clickCategFiltr: 'CLICK ON CATEGORY',
         clickPagBtn: 'CLICK ON PAGGINATION BUTTON',
         renderProdOnPage: 'RENDER PRODUCTS ON CURRENT PAGE',
-        loadData: 'LOAD DATA'
+        loadData: 'LOAD DATA',
+        // clickProductCart: 'CLICK ON PRODUCT CART',
     }
 
 }

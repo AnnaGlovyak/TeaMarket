@@ -3,9 +3,9 @@ import { tableSheetURL } from '../common/config.js'
 export default class ProductsModel {
 
     loadData = async () => {
-        const response = await fetch( tableSheetURL );
+        const response = await fetch(tableSheetURL);
         const text = await response.text();
-        this.data = this.parseTable( text );
+        this.data = this.parseTable(text);
         return this.data;
     }
 
@@ -43,9 +43,5 @@ export default class ProductsModel {
 
     filterData = ( { name, value } ) => {
         return this.data.filter( el => el[name] == value);
-    }
-
-    sliceDataByPage = ( start = 0, end = 9 ) => {
-        return this.data.slice( start, end );
     }
 }

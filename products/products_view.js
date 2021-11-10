@@ -20,8 +20,10 @@ export default class ProductsView extends View {
         this.clickOnProduct = clickOnProduct;
     }
 
-    createList(list) {
-        const productsHTML = list.map((el) => renderProdCard(el));
+    createList( list, { start, end } ) {
+        this.data = list;
+        const products = this.sliceDataBuyPage( start, end );
+        const productsHTML = products.map((el) => renderProdCard(el));
         this.dom.productList.innerHTML = productsHTML.join('');
         this.linkProducts();
     }
@@ -31,7 +33,7 @@ export default class ProductsView extends View {
         this.domProducts.forEach( el => el.addEventListener('click', this.clickOnProduct));
     }
 
-    getProductId (event) {
-        return  event.target.attributes['data-product-id'].value;
+    sliceDataBuyPage = ( start, end ) => {
+        return this.data.slice( start, end );
     }
 }

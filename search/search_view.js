@@ -16,10 +16,5 @@ export default class SearchView extends View{
 
     getSearchData() {
         return this.dom.searchInput.value;
-    }
-
-    setSearchData() {
-        this.dom.searchInput.value = '';
-    }
-    
+    }    
 }

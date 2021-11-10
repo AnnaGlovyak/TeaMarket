@@ -1,6 +1,5 @@
-
 import renderProdCard from '../common/render_prod_card.js';
-import View from '../common/view.js'
+import View from '../common/view.js';
 export default class ProductsView extends View {
 
     domElem = [
@@ -37,12 +36,12 @@ export default class ProductsView extends View {
     }
 
     getCartProductId (event) {
-        // const cart = {}
-        // cart.id = event.target.attributes['data-product-id'].value;
-        // cart.price = event.target.attributes['data-product-price'].value;
-        // return cart;
-
-        return event.target.attributes['data-product-id'].value;
+        const cart = {}
+        cart.id = event.target.attributes['data-product-id'].value;
+        cart.price = event.target.attributes['data-product-price'].value;
+        
+        return cart;
+        // return event.target.attributes['data-product-id'].value;
     }
 
     getProductId (event) {

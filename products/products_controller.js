@@ -42,9 +42,9 @@ export default class ProductController {
     }
     
     clickOnProductCart = ( event ) => {
-        const id = this.view.getCartProductId( event );
-        console.log(id)
-        Publisher.notify( Publisher.events.clickProductCart, id);
+        const {id, price} = this.view.getCartProductId( event );
+        const productCard = this.model.getModalData(id);
+        Publisher.notify( Publisher.events.clickProductCart, productCard);
    }
 
    renderProdOnPage = ( { start, end } ) => {

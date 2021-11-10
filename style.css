@@ -846,3 +846,7 @@ input:focus {
 	background-color: #4d6619;
 	box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
+
+i {
+    pointer-events: none;
+}

@@ -14,11 +14,11 @@ export default class ProductsView extends View {
         }
     ];
 
-    constructor ( clickOnProduct) {
+    constructor ( clickOnProduct, clickOnProductCart ) {
         super();
         this.linkDomElem( this.domElem );
         this.clickOnProduct = clickOnProduct;
-        // this.clickOnProductCart = clickOnProductCart;
+        this.clickOnProductCart = clickOnProductCart;
         this.priceTotal = +localStorage.getItem('priceTotal');
     }
 
@@ -31,40 +31,18 @@ export default class ProductsView extends View {
     linkProducts() {
         this.domProducts = document.querySelectorAll('.product-card-title');
         this.domProductsCart = document.querySelectorAll('.adtocart');
-        this.domCartButton = document.querySelector('#cart-button');
-        this.domCartTotalPrice = document.querySelector('#cart-span');
-        
-        // localStorage.setItem(`priceTotal`, priceTotal);
+                
+        this.domProductsCart.forEach( el => el.addEventListener( 'click', this.clickOnProductCart ) );
+        this.domProducts.forEach( el => el.addEventListener( 'click', this.clickOnProduct ) );
+    }
 
-        this.domProductsCart.forEach( el => {
-            console.log(+this.priceTotal);
-                el.addEventListener('click', ()=> {
-                    const id = el.attributes['data-product-id'].value;
-                    const price = el.attributes['data-product-price'].value;
-                    // const priceTotalStorage = localStorage.getItem('priceTotal');
-                    // console.log(priceTotalStorage)
+    getCartProductId (event) {
+        // const cart = {}
+        // cart.id = event.target.attributes['data-product-id'].value;
+        // cart.price = event.target.attributes['data-product-price'].value;
+        // return cart;
 
-                    console.log(id, price);
-                    this.priceTotal += +price;
-
-                    for(let key in localStorage) {
-                        if (!localStorage.hasOwnProperty(key)) {
-                            localStorage.setItem(`product-id-${id}`, [ +id, +price ]);
-                            localStorage.setItem(`priceTotal`, this.priceTotal);
-                        }
-                    }
-                            
-                    this.domCartButton.innerText = this.priceTotal;
-                    this.domCartTotalPrice.innerText = this.priceTotal;
-
-                    // localStorage.setItem(`product-id-${id}`, [ +id, +price ]);
-                    // localStorage.setItem(`priceTotal`, priceTotal);
-            });
-            
-            // return el.addEventListener('click', this.clickOnProductCart);
-        });
-
-        this.domProducts.forEach( el => el.addEventListener('click', this.clickOnProduct));
+        return event.target.attributes['data-product-id'].value;
     }
 
     getProductId (event) {

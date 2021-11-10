@@ -6,9 +6,7 @@ export default class ProductController {
 
     constructor(){
         this.model = new ProductsModel();
-        this.view = new ProductsView( this.clickOnProduct );
-        // this.view_cart = new ProductsView( this.clickOnProductCart );
-        // Publisher.subscribe( Publisher.events.clickProductCart, this.clickOnProductCart );
+        this.view = new ProductsView( this.clickOnProduct, this.clickOnProductCart );
         Publisher.subscribe( Publisher.events.clickProduct, this.openModal );
         Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData );
         Publisher.subscribe( Publisher.events.changeSrchInp, this.dataForSearch );
@@ -19,7 +17,7 @@ export default class ProductController {
        const data = await this.model.loadData();
        Publisher.notify( Publisher.events.loadData, data.length );
        const products  = this.model.sliceDataByPage();
-       this.view.createList( products );     
+       this.view.createList( products );
    }
 
    dataForSearch = ( searchData ) => {
@@ -41,14 +39,13 @@ export default class ProductController {
         const id = this.view.getProductId( event );
         console.log(id);
         Publisher.notify( Publisher.events.clickProduct, id );
+    }
+    
+    clickOnProductCart = ( event ) => {
+        const id = this.view.getCartProductId( event );
+        console.log(id)
+        Publisher.notify( Publisher.events.clickProductCart, id);
    }
-   
-//    clickOnProductCart = ( event ) => {
-//         const id = this.view_cart.getProductId( event );
-//         console.log(event)
-//         console.log(id)
-//         Publisher.notify( Publisher.events.clickProductCart, id);
-//    }
 
    renderProdOnPage = ( { start, end } ) => {
         const pageData = this.model.sliceDataByPage( start, end );
@@ -56,4 +53,3 @@ export default class ProductController {
    }
 
 }
-

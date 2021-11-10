@@ -31,7 +31,7 @@ export default class Publisher{
         clickPagBtn: 'CLICK ON PAGGINATION BUTTON',
         renderProdOnPage: 'RENDER PRODUCTS ON CURRENT PAGE',
         loadData: 'LOAD DATA',
-        // clickProductCart: 'CLICK ON PRODUCT CART',
+        clickProductCart: 'CLICK ON PRODUCT CART',
     }
 
 }

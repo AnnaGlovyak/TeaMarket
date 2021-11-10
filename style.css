@@ -425,7 +425,7 @@ a:hover {
 .btn-shop {
     background-color: transparent;
     border-radius: 5px;
-    width: 50%;
+    width: 100%;
     border: 1px solid #99bd03;
 }
 

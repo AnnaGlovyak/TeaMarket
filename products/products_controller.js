@@ -10,7 +10,7 @@ export default class ProductController {
         Publisher.subscribe( Publisher.events.clickProduct, this.openModal );
         Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData );
         Publisher.subscribe( Publisher.events.changeSrchInp, this.dataForSearch );
-        Publisher.subscribe( Publisher.events.renderProdOnPage, this.renderProdOnPage )
+        Publisher.subscribe( Publisher.events.renderProdOnPage, this.renderProdOnPage );
     }
 
    init = async () => {
@@ -24,8 +24,8 @@ export default class ProductController {
    }
 
    openModal = ( id ) => {
-        const modalData = this.model.getModalData( id )
-        Publisher.notify( Publisher.events.buildModal, modalData)
+        const modalData = this.model.getModalData( id );
+        Publisher.notify( Publisher.events.buildModal, modalData );
    }
 
    sendFilterData = ( filter ) => {
@@ -34,7 +34,7 @@ export default class ProductController {
    }
 
    clickOnProduct = ( event ) => {
-       const id = event.target.attributes['data-product-id'].value;
+        const id = event.target.attributes['data-product-id'].value;
         Publisher.notify( Publisher.events.clickProduct, id);
    }
 

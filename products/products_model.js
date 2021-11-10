@@ -15,24 +15,24 @@ export default class ProductsModel {
         if ( !search.trim() === '') {  
             return this.data;
         } else {
-            const products = this.data.filter(product => {
-                let dataToCheck = Object.values(product).map( val =>  val.toLocaleLowerCase());
-                return dataToCheck.filter( el => el.includes(search)).length !== 0;
+            const products = this.data.filter( product => {
+                let dataToCheck = Object.values( product ).map( val =>  val.toLocaleLowerCase() );
+                return dataToCheck.filter( el => el.includes( search ) ).length !== 0;
                 })
             return products;
         }
     } 
 
     getModalData = ( id ) => {
-        return this.data.filter(el => el.id === id)[0];
+        return this.data.filter( el => el.id === id )[0];
     }
 
     parseTable = ( text ) => {
-        const rows = text.split(/\r\n/);
-        const table = rows.map( row => row.split(/,(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/));
+        const rows = text.split( /\r\n/ );
+        const table = rows.map( row => row.split(/,(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/) );
         const names = table.shift();
-        const data = table.map(r => r.reduce((acc, val, i) => {
-            if(val) {
+        const data = table.map( r => r.reduce( (acc, val, i) => {
+            if ( val ) {
                 acc[names[i]] = val;
             }
             return acc; 

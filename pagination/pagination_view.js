@@ -1,23 +1,18 @@
 export default class PagiantionView {
     
-    constructor( clickPagination ){
-        this.pagination_wrap = document.querySelector('.pagination');
+    constructor( clickPagination ) {
+        this.pagination_wrap = document.querySelector( '.pagination' );
         this.current_page = 1;
-        this.rows = 6;
+        this.rows = 9;
         this.clickPagination = clickPagination;
     }
 
     clickOnPagBut = ( event ) => {
-        console.log ( event.target.innerText )
         this.current_page = +event.target.innerText;
 
         const count = {};
         count.start = this.rows * (this.current_page - 1);
         count.end = count.start + this.rows;
-
-        // let current_btn = document.querySelector('.pagenumbers button.active');
-        // current_btn.classList.remove('active');
-        // button.classList.add('active');
 
         return count;        
     }

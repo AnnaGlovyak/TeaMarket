@@ -12,7 +12,7 @@ export default class PagiantionView {
         this.current_page = +event.target.innerText;
 
         const count = {};
-        count.start = this.rows * this.current_page;
+        count.start = this.rows * (this.current_page - 1);
         count.end = count.start + this.rows;
 
         // let current_btn = document.querySelector('.pagenumbers button.active');
@@ -26,8 +26,7 @@ export default class PagiantionView {
         this.pagination_wrap.innerHTML = '';
         let page_count = Math.ceil( length / this.rows );
 
-        for (let i = 1; i < page_count; i++) {
-
+        for (let i = 1; i < page_count + 1; i++) {
             let button = document.createElement('button');
             button.innerText = i;
             if (this.current_page == i) button.classList.add('active');

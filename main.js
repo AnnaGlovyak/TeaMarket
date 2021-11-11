@@ -1,4 +1,4 @@
-import { showFilterForCategory } from './filterSwitcher.js';
+// import { showFilterForCategory } from './filterSwitcher.js';
 import ProductController from './products/products_controller.js';
 import ModalController from './modal/modal_controller.js';
 import FilterController from './filter/filter_controller.js';
@@ -16,4 +16,4 @@ const cart = new CartController();
 
 products.init();
 
-showFilterForCategory();
+// showFilterForCategory();

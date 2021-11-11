@@ -51,7 +51,7 @@ export default class ProductController {
    sendData = ( data ) => {
         this.data = data;
         Publisher.notify( Publisher.events.loadData, this.data.length );
-        this.view.createList( this.data, { start: 0, end: 6 } );
+        this.view.createList( this.data, { start: 0, end: 9 } );
    }
 
 }

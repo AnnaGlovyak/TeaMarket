@@ -32,6 +32,8 @@ export default class Publisher{
         renderProdOnPage: 'RENDER PRODUCTS ON CURRENT PAGE',
         loadData: 'LOAD DATA',
         clickProductCart: 'CLICK ON PRODUCT CART',
+        clickCart: 'CLICK ON CART',
+        buildCart: 'BUILD MODAL CART',
     }
 
 }

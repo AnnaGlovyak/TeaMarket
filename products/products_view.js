@@ -39,13 +39,6 @@ export default class ProductsView extends View {
 
     }
 
-    // getCartProductId (event) {
-    //     const cart = {}
-    //     cart.id = event.target.attributes['data-product-id'].value;
-    //     cart.price = event.target.attributes['data-product-price'].value;
-    //     return cart;
-    // }
-
     sliceDataBuyPage = ( start, end ) => {
         return this.data.slice( start, end );
     }

@@ -9,7 +9,7 @@ export default class CartController {
     }
 
     clickOnProductCart = (dataCard) => {
-        this.view.cart(dataCard);
+        this.view.productCartHandler(dataCard);
     }
 
 }

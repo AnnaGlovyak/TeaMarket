@@ -35,16 +35,16 @@ export default class ProductsView extends View {
                 
         this.domProductsCart.forEach( el => el.addEventListener( 'click', this.clickOnProductCart ) );
         this.domProducts.forEach( el => el.addEventListener( 'click', this.clickOnProduct ) );
+
+
     }
 
-    getCartProductId (event) {
-        const cart = {}
-        cart.id = event.target.attributes['data-product-id'].value;
-        cart.price = event.target.attributes['data-product-price'].value;
-        
-        return cart;
-        // return event.target.attributes['data-product-id'].value;
-    }
+    // getCartProductId (event) {
+    //     const cart = {}
+    //     cart.id = event.target.attributes['data-product-id'].value;
+    //     cart.price = event.target.attributes['data-product-price'].value;
+    //     return cart;
+    // }
 
     sliceDataBuyPage = ( start, end ) => {
         return this.data.slice( start, end );

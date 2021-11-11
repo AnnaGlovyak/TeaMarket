@@ -36,6 +36,7 @@ export default class CartView extends View {
 
         for( let key in localStorage ) {
             if ( !localStorage.hasOwnProperty( key ) ) {
+                dataCard.qty = this.qty;
                 localStorage.setItem( `product-id-${dataCard.id}`, JSON.stringify( { 'id': +dataCard.id, 'price': +dataCard.price, 'qty': this.qty, 'card': dataCard } ) );
                 localStorage.setItem( `priceTotal`, this.priceTotal );
             } 
@@ -50,11 +51,12 @@ export default class CartView extends View {
 
         this.cardData = {};
         for ( const key in this.resultData)    {
-            if (key !== 'total') {
+            if ( key !== 'total' ) {
                 let { card } = this.resultData[key];
+                const qty = this.resultData[key].qty;
                 this.cardData.key = key;
+                card.qty = qty;
                 this.cardData.data = card;
-                this.cardData.qty = this.resultData[key].qty;
             } else {
                 if ( key !== null ){
                     this.cardData.total = this.resultData.total;
@@ -68,9 +70,32 @@ export default class CartView extends View {
         this.createCart(this.cardData);
     }
 
+    allStorage = () => {
+
+        var values = [],
+            keys = Object.keys( localStorage ),
+            i = keys.length;
+
+        while ( i-- ) {
+            if ( keys[i] !== 'priceTotal' ) {
+                values.push( JSON.parse( localStorage.getItem( keys[i] ) ));
+            }
+        }
+        const total = localStorage.getItem( 'priceTotal' );
+        return { values, total };
+    }
+    
     createCart = ( data ) => {
-        console.log(data)
-        const modalHTML = renderCartModal( data );
-        this.dom.cartModal.innerHTML += modalHTML;
+        this.dom.cartModal.innerHTML = '';
+        const localStorageData = this.allStorage()
+        const total = localStorageData.total;
+
+        localStorageData.values.forEach( el => {
+            const values = el.card;
+            const id = +el.card.id;
+
+            this.modalHTML = renderCartModal( { values, total } );
+            this.dom.cartModal.innerHTML += this.modalHTML;
+        })
     }
 }

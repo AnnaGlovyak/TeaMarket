@@ -10,6 +10,5 @@ export default class SearchController {
     changeSearch = () => {
         const searchData = this.view.getSearchData();
         Publisher.notify( Publisher.events.changeSrchInp, searchData );
-        this.view.setSearchData();
     }
 }

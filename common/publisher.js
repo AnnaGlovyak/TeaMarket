@@ -32,6 +32,8 @@ export default class Publisher{
         renderProdOnPage: 'RENDER PRODUCTS ON CURRENT PAGE',
         loadData: 'LOAD DATA',
         clickProductCart: 'CLICK ON PRODUCT CART',
+        priceRangeChng: 'PRICE RANGE ON CHANGE',
+        readyFiltredData: 'FILTRED DATA IS READY'
     }
 
 }

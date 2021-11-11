@@ -14,8 +14,8 @@ export default class PaginationController {
         Publisher.notify( Publisher.events.renderProdOnPage, count );
     }
 
-    createPagBtn = ( length ) => {
-        this.view.setupPagination( length );
+    createPagBtn = ( data ) => {
+        this.view.setupPagination( data.length );
     }
 
 

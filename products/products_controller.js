@@ -14,15 +14,13 @@ export default class ProductController {
     }
 
    init = async () => {
-       const data = await this.model.loadData();
-       Publisher.notify( Publisher.events.loadData, data.length );
-       const products  = this.model.sliceDataByPage();
-       this.view.createList( products );
+       this.data = await this.model.loadData();
+       this.sendData( this.data )    
    }
 
    dataForSearch = ( searchData ) => {
        const data = this.model.dataBySearch( searchData );
-       this.view.createList( data ); 
+       this.sendData( data );
    }
 
    openModal = ( id ) => {
@@ -31,14 +29,13 @@ export default class ProductController {
    }
 
    sendFilterData = ( filter ) => {
-       const newData = this.model.filterData( filter );
-       this.view.createList( newData );
+       const data = this.model.filterData( filter );
+       this.sendData( data );
    }
 
    clickOnProduct = ( event ) => {
-        const id = this.view.getProductId( event );
-        console.log(id);
-        Publisher.notify( Publisher.events.clickProduct, id );
+        const id = event.target.attributes['data-product-id'].value;
+        Publisher.notify( Publisher.events.clickProduct, id);
     }
     
     clickOnProductCart = ( event ) => {
@@ -47,9 +44,14 @@ export default class ProductController {
         Publisher.notify( Publisher.events.clickProductCart, productCard);
    }
 
-   renderProdOnPage = ( { start, end } ) => {
-        const pageData = this.model.sliceDataByPage( start, end );
-        this.view.createList( pageData );
+   renderProdOnPage = ( count ) => {
+        this.view.createList( this.data , count );
+   }
+
+   sendData = ( data ) => {
+        this.data = data;
+        Publisher.notify( Publisher.events.loadData, this.data.length );
+        this.view.createList( this.data, { start: 0, end: 9 } );
    }
 
 }

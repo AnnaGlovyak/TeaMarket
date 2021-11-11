@@ -25,6 +25,15 @@ export default class PagiantionView {
             let button = document.createElement('button');
             button.innerText = i;
             if (this.current_page == i) button.classList.add('active');
+            button.addEventListener( "click", () => {
+                this.current_page = i;
+                
+                let current_btn = document.querySelector( '.pagination button.active' );
+                current_btn.classList.remove( 'active' );
+
+                button.classList.add( 'active' );
+            })
+
             button.addEventListener('click', this.clickPagination);
             this.pagination_wrap.append( button );
         }

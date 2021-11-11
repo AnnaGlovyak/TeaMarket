@@ -1,6 +1,5 @@
-
 import renderProdCard from '../common/render_prod_card.js';
-import View from '../common/view.js'
+import View from '../common/view.js';
 export default class ProductsView extends View {
 
     domElem = [
@@ -14,10 +13,12 @@ export default class ProductsView extends View {
         }
     ];
 
-    constructor ( clickOnProduct) {
+    constructor ( clickOnProduct, clickOnProductCart ) {
         super();
         this.linkDomElem( this.domElem );
         this.clickOnProduct = clickOnProduct;
+        this.clickOnProductCart = clickOnProductCart;
+        this.priceTotal = +localStorage.getItem('priceTotal');
     }
 
     createList( list, { start, end } ) {
@@ -30,7 +31,19 @@ export default class ProductsView extends View {
 
     linkProducts() {
         this.domProducts = document.querySelectorAll('.product-card-title');
-        this.domProducts.forEach( el => el.addEventListener('click', this.clickOnProduct));
+        this.domProductsCart = document.querySelectorAll('.adtocart');
+                
+        this.domProductsCart.forEach( el => el.addEventListener( 'click', this.clickOnProductCart ) );
+        this.domProducts.forEach( el => el.addEventListener( 'click', this.clickOnProduct ) );
+    }
+
+    getCartProductId (event) {
+        const cart = {}
+        cart.id = event.target.attributes['data-product-id'].value;
+        cart.price = event.target.attributes['data-product-price'].value;
+        
+        return cart;
+        // return event.target.attributes['data-product-id'].value;
     }
 
     sliceDataBuyPage = ( start, end ) => {

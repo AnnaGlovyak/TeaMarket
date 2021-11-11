@@ -173,6 +173,7 @@ body::-webkit-scrollbar-thumb {
     top: 40%;
     transform: translate(-50%, 40%);
     position: absolute;
+    cursor: pointer;
 }
 
 .adtocart i {
@@ -424,7 +425,7 @@ a:hover {
 .btn-shop {
     background-color: transparent;
     border-radius: 5px;
-    width: 50%;
+    width: 100%;
     border: 1px solid #99bd03;
 }
 
@@ -844,4 +845,8 @@ input:focus {
 .pagination button.active {
 	background-color: #4d6619;
 	box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+i {
+    pointer-events: none;
 }

@@ -70,20 +70,10 @@
                         <div class="col-lg-6 col-md-5">
                             <div class="d-flex">
                                 <ul class="nav justify-content-sm-start justify-content-between">
-                                    <!-- <li class="nav-item">
-                                        <a class="nav-link active" href="#"
-                                            ><span class="nav-text-wrapper">Tea<i class="fas fa-angle-down px-2"></i></span
-                                        ></a>
-                                    </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"
-                                            ><span class="nav-text-wrapper">Coffee<i class="fas fa-angle-down px-2"></i></span
-                                        ></a>
-                                    </li> -->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#"
-                                            ><span class="nav-text-wrapper">Orders History<i class="fas fa-angle-down px-2"></i></span
-                                        ></a>
+                                        <a class="nav-link" href="#">
+                                            <span class="nav-text-wrapper" id="history">Orders History<i class="fas fa-angle-down px-2"></i></span>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -92,8 +82,8 @@
                             <div class="d-flex justify-content-md-end justify-content-between">
                                 <button type="button" class="btn btn-shop" onclick="document.querySelector('.shop').style.display='block'">
                                     <i class="fas fa-shopping-bag"></i>
-                                    <span class="shop-count">0</span>
-                                    0 USD
+                                    <span id="cart-span" class="shop-count">0</span>
+                                    <span id="cart-button">0</span> USD
                                 </button>
                             </div>
                         </div>
@@ -428,5 +418,6 @@
             </div>
         </footer>
         <script src="main.js" type="module"></script>
+        <script src="history/history.js" type="module"></script>
     </body>
 </html>

@@ -6,7 +6,7 @@ export default class ProductController {
 
     constructor(){
         this.model = new ProductsModel();
-        this.view = new ProductsView( this.clickOnProduct );
+        this.view = new ProductsView( this.clickOnProduct, this.clickOnProductCart );
         Publisher.subscribe( Publisher.events.clickProduct, this.openModal );
         Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData );
         Publisher.subscribe( Publisher.events.changeSrchInp, this.dataForSearch );
@@ -36,6 +36,12 @@ export default class ProductController {
    clickOnProduct = ( event ) => {
         const id = event.target.attributes['data-product-id'].value;
         Publisher.notify( Publisher.events.clickProduct, id);
+    }
+    
+    clickOnProductCart = ( event ) => {
+        const {id, price} = this.view.getCartProductId( event );
+        const productCard = this.model.getModalData(id);
+        Publisher.notify( Publisher.events.clickProductCart, productCard);
    }
 
    renderProdOnPage = ( count ) => {
@@ -45,8 +51,7 @@ export default class ProductController {
    sendData = ( data ) => {
         this.data = data;
         Publisher.notify( Publisher.events.loadData, this.data.length );
-        this.view.createList( this.data, { start: 0, end: 6 } );
+        this.view.createList( this.data, { start: 0, end: 9 } );
    }
 
 }
-

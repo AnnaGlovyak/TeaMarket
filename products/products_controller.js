@@ -39,8 +39,8 @@ export default class ProductController {
     }
     
     clickOnProductCart = ( event ) => {
-        const {id, price} = this.view.getCartProductId( event );
-        const productCard = this.model.getModalData(id);
+        const id = event.target.attributes['data-product-id'].value;
+        const productCard = this.model.getModalData( id );
         Publisher.notify( Publisher.events.clickProductCart, productCard);
    }
 

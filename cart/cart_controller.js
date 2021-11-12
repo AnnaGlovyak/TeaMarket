@@ -6,10 +6,14 @@ export default class CartController {
     constructor(){
         this.view = new CartView();
         Publisher.subscribe( Publisher.events.clickProductCart, this.clickOnProductCart );
+        Publisher.subscribe( Publisher.events.loadData, this.loadCart );
     }
-
+    
     clickOnProductCart = (dataCard) => {
-        this.view.cart(dataCard);
+        this.view.productCartHandler(dataCard);
     }
-
+    
+    loadCart = () => {
+        this.view.createCart();
+    }
 }

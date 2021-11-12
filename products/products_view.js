@@ -36,7 +36,6 @@ export default class ProductsView extends View {
         this.domProductsCart.forEach( el => el.addEventListener( 'click', this.clickOnProductCart ) );
         this.domProducts.forEach( el => el.addEventListener( 'click', this.clickOnProduct ) );
 
-
     }
 
     sliceDataBuyPage = ( start, end ) => {

@@ -39,10 +39,10 @@ export default function renderProdModal( data ) {
                                         </div>
                                         <div class="form-group text-center">
                                             <label>Quantity</label>
-                                            <input type="quantiy" placeholder="1" class="form-control quantity input-center"/><span class="pro-price"> $ ${ data.price }</span>
+                                            <input type="quantiy" placeholder="1" class="form-control quantity input-center" id="qty-${data.id}"/><span class="pro-price"> $ ${ data.price }</span>
                                         </div>
                                         <p class="text-center">
-                                            <button class="btn btn-round btn-danger" type="button">
+                                            <button class="btn btn-round btn-danger add-to-cart modal-id-${data.id}" type="button">
                                                 <i class="fa fa-shopping-cart"></i> Add to Cart
                                             </button>
                                         </p>

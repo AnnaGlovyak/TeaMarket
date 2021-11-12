@@ -12,6 +12,7 @@ export default class ProductController {
         Publisher.subscribe( Publisher.events.clickCategFiltr, this.sendFilterData );
         Publisher.subscribe( Publisher.events.changeSrchInp, this.dataForSearch );
         Publisher.subscribe( Publisher.events.renderProdOnPage, this.renderProdOnPage );
+        Publisher.subscribe( Publisher.events.priceRangeChng, this.sendDataByPrice );
     }
 
    init = async () => {
@@ -39,6 +40,7 @@ export default class ProductController {
    sendFilterData = ( filter ) => {
        const data = this.model.filterData( filter );
        this.sendData( data );
+       Publisher.notify( Publisher.events.readyFiltredData, data );
    }
 
    clickOnProduct = ( event ) => {
@@ -65,7 +67,13 @@ export default class ProductController {
 
    sendData = ( data ) => {
         this.data = data;
-        Publisher.notify( Publisher.events.loadData, this.data.length );
+        Publisher.notify( Publisher.events.loadData, this.data );
+        this.view.createList( this.data, { start: 0, end: 9 } );
+   }
+
+   sendDataByPrice = ( data ) => {
+        this.data = data;
+        Publisher.notify( Publisher.events.loadData, this.data );
         this.view.createList( this.data, { start: 0, end: 9 } );
    }
 

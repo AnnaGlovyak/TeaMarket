@@ -127,83 +127,85 @@
                             </div>
                             <br>
                             <div class="filter">
-                                <header class="panel-heading">Filter</header>
+                                
+                                <button class="btn btn-filter-sort">Sort by price</button>
+                                <header class="range-heading">or use range</header>
                                 <div class="panel-body">
                                     <form role="form product-form">
                                         <div class="form-group">
-                                            <label for="customRange3">Price</label>
-                                            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                                            <label for="customRange3">min price: <span class="filter-price-min"></span> $</label>
+                                            <input type="range" class="form-range filter-price" name="price" min="0" step="10" id="customRange3">
                                         </div>
                                         <div class="tea-filter">
                                             <div class="form-group">
                                                 <label>Package</label>
-                                                <select class="form-control">
-                                                    <option selected value="1">Loose Tea</option>
-                                                    <option value="2">Compressed Tea</option>
-                                                    <option value="3">Tea Bags</option>
+                                                <select class="form-control filter-package">
+                                                    <option value="Loose Tea">Loose Tea</option>
+                                                    <option value="Compressed Tea">Compressed Tea</option>
+                                                    <option value="Tea Bags">Tea Bags</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Region</label>
-                                                <select class="form-control">
-                                                    <option selected value="1">China</option>
-                                                    <option value="2">Japan</option>
-                                                    <option value="3">Africa</option>
-                                                    <option value="4">India</option>
-                                                    <option value="5">Nepali</option>
+                                                <select class="form-control filter-region">
+                                                    <option value="China">China</option>
+                                                    <option value="Japan">Japan</option>
+                                                    <option value="Africa">Africa</option>
+                                                    <option value="India">India</option>
+                                                    <option value="Nepali">Nepali</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Type</label>
-                                                <select class="form-control">
-                                                    <option selected value="1">Shen Puer</option>
-                                                    <option value="2">Sur Puer</option>
-                                                    <option value="3">Matcha</option>
-                                                    <option value="4">Heicha</option>
-                                                    <option value="5">Gaba</option>
-                                                    <option value="6">Oolong</option>
+                                                <select class="form-control filter-type">
+                                                    <option value="Shen Puer">Shen Puer</option>
+                                                    <option value="Sur Puer">Sur Puer</option>
+                                                    <option value="Matcha">Matcha</option>
+                                                    <option value="Heicha">Heicha</option>
+                                                    <option value="Gaba">Gaba</option>
+                                                    <option value="Oolong">Oolong</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Manufacturer</label>
                                                 <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" value="Chiyabari Tea Estate" id="flexCheckDefault" checked>
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                     Chiyabari Tea Estate
                                                 </label>
                                                 </div>
                                                 <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <input class="form-check-input" type="checkbox" value="Flowery Orange Pekoe" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                     Flowery Orange Pekoe
                                                 </label>
                                                 </div>
                                                 <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <input class="form-check-input" type="checkbox" value="Rajmai Tea Company of Assam" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                     Rajmai Tea Company of Assam
                                                 </label>
                                                 </div>
                                                 <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <input class="form-check-input" type="checkbox" value="Zhejiang Tea" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                     Zhejiang Tea
                                                 </label>
                                                 </div>
                                                 <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" value="Fujian Tea" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                     Fujian Tea
                                                 </label>
                                                 </div>
                                                 <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <input class="form-check-input" type="checkbox" value="Japanese Bancha" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                     Japanese Bancha
                                                 </label>
                                                 </div>
                                                 <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                                <input class="form-check-input" type="checkbox" value="Nandi Highlands" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                     Nandi Highlands
                                                 </label>
@@ -213,59 +215,59 @@
                                         <div class="coffee-filter">
                                             <div class="form-group">
                                                 <label>Package</label>
-                                                <select class="form-control">
-                                                    <option selected value="1">Bag</option>
-                                                    <option value="2">Loose Coffee</option>
+                                                <select class="form-control filter-package">
+                                                    <option value="Bag">Bag</option>
+                                                    <option value="Loose Coffee">Loose Coffee</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Region</label>
-                                                <select class="form-control">
-                                                    <option selected value="1">Ethiopia</option>
-                                                    <option value="2">Colombia</option>
-                                                    <option value="3">Brasil</option>
-                                                    <option value="4">Costa Rica</option>
-                                                    <option value="5">Caturra</option>
+                                                <select class="form-control filter-region">
+                                                    <option value="Ethiopia">Ethiopia</option>
+                                                    <option value="Colombia">Colombia</option>
+                                                    <option value="Brasil">Brasil</option>
+                                                    <option value="Costa Rica">Costa Rica</option>
+                                                    <option value="Caturra">Caturra</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Roast</label>
-                                                <select class="form-control">
-                                                    <option selected value="1">none</option>
-                                                    <option value="2">low</option>
-                                                    <option value="3">medium</option>
-                                                    <option value="4">height</option>
+                                                <select class="form-control filter-roast">
+                                                    <option value="none">none</option>
+                                                    <option value="low">low</option>
+                                                    <option value="medium">medium</option>
+                                                    <option value="height">height</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                             <label>Manufacturer</label>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <input class="form-check-input" type="checkbox" value="Foundation Roasters" id="flexCheckDefault" checked>
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                 Foundation Roasters
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <input class="form-check-input" type="checkbox" value="Heirloom" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                 Heirloom
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <input class="form-check-input" type="checkbox" value="Medellin" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                 Medellin
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <input class="form-check-input" type="checkbox" value="Supremo" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                 Supremo
                                                 </label>
                                             </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-filter" type="submit">Filter</button>
+                                        <!-- <button class="btn btn-filter" type="submit">Filter</button> -->
                                     </form>
                                 </div>
                             </div>

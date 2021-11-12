@@ -66,8 +66,6 @@ export default class CartView extends View {
 
         this.domCartButton.innerText = this.priceTotal;
         this.domCartTotalPrice.innerText = this.priceTotal;
-
-        this.createCart(this.cardData);
     }
 
     allStorage = () => {
@@ -85,9 +83,9 @@ export default class CartView extends View {
         return { values, total };
     }
     
-    createCart = ( data ) => {
+    createCart = () => {
         this.dom.cartModal.innerHTML = '';
-        const localStorageData = this.allStorage()
+        const localStorageData = this.allStorage();
         const total = localStorageData.total;
 
         localStorageData.values.forEach( el => {

@@ -33,7 +33,7 @@ export default class Publisher{
         loadData: 'LOAD DATA',
         clickProductCart: 'CLICK ON PRODUCT CART',
         priceRangeChng: 'PRICE RANGE ON CHANGE',
-        readyFiltredData: 'FILTRED DATA IS READY'
+        readyFiltredData: 'FILTRED DATA IS READY',
         clickCart: 'CLICK ON CART',
         buildCart: 'BUILD MODAL CART',
     }

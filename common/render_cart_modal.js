@@ -8,7 +8,7 @@ export default function renderCartModal( data ) {
 
     return `<div class="item row justify-content-around">
                 <div class="buttons col-1 align-self-center">
-                    <span class="delete-btn"><i class="fas fa-times"></i></span>
+                    <span class="delete-btn id-${values.id}"><i class="fas fa-times"></i></span>
                 </div>
 
                 <div class="image col-3 align-self-center">
@@ -23,11 +23,11 @@ export default function renderCartModal( data ) {
                 </div>
 
                 <div class="quantity col-2 align-self-center">
-                    <button class="plus-btn" type="button" name="button">
+                    <button class='plus-btn id-${values.id}' type="button" name="button">
                         <i class="fas fa-plus"></i>
                     </button>
-                    <input type="text" name="name" value="${ values.qty }" />
-                    <button class="minus-btn" type="button" name="button">
+                    <input id='input-${values.id}' type="text" name="name" value="${ values.qty }" />
+                    <button class="minus-btn id-${values.id}" type="button" name="button">
                         <i class="fas fa-minus"></i>
                     </button>
                 </div>

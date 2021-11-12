@@ -15,6 +15,7 @@ export default class CartView extends View {
         this.priceTotal = +localStorage.getItem( 'priceTotal' ) || 0;
         this.domCartButton = document.querySelector( '#cart-button' );
         this.domCartTotalPrice = document.querySelector( '#cart-span' );
+        this.totalHtml = document.getElementById( 'total' );
         this.domCartButton.innerText = this.priceTotal;
         this.domCartTotalPrice.innerText = this.priceTotal;
         this.resultData = {};
@@ -52,7 +53,7 @@ export default class CartView extends View {
         this.cardData = {};
         for ( const key in this.resultData)    {
             if ( key !== 'total' ) {
-                let { card } = this.resultData[key];
+                const { card } = this.resultData[key];
                 const qty = this.resultData[key].qty;
                 this.cardData.key = key;
                 card.qty = qty;
@@ -66,6 +67,8 @@ export default class CartView extends View {
 
         this.domCartButton.innerText = this.priceTotal;
         this.domCartTotalPrice.innerText = this.priceTotal;
+        
+        this.createCart();
     }
 
     allStorage = () => {
@@ -94,6 +97,93 @@ export default class CartView extends View {
 
             this.modalHTML = renderCartModal( { values, total } );
             this.dom.cartModal.innerHTML += this.modalHTML;
-        })
+        });
+
+        const productsInCartIncrease = document.querySelectorAll( '.plus-btn' );
+        const productsInCartDecrease = document.querySelectorAll( '.minus-btn' );
+        const productsInCartDelete = document.querySelectorAll( '.delete-btn' );
+
+        productsInCartIncrease.forEach( el => {
+            el.addEventListener( 'click', () => {
+                const id = +( el.classList[1].split( "-" )[1] );
+                this.productIncrease( id );
+            });
+        });
+
+        productsInCartDecrease.forEach( el => {
+            el.addEventListener( 'click', () => {
+                const id = +( el.classList[1].split( "-" )[1] );
+                this.productDecrease( id );
+            });
+        });
+
+        productsInCartDelete.forEach( el => {
+            el.addEventListener( 'click', () => {
+                const id = +( el.classList[1].split( "-" )[1] );
+                this.productDelete( id );
+            });
+        });
     }
+
+    productIncrease = ( id ) => {
+        const localStorageData = this.allStorage();
+        localStorageData.values.forEach( el => {
+            const values = el.card;
+            const idLocalSt = +el.card.id;
+            if (id === idLocalSt){
+                values.qty += 1;
+                const priceProd = +values.price;
+                localStorage.setItem( `product-id-${idLocalSt}`, JSON.stringify( { 'id': idLocalSt, 'price': +values.price, 'qty': values.qty, 'card': values } ) );
+                const priceTotal = +localStorage.getItem("priceTotal");
+                const totalPr = priceTotal+priceProd;
+                localStorage.setItem("priceTotal", totalPr);
+                this.domCartButton.innerText = totalPr;
+                this.domCartTotalPrice.innerText = totalPr;
+            }
+        });
+        
+        this.createCart();
+    }
+    
+    productDecrease = ( id ) => {
+        const localStorageData = this.allStorage();
+        localStorageData.values.forEach( el => {
+            const values = el.card;
+            const idLocalSt = +el.card.id;
+            if (id === idLocalSt && values.qty != 0){
+                values.qty -= 1;
+                const priceProd = +values.price;
+                localStorage.setItem( `product-id-${idLocalSt}`, JSON.stringify( { 'id': idLocalSt, 'price': +values.price, 'qty': values.qty, 'card': values } ) );
+                let priceTotal = +localStorage.getItem("priceTotal");
+                priceTotal-=priceProd;
+                localStorage.setItem("priceTotal", priceTotal);
+                this.domCartButton.innerText = priceTotal;
+                this.domCartTotalPrice.innerText = priceTotal;
+            }
+        });
+        
+        this.createCart();
+    }
+
+    productDelete = ( id ) => {
+        const localStorageData = this.allStorage();
+        localStorageData.values.forEach( el => {
+            const values = el.card;
+            const idLocalSt = +el.card.id;
+            if (id === idLocalSt){
+                const qty = +values.qty
+                const priceProd = +values.price;
+                let priceTotal = +localStorage.getItem("priceTotal");
+                priceTotal-=(priceProd*qty);
+                localStorage.removeItem(`product-id-${id}`)
+                localStorage.setItem("priceTotal", priceTotal);
+                if (this.allStorage().total == 0) { this.totalHtml.innerHTML = `$${0}` };
+                this.domCartButton.innerText = priceTotal;
+                this.domCartTotalPrice.innerText = priceTotal;
+            }
+        });
+
+        this.createCart();
+    }
+
 }

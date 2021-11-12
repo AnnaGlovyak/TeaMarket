@@ -19,10 +19,10 @@ export default class PagiantionView {
 
     setupPagination = ( length ) => {
         this.pagination_wrap.innerHTML = '';
-        let page_count = Math.ceil( length / this.rows );
+        const page_count = Math.ceil( length / this.rows );
 
         for (let i = 1; i < page_count + 1; i++) {
-            let button = document.createElement( 'button' );
+            const button = document.createElement( 'button' );
             button.innerText = i;
             
             if ( i === 1 ) { button.classList.add( 'active' ) };
@@ -31,7 +31,7 @@ export default class PagiantionView {
             button.addEventListener( "click", () => {
                 this.current_page = i;
 
-                let current_btn = document.querySelector( '.pagination button.active' );
+                const current_btn = document.querySelector( '.pagination button.active' );
                 current_btn.classList.remove( 'active' );
 
                 button.classList.add( 'active' );

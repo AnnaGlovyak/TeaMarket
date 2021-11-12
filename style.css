@@ -75,9 +75,29 @@ body::-webkit-scrollbar-thumb {
     margin-top: 0;
 }
 
-.btn-filter {
+.range-heading {
+    font-weight: 700;
+    text-align: center;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+input[type=range]::-webkit-slider-thumb {
     background-color: #99bd03;
-    color: white;
+}
+
+.filter {
+    margin: 15px;
+}
+
+.btn-filter-sort {
+    border: 2px solid #99bd03;
+    color: #99bd03;
+    font-weight: 700;
+    width: 100%;
+}
+
+.filter-price-min {
     font-weight: 700;
 }
 

@@ -126,12 +126,14 @@
                             </div>
                             <br>
                             <div class="filter">
-                                <header class="panel-heading">Filter</header>
+                                
+                                <button class="btn btn-filter-sort">Sort by price</button>
+                                <header class="range-heading">or use range</header>
                                 <div class="panel-body">
                                     <form role="form product-form">
                                         <div class="form-group">
-                                            <label for="customRange3">Price</label>
-                                            <input type="range" class="form-range filter-price" name="price"  step="10" id="customRange3">
+                                            <label for="customRange3">min price: <span class="filter-price-min"></span> $</label>
+                                            <input type="range" class="form-range filter-price" name="price" min="0" step="10" id="customRange3">
                                         </div>
                                         <div class="tea-filter">
                                             <div class="form-group">
@@ -264,7 +266,7 @@
                                             </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-filter" type="submit">Filter</button>
+                                        <!-- <button class="btn btn-filter" type="submit">Filter</button> -->
                                     </form>
                                 </div>
                             </div>

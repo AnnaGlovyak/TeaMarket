@@ -12,7 +12,7 @@ body {
 
     -moz-scrollbar-width: thin;
     scrollbar-width: thin;
-    -moz-scrollbar-color: 99bd03 #99bd03;
+    -moz-scrollbar-color: yellowgreen #99bd03;
     scrollbar-color: yellowgreen #99bd03;
     padding-right: 0px !important;
 }
@@ -774,6 +774,8 @@ input:focus {
     font-weight: 500;
     color: black;
     padding: 10px 20px;
+    margin-left: 50px;
+    margin-right: -120px;
 }
 
 .image {
@@ -869,4 +871,24 @@ input:focus {
 
 i {
     pointer-events: none;
+}
+
+.col-12.products {
+    max-height: 500px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.col-12.products::-webkit-scrollbar {
+    width: 7px;
+}
+
+.col-12.products::-webkit-scrollbar-track {
+    background: rgba(153, 205, 50, 0.33);
+}
+
+.col-12.products::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid rgba(165, 235, 26, 0.5);
 }

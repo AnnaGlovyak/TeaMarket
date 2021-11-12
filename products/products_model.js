@@ -16,7 +16,7 @@ export default class ProductsModel {
             return this.data;
         } else {
             const products = this.data.filter( product => {
-                let dataToCheck = Object.values( product ).map( val =>  val.toLocaleLowerCase() );
+                const dataToCheck = Object.values( product ).map( val =>  val.toLocaleLowerCase() );
                 return dataToCheck.filter( el => el.includes( search ) ).length !== 0;
                 })
             return products;

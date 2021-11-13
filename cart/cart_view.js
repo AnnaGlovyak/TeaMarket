@@ -1,5 +1,6 @@
 import View from '../common/view.js'
 import renderCartModal from '../common/render_cart_modal.js'
+import allStorage from '../common/getStorage.js';
 
 export default class CartView extends View {
 
@@ -22,18 +23,41 @@ export default class CartView extends View {
         this.linkDomElem( this.cartDomElem );
     }
     
-    productCartHandler = ( dataCard ) => {
+    productCartHandler = ( dataCard, qty = 0 ) => {
 
-        this.priceTotal += +dataCard.price;
+        console.log(dataCard)
+        console.log(qty)
         this.qty = 0;
         const localCheck = localStorage.getItem( `product-id-${dataCard.id}` );
-        
-        if ( localCheck ) {
+        let priceCount = 0;
+
+        if ( localCheck && qty === 0 ) {
             const parse = JSON.parse( localStorage.getItem( `product-id-${dataCard.id}` ) );
             this.qty = +parse.qty + 1;
-        } else {
+            priceCount = +dataCard.price;
+            console.log(         priceCount           )
+        } else if ( qty === 0 ) {
             this.qty = 1;
+            priceCount = +dataCard.price;
+            console.log(         priceCount           )
+        } else {
+            const parse = JSON.parse( localStorage.getItem( `product-id-${dataCard.id}` ) );
+            if ( parse === null ) {
+                this.qty = qty;
+                priceCount = +dataCard.price * qty;
+                console.log(      priceCount              )
+            }
+
+            if ( parse !== null ) {
+                this.qty = +parse.qty + qty;
+                priceCount = +dataCard.price * qty;
+                console.log(       priceCount             )
+            }
+            console.log(          priceCount          )
         }
+        
+        this.priceTotal = +localStorage.getItem( 'priceTotal' );
+        this.priceTotal += priceCount;
 
         for( let key in localStorage ) {
             if ( !localStorage.hasOwnProperty( key ) ) {
@@ -70,25 +94,10 @@ export default class CartView extends View {
         
         this.createCart();
     }
-
-    allStorage = () => {
-
-        var values = [],
-            keys = Object.keys( localStorage ),
-            i = keys.length;
-
-        while ( i-- ) {
-            if ( keys[i] !== 'priceTotal' ) {
-                values.push( JSON.parse( localStorage.getItem( keys[i] ) ));
-            }
-        }
-        const total = localStorage.getItem( 'priceTotal' );
-        return { values, total };
-    }
     
     createCart = () => {
         this.dom.cartModal.innerHTML = '';
-        const localStorageData = this.allStorage();
+        const localStorageData = allStorage();
         const total = localStorageData.total;
 
         localStorageData.values.forEach( el => {
@@ -126,7 +135,7 @@ export default class CartView extends View {
     }
 
     productIncrease = ( id ) => {
-        const localStorageData = this.allStorage();
+        const localStorageData = allStorage();
         localStorageData.values.forEach( el => {
             const values = el.card;
             const idLocalSt = +el.card.id;
@@ -146,7 +155,7 @@ export default class CartView extends View {
     }
     
     productDecrease = ( id ) => {
-        const localStorageData = this.allStorage();
+        const localStorageData = allStorage();
         localStorageData.values.forEach( el => {
             const values = el.card;
             const idLocalSt = +el.card.id;
@@ -166,7 +175,7 @@ export default class CartView extends View {
     }
 
     productDelete = ( id ) => {
-        const localStorageData = this.allStorage();
+        const localStorageData = allStorage();
         localStorageData.values.forEach( el => {
             const values = el.card;
             const idLocalSt = +el.card.id;
@@ -177,7 +186,7 @@ export default class CartView extends View {
                 priceTotal-=(priceProd*qty);
                 localStorage.removeItem(`product-id-${id}`)
                 localStorage.setItem("priceTotal", priceTotal);
-                if (this.allStorage().total == 0) { this.totalHtml.innerHTML = `$${0}` };
+                if (allStorage().total == 0) { this.totalHtml.innerHTML = `$${0}` };
                 this.domCartButton.innerText = priceTotal;
                 this.domCartTotalPrice.innerText = priceTotal;
             }

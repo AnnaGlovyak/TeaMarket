@@ -4,7 +4,7 @@ import Publisher from '../common/publisher.js'
 export default class CartController {
 
     constructor(){
-        this.view = new CartView();
+        this.view = new CartView( this.sendOrder );
         Publisher.subscribe( Publisher.events.clickProductCart, this.clickOnProductCart );
         Publisher.subscribe( Publisher.events.loadData, this.loadCart );
     }
@@ -17,7 +17,10 @@ export default class CartController {
         this.view.createCart();
     }
 
-    createOrder = () => {
-        
+    sendOrder = ( event ) => {
+        const sendData = this.view.createOrder();
+        Publisher.notify( Publisher.events.sendMessage, sendData );
+        event.preventDefault();
+        document.getElementById('id02').style.display='none';//need to replace
     }
 }

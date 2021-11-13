@@ -36,6 +36,7 @@ export default class Publisher{
         readyFiltredData: 'FILTRED DATA IS READY',
         clickCart: 'CLICK ON CART',
         buildCart: 'BUILD MODAL CART',
+        sendMessage: 'SEND MESSAGE TO TELEGRAM',
         clickHistory: 'CLICK ON HISTORY',
         buildHistory: 'BUILD MODAL HISTORY',
     }

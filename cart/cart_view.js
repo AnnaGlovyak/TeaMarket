@@ -41,18 +41,21 @@ export default class CartView extends View {
         }
     ]
 
-    constructor () {
+    constructor ( sendOrder ) {
         super();
+        this.sendOrder = sendOrder;
         this.linkDomElem( this.cartDomElem );
         this.view_history = new ViewHistory();
+
         this.priceTotal = +localStorage.getItem( 'priceTotal' ) || 0;
         this.linkDomElem( this.cartDomElem );
         this.totalHtml = document.getElementById( 'total' );
         this.dom.cartButton.innerText = this.priceTotal;
         this.dom.cartTotalPrice.innerText = this.priceTotal;
         this.resultData = {};
+
+        this.dom.orderBtn.addEventListener('submit', this.sendOrder)
         this.dom.checkout.addEventListener( 'click', ()=> this.checkout() );
-        this.dom.orderBtn.addEventListener('submit', this.createOrder)
     }
     
     productCartHandler = ( dataCard, qty = 0 ) => {
@@ -286,15 +289,12 @@ export default class CartView extends View {
         order.total = this.dom.cartTotalPrice.innerText;
         order.time = date.toDateString();
 
-        for(let i=0; i<localStorage.length - 1; i++) {
-            let key = localStorage.key(i);
-            order.products.push(localStorage.getItem(key));
-        }
-        
-        console.log(order);
-        event.preventDefault()
-        
-        
+        const localStorageData = allStorage();
+        localStorageData.values.forEach( el => {
+            order.products.push(el.card);
+        })
+       
+        return order;
     }
 
 }

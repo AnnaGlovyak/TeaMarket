@@ -62,5 +62,4 @@ export default class ProductController {
         Publisher.notify( Publisher.events.loadData, this.data );
         this.view.createList( this.data, { start: 0, end: 9 } );
    }
-
 }

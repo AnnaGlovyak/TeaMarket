@@ -11,12 +11,33 @@ export default class CartView extends View {
             selector: '.products'
         },
         {
+
             name: 'checkout',
             selector: '.checkout-btn'
         },
         {
             name: 'totalModalCart',
             selector: '#total'
+        },
+        {
+            name: 'cartButton',
+            selector: '#cart-button'
+        },
+        {
+            name: 'cartTotalPrice',
+            selector: '#cart-span'
+        },
+        {
+            name: 'orderBtn',
+            selector: '.order-form'
+        },
+        {
+            name: 'customName',
+            selector: '.custom-name'
+        },
+        {
+            name: 'customPhone',
+            selector: '.custom-phone'
         }
     ]
 
@@ -25,13 +46,13 @@ export default class CartView extends View {
         this.linkDomElem( this.cartDomElem );
         this.view_history = new ViewHistory();
         this.priceTotal = +localStorage.getItem( 'priceTotal' ) || 0;
-        this.domCartButton = document.querySelector( '#cart-button' );
-        this.domCartTotalPrice = document.querySelector( '#cart-span' );
+        this.linkDomElem( this.cartDomElem );
         this.totalHtml = document.getElementById( 'total' );
-        this.domCartButton.innerText = this.priceTotal;
-        this.domCartTotalPrice.innerText = this.priceTotal;
+        this.dom.cartButton.innerText = this.priceTotal;
+        this.dom.cartTotalPrice.innerText = this.priceTotal;
         this.resultData = {};
         this.dom.checkout.addEventListener( 'click', ()=> this.checkout() );
+        this.dom.orderBtn.addEventListener('submit', this.createOrder)
     }
     
     productCartHandler = ( dataCard, qty = 0 ) => {
@@ -78,6 +99,11 @@ export default class CartView extends View {
         this.resultData[`prod-${dataCard.id}`] = JSON.parse( localStorage.getItem( `product-id-${dataCard.id}` ) );
         this.resultData.total = +localStorage.getItem( `priceTotal` );
 
+        this.createCartData();
+        this.createCart();
+    }
+
+    createCartData = () => {
         this.cardData = {};
         for ( const key in this.resultData)    {
             if ( key !== 'total' ) {
@@ -92,11 +118,9 @@ export default class CartView extends View {
                 }
             }
         }
-
-        this.domCartButton.innerText = this.priceTotal;
-        this.domCartTotalPrice.innerText = this.priceTotal;
         
-        this.createCart();
+        this.dom.cartButton.innerText = this.priceTotal;
+        this.dom.cartTotalPrice.innerText = this.priceTotal;
     }
     
     createCart = () => {
@@ -150,8 +174,8 @@ export default class CartView extends View {
                 const priceTotal = +localStorage.getItem("priceTotal");
                 const totalPr = priceTotal+priceProd;
                 localStorage.setItem("priceTotal", totalPr);
-                this.domCartButton.innerText = totalPr;
-                this.domCartTotalPrice.innerText = totalPr;
+                this.dom.cartButton.innerText = totalPr;
+                this.dom.cartTotalPrice.innerText = totalPr;
             }
         });
         
@@ -170,8 +194,8 @@ export default class CartView extends View {
                 let priceTotal = +localStorage.getItem("priceTotal");
                 priceTotal-=priceProd;
                 localStorage.setItem("priceTotal", priceTotal);
-                this.domCartButton.innerText = priceTotal;
-                this.domCartTotalPrice.innerText = priceTotal;
+                this.dom.cartButton.innerText = priceTotal;
+                this.dom.cartTotalPrice.innerText = priceTotal;
             }
         });
         
@@ -191,8 +215,8 @@ export default class CartView extends View {
                 localStorage.removeItem(`product-id-${id}`)
                 localStorage.setItem("priceTotal", priceTotal);
                 if (allStorage().total == 0) { this.totalHtml.innerHTML = `$${0}` };
-                this.domCartButton.innerText = priceTotal;
-                this.domCartTotalPrice.innerText = priceTotal;
+                this.dom.cartButton.innerText = priceTotal;
+                this.dom.cartTotalPrice.innerText = priceTotal;
             }
         });
 
@@ -248,4 +272,29 @@ export default class CartView extends View {
         }
         this.view_history.loadHistory();
     }
+
+    createOrder = (event) => {
+        event.cancelBubble = true;
+        event.stopPropagation();
+
+        const order = {};
+        const date = new Date();
+        order.products = [];
+
+        order.customName = this.dom.customName.value;
+        order.customPhone = this.dom.customPhone.value;
+        order.total = this.dom.cartTotalPrice.innerText;
+        order.time = date.toDateString();
+
+        for(let i=0; i<localStorage.length - 1; i++) {
+            let key = localStorage.key(i);
+            order.products.push(localStorage.getItem(key));
+        }
+        
+        console.log(order);
+        event.preventDefault()
+        
+        
+    }
+
 }

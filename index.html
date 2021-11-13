@@ -127,7 +127,6 @@
                             </div>
                             <br>
                             <div class="filter">
-                                
                                 <button class="btn btn-filter-sort">Sort by price</button>
                                 <header class="range-heading">or use range</header>
                                 <div class="panel-body">
@@ -136,7 +135,7 @@
                                             <label for="customRange3">min price: <span class="filter-price-min"></span> $</label>
                                             <input type="range" class="form-range filter-price" name="price" min="0" step="10" id="customRange3">
                                         </div>
-                                        <div class="tea-filter">
+                                        <!-- <div class="tea-filter">
                                             <div class="form-group">
                                                 <label>Package</label>
                                                 <select class="form-control filter-package">
@@ -240,34 +239,33 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                            <label>Manufacturer</label>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="Foundation Roasters" id="flexCheckDefault" checked>
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                Foundation Roasters
-                                                </label>
+                                                <label>Manufacturer</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="Foundation Roasters" id="flexCheckDefault" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                    Foundation Roasters
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="Heirloom" id="flexCheckChecked" checked>
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                    Heirloom
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="Medellin" id="flexCheckChecked" checked>
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                    Medellin
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="Supremo" id="flexCheckChecked" checked>
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                    Supremo
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="Heirloom" id="flexCheckChecked" checked>
-                                                <label class="form-check-label" for="flexCheckChecked">
-                                                Heirloom
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="Medellin" id="flexCheckChecked" checked>
-                                                <label class="form-check-label" for="flexCheckChecked">
-                                                Medellin
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="Supremo" id="flexCheckChecked" checked>
-                                                <label class="form-check-label" for="flexCheckChecked">
-                                                Supremo
-                                                </label>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <!-- <button class="btn btn-filter" type="submit">Filter</button> -->
+                                        </div> -->
                                     </form>
                                 </div>
                             </div>
@@ -307,13 +305,25 @@
                             <div class="col-12 products">
                             </div>
                         </div>
-
+                        <div class="row justify-content-center title-order">Create an order</div>
+                        <form class="order-form">
+                            <div class="row justify-content-space-between order-info">
+                                <div class="col-6">
+                                    <input type="text" class="form-control custom-name" placeholder="First name" aria-label="First name" pattern="[a-zA-Zа-яА-Я]+" minlength="3" maxlength="10" required>
+                                    <input type="text" class="form-control custom-phone" placeholder="+38 (999) 999-99-99" id="phone" aria-label="Phone" pattern="^\+380\d{3}\d{2}\d{2}\d{2}$" required>
+                                </div>
+                                <div class="col-6 d-flex flex-column justify-content-between align-items-end">
+                                    <div class="total-title">Total:</div>
+                                    <div class="total-sum" id="total">$0</div>
+                                </div>
+                            </div>
                         <!-- Footer -->
+
                         <div class="row total">
                             <div class="col-10 total-title">Total</div>
                             <div class="col-2 total-sum" id="total">$0</div>
                             <div class="modal-footer">
-                                <button
+                                <!-- <button
                                     type="button"
                                     class="btn btn-secondary checkout-btn"
                                     data-dismiss="modal"
@@ -330,9 +340,15 @@
                                     style="width: 75px"
                                 >
                                     Close
-                                </button>
+                                </button> -->
+
+                            <div class="row">
+                                <div class="modal-footer">
+                                    <button class="btn btn-order checkout-btn">Order</button>
+                                </div>
+
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

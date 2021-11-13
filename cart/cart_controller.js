@@ -16,4 +16,8 @@ export default class CartController {
     loadCart = () => {
         this.view.createCart();
     }
+
+    createOrder = () => {
+        
+    }
 }

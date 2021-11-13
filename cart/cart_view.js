@@ -1,6 +1,7 @@
 import View from '../common/view.js'
+import ViewHistory from '../history/history_view.js'
 import renderCartModal from '../common/render_cart_modal.js'
-import allStorage from '../common/getStorage.js';
+import allStorage, { getOrders } from '../common/getStorage.js';
 
 export default class CartView extends View {
 
@@ -8,6 +9,15 @@ export default class CartView extends View {
         {
             name: 'cartModal',
             selector: '.products'
+        },
+        {
+
+            name: 'checkout',
+            selector: '.checkout-btn'
+        },
+        {
+            name: 'totalModalCart',
+            selector: '#total'
         },
         {
             name: 'cartButton',
@@ -33,13 +43,15 @@ export default class CartView extends View {
 
     constructor () {
         super();
+        this.linkDomElem( this.cartDomElem );
+        this.view_history = new ViewHistory();
         this.priceTotal = +localStorage.getItem( 'priceTotal' ) || 0;
         this.linkDomElem( this.cartDomElem );
         this.totalHtml = document.getElementById( 'total' );
         this.dom.cartButton.innerText = this.priceTotal;
         this.dom.cartTotalPrice.innerText = this.priceTotal;
         this.resultData = {};
-
+        this.dom.checkout.addEventListener( 'click', ()=> this.checkout() );
         this.dom.orderBtn.addEventListener('submit', this.createOrder)
     }
     
@@ -77,7 +89,7 @@ export default class CartView extends View {
                 dataCard.qty = this.qty;
                 localStorage.setItem( `product-id-${dataCard.id}`, JSON.stringify( { 'id': +dataCard.id, 'price': +dataCard.price, 'qty': this.qty, 'card': dataCard } ) );
                 localStorage.setItem( `priceTotal`, this.priceTotal );
-            } 
+            }
             
             const dataLocal = {}
             dataLocal.id = localStorage.getItem( `product-id-${dataCard.id}` );
@@ -175,7 +187,7 @@ export default class CartView extends View {
         localStorageData.values.forEach( el => {
             const values = el.card;
             const idLocalSt = +el.card.id;
-            if (id === idLocalSt && values.qty != 0){
+            if (id === idLocalSt && values.qty != 1){
                 values.qty -= 1;
                 const priceProd = +values.price;
                 localStorage.setItem( `product-id-${idLocalSt}`, JSON.stringify( { 'id': idLocalSt, 'price': +values.price, 'qty': values.qty, 'card': values } ) );
@@ -209,6 +221,56 @@ export default class CartView extends View {
         });
 
         this.createCart();
+    }
+
+    checkout = ( ) => {
+
+        const storageData = allStorage();
+        const ordersData = getOrders();
+        const ordersLength = ordersData.length+1;
+        let id, price, qty, card;
+        let name, manufactures, region, weight;
+        let packageType;
+
+        const totalAmount = +storageData.total;
+        const totalProdList = storageData.values;
+
+        totalProdList.forEach( el => {
+            id = el.id;
+            price = el.price;
+            qty = el.qty;
+            card = el.card;
+            name = card.name;
+            manufactures = card.manufactures;
+            region = card.region;
+            weight = card.weight;
+            packageType = card.package;
+            
+        })
+
+        if (totalProdList.length !== 0) {
+            const orderFinal = {};
+            totalProdList.map((el, index) => {
+                const order = { 'id': +el.id, 'price': +el.price, 'qty': +el.qty, 'name': el.card.name, 'manufactures': el.card.manufactures, 'packageType': el.card.packageType, 'region': el.card.region, 'weight': +el.card.weight, 'totalAmount': totalAmount };
+                orderFinal[index] = order;
+            })
+
+            localStorage.setItem( `order-${ordersLength}`, JSON.stringify( orderFinal ) );
+            
+            this.domCartButton.innerText = 0;
+            this.domCartTotalPrice.innerText = 0;
+            this.dom.totalModalCart.innerText = '$0'
+
+            totalProdList.map((el) => {
+                if (el.id !== null || el.id !== undefined) {
+                    localStorage.removeItem(`product-id-${el.id}`)
+                }
+            });
+            
+            localStorage.setItem( `priceTotal`, 0 );
+            this.createCart();
+        }
+        this.view_history.loadHistory();
     }
 
     createOrder = (event) => {

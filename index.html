@@ -72,7 +72,7 @@
                                 <ul class="nav justify-content-sm-start justify-content-between">
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">
-                                            <span class="nav-text-wrapper" id="history">Orders History<i class="fas fa-angle-down px-2"></i></span>
+                                            <span onclick="document.querySelector('#id03').style.display='block'" class="nav-text-wrapper" id="history">Orders History<i class="fas fa-angle-down px-2"></i></span>
                                         </a>
                                     </li>
                                 </ul>
@@ -288,7 +288,7 @@
             </div>
             <!-- Modal for product modal -->
             <div class="product-modal"></div>
-            <!-- Modal for shop cart -->   <!-------------------------------------------------------------------->
+            <!-- Modal for shop cart -->   <!------------------------------------------------------------------->
             <div class="cart-modal">
                 <div class="container shop" id="id02">
                     <div class="shopping-cart">
@@ -318,12 +318,73 @@
                                 </div>
                             </div>
                         <!-- Footer -->
+
+                        <div class="row total">
+                            <div class="col-10 total-title">Total</div>
+                            <div class="col-2 total-sum" id="total">$0</div>
+                            <div class="modal-footer">
+                                <!-- <button
+                                    type="button"
+                                    class="btn btn-secondary checkout-btn"
+                                    data-dismiss="modal"
+                                    style="width: 85px"
+                                >
+                                    Checkout
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary close-btn"
+                                    data-dismiss="modal"
+                                    onclick="document.getElementById('id02').style.display='none'"
+                                    style="width: 75px"
+                                >
+                                    Close
+                                </button> -->
+
                             <div class="row">
                                 <div class="modal-footer">
-                                    <button class="btn btn-order">Order</button>
+                                    <button class="btn btn-order checkout-btn">Order</button>
                                 </div>
+
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <!-------------------------------------------------------------------------------------------------->
+            <!-- Modal for history -->   <!--------------------------------------------------------------------->
+            <div class="history-modal">
+                <div class="container shop" id="id03">
+                    <div class="shopping-cart">
+                        <!-- Header  -->
+                        <div class="shop-overlay"></div>
+                        <span onclick="document.getElementById('id03').style.display='none';" class="w3-button w3-display-topright"
+                            >&times;</span
+                        >
+                        <!-- Title -->
+                        <div class="title row justify-content-center">Orders History</div>
+
+                        <!-- Content -->
+                        <div class="row">
+                            <div class="col-12 history-items">
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="row total">
+                            <div class="modal-footer his">
+                               <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-dismiss="modal"
+                                    onclick="document.getElementById('id03').style.display='none'"
+                                    style="width: 75px"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -36,6 +36,8 @@ export default class Publisher{
         readyFiltredData: 'FILTRED DATA IS READY',
         clickCart: 'CLICK ON CART',
         buildCart: 'BUILD MODAL CART',
+        clickHistory: 'CLICK ON HISTORY',
+        buildHistory: 'BUILD MODAL HISTORY',
     }
 
 }

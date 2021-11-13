@@ -13,10 +13,9 @@ const filter = new FilterController();
 const search = new SearchController();
 const paggination = new PaginationController();
 const cart = new CartController();
-// const messenger = new MessengerController();
+const messenger = new MessengerController();
 
 
 products.init();
-// messenger.init();
 
 // showFilterForCategory();

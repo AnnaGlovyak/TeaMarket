@@ -16,6 +16,18 @@ export default class CartView extends View {
         {
             name: 'cartTotalPrice',
             selector: '#cart-span'
+        },
+        {
+            name: 'orderBtn',
+            selector: '.order-form'
+        },
+        {
+            name: 'customName',
+            selector: '.custom-name'
+        },
+        {
+            name: 'customPhone',
+            selector: '.custom-phone'
         }
     ]
 
@@ -27,6 +39,8 @@ export default class CartView extends View {
         this.dom.cartButton.innerText = this.priceTotal;
         this.dom.cartTotalPrice.innerText = this.priceTotal;
         this.resultData = {};
+
+        this.dom.orderBtn.addEventListener('submit', this.createOrder)
     }
     
     productCartHandler = ( dataCard, qty = 0 ) => {
@@ -195,6 +209,30 @@ export default class CartView extends View {
         });
 
         this.createCart();
+    }
+
+    createOrder = (event) => {
+        event.cancelBubble = true;
+        event.stopPropagation();
+
+        const order = {};
+        const date = new Date();
+        order.products = [];
+
+        order.customName = this.dom.customName.value;
+        order.customPhone = this.dom.customPhone.value;
+        order.total = this.dom.cartTotalPrice.innerText;
+        order.time = date.toDateString();
+
+        for(let i=0; i<localStorage.length - 1; i++) {
+            let key = localStorage.key(i);
+            order.products.push(localStorage.getItem(key));
+        }
+        
+        console.log(order);
+        event.preventDefault()
+        
+        
     }
 
 }

@@ -8,25 +8,43 @@ export default class CartView extends View {
         {
             name: 'cartModal',
             selector: '.products'
+        },
+        {
+            name: 'cartButton',
+            selector: '#cart-button'
+        },
+        {
+            name: 'cartTotalPrice',
+            selector: '#cart-span'
+        },
+        {
+            name: 'orderBtn',
+            selector: '.order-form'
+        },
+        {
+            name: 'customName',
+            selector: '.custom-name'
+        },
+        {
+            name: 'customPhone',
+            selector: '.custom-phone'
         }
     ]
 
     constructor () {
         super();
         this.priceTotal = +localStorage.getItem( 'priceTotal' ) || 0;
-        this.domCartButton = document.querySelector( '#cart-button' );
-        this.domCartTotalPrice = document.querySelector( '#cart-span' );
-        this.totalHtml = document.getElementById( 'total' );
-        this.domCartButton.innerText = this.priceTotal;
-        this.domCartTotalPrice.innerText = this.priceTotal;
-        this.resultData = {};
         this.linkDomElem( this.cartDomElem );
+        this.totalHtml = document.getElementById( 'total' );
+        this.dom.cartButton.innerText = this.priceTotal;
+        this.dom.cartTotalPrice.innerText = this.priceTotal;
+        this.resultData = {};
+
+        this.dom.orderBtn.addEventListener('submit', this.createOrder)
     }
     
     productCartHandler = ( dataCard, qty = 0 ) => {
 
-        console.log(dataCard)
-        console.log(qty)
         this.qty = 0;
         const localCheck = localStorage.getItem( `product-id-${dataCard.id}` );
         let priceCount = 0;
@@ -35,25 +53,20 @@ export default class CartView extends View {
             const parse = JSON.parse( localStorage.getItem( `product-id-${dataCard.id}` ) );
             this.qty = +parse.qty + 1;
             priceCount = +dataCard.price;
-            console.log(         priceCount           )
         } else if ( qty === 0 ) {
             this.qty = 1;
             priceCount = +dataCard.price;
-            console.log(         priceCount           )
         } else {
             const parse = JSON.parse( localStorage.getItem( `product-id-${dataCard.id}` ) );
             if ( parse === null ) {
                 this.qty = qty;
                 priceCount = +dataCard.price * qty;
-                console.log(      priceCount              )
             }
 
             if ( parse !== null ) {
                 this.qty = +parse.qty + qty;
                 priceCount = +dataCard.price * qty;
-                console.log(       priceCount             )
             }
-            console.log(          priceCount          )
         }
         
         this.priceTotal = +localStorage.getItem( 'priceTotal' );
@@ -74,6 +87,11 @@ export default class CartView extends View {
         this.resultData[`prod-${dataCard.id}`] = JSON.parse( localStorage.getItem( `product-id-${dataCard.id}` ) );
         this.resultData.total = +localStorage.getItem( `priceTotal` );
 
+        this.createCartData();
+        this.createCart();
+    }
+
+    createCartData = () => {
         this.cardData = {};
         for ( const key in this.resultData)    {
             if ( key !== 'total' ) {
@@ -88,11 +106,9 @@ export default class CartView extends View {
                 }
             }
         }
-
-        this.domCartButton.innerText = this.priceTotal;
-        this.domCartTotalPrice.innerText = this.priceTotal;
         
-        this.createCart();
+        this.dom.cartButton.innerText = this.priceTotal;
+        this.dom.cartTotalPrice.innerText = this.priceTotal;
     }
     
     createCart = () => {
@@ -146,8 +162,8 @@ export default class CartView extends View {
                 const priceTotal = +localStorage.getItem("priceTotal");
                 const totalPr = priceTotal+priceProd;
                 localStorage.setItem("priceTotal", totalPr);
-                this.domCartButton.innerText = totalPr;
-                this.domCartTotalPrice.innerText = totalPr;
+                this.dom.cartButton.innerText = totalPr;
+                this.dom.cartTotalPrice.innerText = totalPr;
             }
         });
         
@@ -166,8 +182,8 @@ export default class CartView extends View {
                 let priceTotal = +localStorage.getItem("priceTotal");
                 priceTotal-=priceProd;
                 localStorage.setItem("priceTotal", priceTotal);
-                this.domCartButton.innerText = priceTotal;
-                this.domCartTotalPrice.innerText = priceTotal;
+                this.dom.cartButton.innerText = priceTotal;
+                this.dom.cartTotalPrice.innerText = priceTotal;
             }
         });
         
@@ -187,12 +203,36 @@ export default class CartView extends View {
                 localStorage.removeItem(`product-id-${id}`)
                 localStorage.setItem("priceTotal", priceTotal);
                 if (allStorage().total == 0) { this.totalHtml.innerHTML = `$${0}` };
-                this.domCartButton.innerText = priceTotal;
-                this.domCartTotalPrice.innerText = priceTotal;
+                this.dom.cartButton.innerText = priceTotal;
+                this.dom.cartTotalPrice.innerText = priceTotal;
             }
         });
 
         this.createCart();
+    }
+
+    createOrder = (event) => {
+        event.cancelBubble = true;
+        event.stopPropagation();
+
+        const order = {};
+        const date = new Date();
+        order.products = [];
+
+        order.customName = this.dom.customName.value;
+        order.customPhone = this.dom.customPhone.value;
+        order.total = this.dom.cartTotalPrice.innerText;
+        order.time = date.toDateString();
+
+        for(let i=0; i<localStorage.length - 1; i++) {
+            let key = localStorage.key(i);
+            order.products.push(localStorage.getItem(key));
+        }
+        
+        console.log(order);
+        event.preventDefault()
+        
+        
     }
 
 }

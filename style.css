@@ -656,7 +656,6 @@ a.p-head.bestsellers {
     max-width: 750px;
     width: 100%;
     min-height: 223px;
-    margin: 80px auto;
     background: #ffffff;
     box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
@@ -773,9 +772,7 @@ input:focus {
     font-size: 20px;
     font-weight: 500;
     color: black;
-    padding: 10px 20px;
-    margin-left: 50px;
-    margin-right: -120px;
+    text-align: center;
 }
 
 .image {
@@ -812,12 +809,6 @@ input:focus {
         flex-wrap: wrap;
         justify-content: center;
     }
-    /* .image {
-        object-fit: contain;
-    }
-    .picture {
-        object-fit: cover;
-    } */
 
     .quantity,
     .description {
@@ -874,7 +865,7 @@ i {
 }
 
 .col-12.products {
-    max-height: 500px;
+    max-height: 360px;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -891,4 +882,38 @@ i {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     border: 1px solid rgba(165, 235, 26, 0.5);
+}
+
+.item {
+    background-color: rgba(153, 205, 50, 0.034);
+}
+
+.title-order {
+    font-weight: bold;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.order-info {
+    padding: 30px;
+    margin-right: 20px;
+}
+
+.custom-name {
+    margin-bottom: 20px;
+}
+
+.total-sum {
+    color: #fc5959;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn-order {
+    width: 100%!important;
+    height: 50px!important;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff!important;
+    background-color: #99bd03!important;
 }

@@ -558,7 +558,8 @@ a:hover {
 }
 
 #id01,
-#id02 {
+#id02,
+#id03 {
     -webkit-animation: fadein 0.25s;
     -moz-animation: fadein 0.25s;
     -ms-animation: fadein 0.25s;
@@ -924,6 +925,52 @@ i {
 }
 
 .col-12.products::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid rgba(165, 235, 26, 0.5);
+}
+
+.total-history {
+    float: right;
+    margin-right: 50px;
+    
+}
+
+.render-history-modal {
+    height: 60px !important;
+    width: 100%;
+}
+
+.modal-footer.his {
+    border: none !important;
+}
+
+.modal-footer.his::before {
+    content: '';
+    border: none !important;
+}
+
+.modal-footer.his::after {
+    content: '';
+    border: none !important;
+}
+
+.col-12.history-items{
+    border: none;
+    max-height: 500px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.col-12.history-items::-webkit-scrollbar {
+    width: 7px;
+}
+
+.col-12.history-items::-webkit-scrollbar-track {
+    background: rgba(153, 205, 50, 0.33);
+}
+
+.col-12.history-items::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     border: 1px solid rgba(165, 235, 26, 0.5);

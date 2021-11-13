@@ -1,4 +1,5 @@
 import View from '../common/view.js'
+import ViewHistory from '../history/history_view.js'
 import renderCartModal from '../common/render_cart_modal.js'
 import allStorage, { getOrders } from '../common/getStorage.js';
 
@@ -22,6 +23,7 @@ export default class CartView extends View {
     constructor () {
         super();
         this.linkDomElem( this.cartDomElem );
+        this.view_history = new ViewHistory();
         this.priceTotal = +localStorage.getItem( 'priceTotal' ) || 0;
         this.domCartButton = document.querySelector( '#cart-button' );
         this.domCartTotalPrice = document.querySelector( '#cart-span' );
@@ -244,5 +246,6 @@ export default class CartView extends View {
             localStorage.setItem( `priceTotal`, 0 );
             this.createCart();
         }
+        this.view_history.loadHistory();
     }
 }

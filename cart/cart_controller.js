@@ -7,7 +7,6 @@ export default class CartController {
         this.view = new CartView();
         Publisher.subscribe( Publisher.events.clickProductCart, this.clickOnProductCart );
         Publisher.subscribe( Publisher.events.loadData, this.loadCart );
-        // Publisher.subscribe( Publisher.events.checkoutProcess, this.checkoutProcess );
     }
     
     clickOnProductCart = (dataCard) => {
@@ -17,8 +16,4 @@ export default class CartController {
     loadCart = () => {
         this.view.createCart();
     }
-    
-    // checkoutProcess = () => {
-    //     this.view.checkout();
-    // }
 }

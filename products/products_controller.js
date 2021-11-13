@@ -30,13 +30,6 @@ export default class ProductController {
         Publisher.notify( Publisher.events.buildModal, modalData );
    }
 
-   // ---------------------------
-   openCart = ( id ) => {
-       console.log("openCart")
-        Publisher.notify( Publisher.events.buildCart, 1 );
-   }
-   // ---------------------------
-
    sendFilterData = ( filter ) => {
        const data = this.model.filterData( filter );
        this.sendData( data );
@@ -48,13 +41,6 @@ export default class ProductController {
         Publisher.notify( Publisher.events.clickProduct, id);
     }
     
-    // -----------------------------------
-    clickOnCart = ( event ) => {
-        console.log("clickOnCart")
-        Publisher.notify( Publisher.events.clickCart, 2);
-    }
-    // -----------------------------------
-
     clickOnProductCart = ( event ) => {
         const id = event.target.attributes['data-product-id'].value;
         const productCard = this.model.getModalData( id );
@@ -76,5 +62,4 @@ export default class ProductController {
         Publisher.notify( Publisher.events.loadData, this.data );
         this.view.createList( this.data, { start: 0, end: 9 } );
    }
-
 }

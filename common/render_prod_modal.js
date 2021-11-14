@@ -17,10 +17,10 @@ export default function renderProdModal( data ) {
                                     ${ data.name }
                                 </h5>
                                 <div class="row">
-                                    <div class=" col-6">
+                                    <div class=" col-md-6 text-center">
                                         <img class="modal-prod-picture" src="${ data.image }" alt="image" />
                                     </div>
-                                    <div class="modal-prod-description col-6">
+                                    <div class="modal-prod-description col-md-6">
                                         <p class="modal-text-paragraph"> 
                                             ${ data.description }
                                         </p>

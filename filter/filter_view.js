@@ -14,6 +14,10 @@ export default class FilterView extends View{
         {
             name: 'btnSort',
             selector: '.btn-filter-sort'
+        },
+        {
+            name: 'navBarBtn',
+            selector: '.navbar-toggler'
         }
     ]
 
@@ -27,6 +31,8 @@ export default class FilterView extends View{
 
         this.dom.price.addEventListener( 'change', this.priceRangeOnChange );
         this.dom.btnSort.addEventListener( 'click', this.priceRangeOnChange );
+
+        this.dom.navBarBtn.addEventListener('click', this.toggleNavBar)
     }
 
     memberData = ( data ) => {
@@ -57,6 +63,11 @@ export default class FilterView extends View{
         this.dom.price.setAttribute( 'title', mimValue );
         const lastProductInSort = this.data.findIndex( el => +el.price >= +mimValue );
         return this.data.slice( lastProductInSort, this.data.length );
+    }
+
+    toggleNavBar = () => {
+        this.dom.navbarContent = document.querySelector('.navbar-content');
+        this.dom.navbarContent.classList.toggle('navbar-active');
     }
 
 }

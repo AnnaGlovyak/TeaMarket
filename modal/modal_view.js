@@ -27,12 +27,8 @@ export default class ModalView extends View {
         addToCartBtn.forEach( el => {
             el.addEventListener( 'click', () => {
                 let num = +inputData.value;
-
                 if (num === "" || num === 0) { num = 1 }
-                // else { inputData = +document.getElementById( `qty-${data.id}` ).value; }
-
-                const localCheck = JSON.parse( localStorage.getItem( `product-id-${data.id}` ) );
-                
+                const localCheck = JSON.parse( localStorage.getItem( `product-id-${data.id}` ) );                
                 if ( localCheck!==null ) {
                     this.cart_view.productCartHandler(localCheck.card, num)
                 } else {

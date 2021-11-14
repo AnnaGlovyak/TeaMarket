@@ -97,6 +97,17 @@ input[type=range]::-webkit-slider-thumb {
     width: 100%;
 }
 
+.btn-filter-sort:focus, .btn-filter-sort:focus-visible {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.btn-filter-sort:focus:not(:focus-visible) {
+    box-shadow: 0 0 0 0.1rem rgba(41, 129, 14, 0.13);
+}
+button:focus:not(:focus-visible) {
+    box-shadow: none;
+}
 .filter-price-min {
     font-weight: 700;
 }
@@ -119,11 +130,15 @@ input[type=range]::-webkit-slider-thumb {
 
 .prod-cat li ul li:hover,
 .prod-cat li ul li:focus,
-.prod-cat li ul li.active,
+.prod-cat li ul li:active,
 .prod-cat li:hover,
 .prod-cat li:focus,
-.prod-cat li.active {
+.prod-cat li:active {
     background: none;
+    color: #ff7261;
+}
+
+option[selected] {
     color: #ff7261;
 }
 
@@ -168,7 +183,6 @@ input[type=range]::-webkit-slider-thumb {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
-    /* cursor: pointer; */
 }
 
 .product-list .pro-img-box {
@@ -194,6 +208,10 @@ input[type=range]::-webkit-slider-thumb {
     transform: translate(-50%, 40%);
     position: absolute;
     cursor: pointer;
+}
+
+.adtocart:hover {
+    background: #ec3333;
 }
 
 .adtocart i {
@@ -377,7 +395,7 @@ a.btn.btn-card.product-card-title:hover {
 
 a:focus,
 a:hover {
-    color: #348e7b;
+    color: #41c4a7;
     text-decoration: underline;
 }
 
@@ -447,6 +465,10 @@ a:hover {
     border-radius: 5px;
     width: 100%;
     border: 1px solid #99bd03;
+}
+
+.btn-shop:hover {
+    box-shadow: 0 0 0 0.1rem rgba(41, 129, 14, 0.13);
 }
 
 .shop-count {
@@ -914,6 +936,10 @@ i {
     display: none;
 }
 
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
 .customer-details {
     margin-left: 70px;
     color: #99bd03;
@@ -1129,6 +1155,18 @@ i {
         margin: 0 auto;
     }
 
+
+.customer-details-span {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    font-style: italic;
+}
+
+.form-control:focus {
+    border-color: rgba(41, 129, 14, 0.13);
+    box-shadow: 0 0 0 0.1rem rgba(41, 129, 14, 0.13);  
+}
+
     .m-bot15.text-center{
         display: none;
     }
@@ -1156,3 +1194,4 @@ i {
     }
     
 }
+

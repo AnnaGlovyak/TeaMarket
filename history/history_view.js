@@ -16,27 +16,42 @@ export default class CartView extends View {
     ]
 
     constructor () {
+
         super();
         this.linkDomElem( this.cartDomElem );
         this.history = getOrders();
         this.dom.history.addEventListener( 'click', ()=> this.openHistory() );
+        
     }
 
-    openHistory = (  ) => {
+    openHistory = () => {
         
         this.history = getOrders();
         this.markup = '';
-        
-        this.history.map((el) => {
+        this.history.forEach((el) => {
+
             let amount = 0;
+            let name = '';
+            let phone = '';
+            let date = '';
+            let orderNum = '';
+
             for (const key in el){
+                
                 this.modalHTML = renderHistoryModal(el[key]);
                 this.markup += this.modalHTML;
                 amount = el[key]["totalAmount"]
+                name = el[key]["customName"]
+                phone = el[key]["customPhone"]
+                date = el[key]["time"]
+                orderNum = el[key]["orderId"]
             }
-          
-            this.markup += `<div class="total-price total-history">$${amount}</div><br/>`
+
+            this.markup += `<div class="customer-details" >Order#${orderNum}. ${name} <span class="customer-details-span"> ${phone} </span> ${date}<span class="total-price total-history">$${amount}</span></div><br/>`
             this.dom.historyItems.innerHTML = this.markup;
+
         })
+
     }
+
 }

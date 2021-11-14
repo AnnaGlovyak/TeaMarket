@@ -558,7 +558,8 @@ a:hover {
 }
 
 #id01,
-#id02 {
+#id02,
+#id03 {
     -webkit-animation: fadein 0.25s;
     -moz-animation: fadein 0.25s;
     -ms-animation: fadein 0.25s;
@@ -615,8 +616,20 @@ a:hover {
     }
 }
 
-.btn.btn-secondary:hover {
+.btn.btn-secondary.close-btn:hover,
+.btn.btn-secondary.checkout-btn:hover {
     background-color: #d9d9d9;
+    color: inherit;
+}
+
+.btn.btn-secondary.close-btn {
+    background-color:  rgba(153, 189, 3, 0.25);
+    color: rgba(153, 189, 3);
+}
+
+.btn.btn-secondary.checkout-btn {
+    background-color: rgba(0, 174, 255, 0.25);
+    color: rgba(0, 174, 255, 0.8);
 }
 
 .bottom.section-padding {
@@ -798,6 +811,30 @@ input:focus {
     }
 }
 
+
+@media (max-width: 770px) {
+    
+.nav-link::after {
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 0%;
+    height: 0;
+}
+
+.nav-link:hover::after {
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 0;
+    height: 0;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+}
+
 @media (max-width: 540px) {
     .shopping-cart {
         width: 100%;
@@ -884,6 +921,7 @@ i {
     border: 1px solid rgba(165, 235, 26, 0.5);
 }
 
+/* <<<<<<< HEAD */
 .item {
     background-color: rgba(153, 205, 50, 0.034);
 }
@@ -916,4 +954,51 @@ i {
     font-weight: bold;
     color: #fff!important;
     background-color: #99bd03!important;
+}
+/* ======= */
+.total-history {
+    float: right;
+    margin-right: 50px;
+    
+}
+
+.render-history-modal {
+    height: 60px !important;
+    width: 100%;
+}
+
+.modal-footer.his {
+    border: none !important;
+}
+
+.modal-footer.his::before {
+    content: '';
+    border: none !important;
+}
+
+.modal-footer.his::after {
+    content: '';
+    border: none !important;
+}
+
+.col-12.history-items{
+    border: none;
+    max-height: 500px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.col-12.history-items::-webkit-scrollbar {
+    width: 7px;
+}
+
+.col-12.history-items::-webkit-scrollbar-track {
+    background: rgba(153, 205, 50, 0.33);
+}
+
+.col-12.history-items::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid rgba(165, 235, 26, 0.5);
+/* >>>>>>> new_branch */
 }

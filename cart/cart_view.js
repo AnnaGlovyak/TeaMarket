@@ -1,5 +1,4 @@
 import View from '../common/view.js'
-import ViewHistory from '../history/history_view.js'
 import renderCartModal from '../common/render_cart_modal.js'
 import allStorage, { getOrders } from '../common/getStorage.js';
 
@@ -51,7 +50,6 @@ export default class CartView extends View {
     constructor ( sendOrder ) {
         super();
         this.sendOrder = sendOrder;
-        this.view_history = new ViewHistory();
         this.priceTotal = +localStorage.getItem( 'priceTotal' ) || 0;
         this.totalHtml = document.getElementById( 'total' );
         this.linkDomElem( this.cartDomElem );
@@ -59,7 +57,6 @@ export default class CartView extends View {
         this.dom.cartTotalPrice.innerText = this.priceTotal;
         this.resultData = {};
         this.dom.orderBtn.addEventListener('submit', this.sendOrder)
-        this.dom.checkout.addEventListener( 'click', ()=> this.checkout() );
     }
     
     productCartHandler = ( dataCard, qty = 0 ) => {
@@ -277,31 +274,9 @@ export default class CartView extends View {
             localStorage.setItem( `priceTotal`, 0 );
             this.createCart();
         }
-        this.view_history.loadHistory();
-    }
-
-    createOrder = (event) => {
-        event.cancelBubble = true;
-        event.stopPropagation();
-
-        const order = {};
-        const date = new Date();
-        order.products = [];
-
-        order.customName = this.dom.customName.value;
-        order.customPhone = this.dom.customPhone.value;
-        order.total = this.dom.cartTotalPrice.innerText;
-        order.time = date.toDateString();
-
-        const localStorageData = allStorage();
-        localStorageData.values.forEach( el => {
-            order.products.push(el.card);
-        })
-       
-        return order;
     }
     
-    /* createOrder = () => {
+    createOrder = () => {
         const order = {};
         const date = new Date();
         order.products = [];
@@ -316,6 +291,7 @@ export default class CartView extends View {
             order.products.push(el.card);
         })
        
+        this.checkout();
         return order;
-    } */
+    }
 }

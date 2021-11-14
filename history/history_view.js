@@ -1,7 +1,6 @@
 import View from '../common/view.js'
 import renderHistoryModal from '../common/render_history_modal.js'
-import allStorage, { getOrders } from '../common/getStorage.js';
-import Publisher from '../common/publisher.js'
+import { getOrders } from '../common/getStorage.js';
 
 export default class CartView extends View {
 
@@ -20,17 +19,15 @@ export default class CartView extends View {
         super();
         this.linkDomElem( this.cartDomElem );
         this.history = getOrders();
-        this.dom.history.addEventListener( 'click', ()=> this.openHistory(this.history) );
+        this.dom.history.addEventListener( 'click', ()=> this.openHistory() );
     }
 
-    loadHistory = () => {
+    openHistory = (  ) => {
+        
         this.history = getOrders();
-    }
-
-    openHistory = ( history ) => {
         this.markup = '';
-        console.log(history)
-        history.map((el) => {
+        
+        this.history.map((el) => {
             let amount = 0;
             for (const key in el){
                 this.modalHTML = renderHistoryModal(el[key]);

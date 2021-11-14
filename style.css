@@ -1150,5 +1150,9 @@ i {
         margin-top: 5px;
         width: auto;
     }
+
+    .render-history-modal .col-4 {
+        width: 45% !important;
+    }
     
 }

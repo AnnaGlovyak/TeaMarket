@@ -907,14 +907,12 @@ i {
     color: #fff!important;
     background-color: #99bd03!important;
 }
-/* >>>>>>> new_branch */
-
 .navbar-content {
-    display: none;
+    display: block;
 }
 
 .navbar-active {
-    display: block;
+    display: none;
 }
 
 @media (max-width: 1200px) {
@@ -922,7 +920,6 @@ i {
         width: 100%;
     }
 }
-
 
 @media (max-width: 770px) {
     
@@ -944,6 +941,14 @@ i {
 
     .nav-link:hover {
         background-color: rgba(255, 255, 255, 0) !important;
+    }
+    
+    .navbar-content {
+        display: none;
+    }
+    
+    .navbar-active {
+        display: block;
     }
 }
 

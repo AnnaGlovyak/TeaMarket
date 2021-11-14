@@ -102,7 +102,7 @@
                                 <input id="search-input-id" type="text" placeholder="Keyword Search" class="form-control" />
                             </div>
                         </section>
-                        <section class="burger-menu panel d-block d-md-none">
+                        <section class="burger-menu panel">
                             <div class="d-flex justify-content-between">
                                 <header class="panel-heading">Filter</header>
                                 <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
@@ -147,42 +147,6 @@
                                 </div>
                             </div>
                         </section>
-                        <section class="panel d-none d-md-block">
-                            <header class="panel-heading">Category</header>
-                            <div class="panel-body">
-                                <ul class="nav prod-cat">
-                                    <li class="category" data-value="tea">
-                                        <i class="fa fa-angle-right"></i> Tea
-                                        <ul class="nav">
-                                            <li class="kind" data-value="black">- Black tea</li>
-                                            <li class="kind" data-value="green">- Green tea</li>
-                                            <li class="kind" data-value="white">- White tea</li>
-                                        </ul>
-                                    </li>
-                                    <li class="category" data-value="coffee">
-                                        <i class="fa fa-angle-right"></i> Coffee
-                                        <ul class="nav">
-                                            <li class="kind" data-value="beans">- Beans coffee</li>
-                                            <li class="kind" data-value="ground">- Ground coffee</li>
-                                            <li class="kind" data-value="instant">- Instant coffee</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <br>
-                            <div class="filter">
-                                <button class="btn btn-filter-sort">Sort by price</button>
-                                <header class="range-heading">or use range</header>
-                                <div class="panel-body">
-                                    <form role="form product-form">
-                                        <div class="form-group">
-                                            <label for="customRange3">min price: <span class="filter-price-min"></span> $</label>
-                                            <input type="range" class="form-range filter-price" name="price" min="0" step="10" id="customRange3">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </section>
                     </div>
                     <!-- Side bar end-->
                     <!-- product-list start-->
@@ -207,12 +171,9 @@
                     <div class="shopping-cart">
                         <!-- Header  -->
                         <div class="shop-overlay"></div>
-                        <span onclick="document.getElementById('id02').style.display='none';" class="w3-button w3-display-topright"
-                            >&times;</span
-                        >
+                        <span onclick="document.getElementById('id02').style.display='none';" class="w3-button w3-display-topright">&times;</span>
                         <!-- Title -->
                         <div class="title row justify-content-center">Shopping Bag</div>
-
                         <!-- Content -->
                         <div class="row">
                             <div class="col-12 products">
@@ -247,18 +208,14 @@
                     <div class="shopping-cart">
                         <!-- Header  -->
                         <div class="shop-overlay"></div>
-                        <span onclick="document.getElementById('id03').style.display='none';" class="w3-button w3-display-topright"
-                            >&times;</span
-                        >
+                        <span onclick="document.getElementById('id03').style.display='none';" class="w3-button w3-display-topright">&times;</span>
                         <!-- Title -->
                         <div class="title row justify-content-center">Orders History</div>
-
                         <!-- Content -->
                         <div class="row">
                             <div class="col-12 history-items">
                             </div>
                         </div>
-
                         <!-- Footer -->
                         <div class="row total">
                             <div class="modal-footer his">

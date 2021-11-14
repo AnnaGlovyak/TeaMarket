@@ -11,7 +11,6 @@ export default class CartView extends View {
             selector: '.products'
         },
         {
-
             name: 'checkout',
             selector: '.checkout-btn'
         },
@@ -38,22 +37,27 @@ export default class CartView extends View {
         {
             name: 'customPhone',
             selector: '.custom-phone'
+        },
+        {
+            name: 'checkout',
+            selector: '.checkout-btn'
+        },
+        {
+            name: 'totalModalCart',
+            selector: '#total'
         }
     ]
 
     constructor ( sendOrder ) {
         super();
         this.sendOrder = sendOrder;
-        this.linkDomElem( this.cartDomElem );
         this.view_history = new ViewHistory();
-
         this.priceTotal = +localStorage.getItem( 'priceTotal' ) || 0;
-        this.linkDomElem( this.cartDomElem );
         this.totalHtml = document.getElementById( 'total' );
+        this.linkDomElem( this.cartDomElem );
         this.dom.cartButton.innerText = this.priceTotal;
         this.dom.cartTotalPrice.innerText = this.priceTotal;
         this.resultData = {};
-
         this.dom.orderBtn.addEventListener('submit', this.sendOrder)
         this.dom.checkout.addEventListener( 'click', ()=> this.checkout() );
     }
@@ -260,8 +264,8 @@ export default class CartView extends View {
 
             localStorage.setItem( `order-${ordersLength}`, JSON.stringify( orderFinal ) );
             
-            this.domCartButton.innerText = 0;
-            this.domCartTotalPrice.innerText = 0;
+            this.dom.cartButton.innerText = 0;
+            this.dom.cartTotalPrice.innerText = 0;
             this.dom.totalModalCart.innerText = '$0'
 
             totalProdList.map((el) => {
@@ -296,5 +300,22 @@ export default class CartView extends View {
        
         return order;
     }
+    
+    /* createOrder = () => {
+        const order = {};
+        const date = new Date();
+        order.products = [];
 
+        order.customName = this.dom.customName.value;
+        order.customPhone = this.dom.customPhone.value;
+        order.total = this.dom.cartTotalPrice.innerText;
+        order.time = date.toDateString();
+
+        const localStorageData = allStorage();
+        localStorageData.values.forEach( el => {
+            order.products.push(el.card);
+        })
+       
+        return order;
+    } */
 }

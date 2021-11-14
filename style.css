@@ -921,6 +921,41 @@ i {
     border: 1px solid rgba(165, 235, 26, 0.5);
 }
 
+/* <<<<<<< HEAD */
+.item {
+    background-color: rgba(153, 205, 50, 0.034);
+}
+
+.title-order {
+    font-weight: bold;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.order-info {
+    padding: 30px;
+    margin-right: 20px;
+}
+
+.custom-name {
+    margin-bottom: 20px;
+}
+
+.total-sum {
+    color: #fc5959;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn-order {
+    width: 100%!important;
+    height: 50px!important;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff!important;
+    background-color: #99bd03!important;
+}
+/* ======= */
 .total-history {
     float: right;
     margin-right: 50px;
@@ -965,6 +1000,7 @@ i {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     border: 1px solid rgba(165, 235, 26, 0.5);
+}
 
 .item {
     background-color: rgba(153, 205, 50, 0.034);
@@ -999,3 +1035,4 @@ i {
     color: #fff!important;
     background-color: #99bd03!important;
 }
+/* >>>>>>> new_branch */

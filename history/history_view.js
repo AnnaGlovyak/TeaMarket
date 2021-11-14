@@ -35,11 +35,10 @@ export default class CartView extends View {
             for (const key in el){
                 this.modalHTML = renderHistoryModal(el[key]);
                 this.markup += this.modalHTML;
-                amount += el[key]["totalAmount"]
+                amount = el[key]["totalAmount"]
             }
           
             this.markup += `<div class="total-price total-history">$${amount}</div><br/>`
-
             this.dom.historyItems.innerHTML = this.markup;
         })
     }

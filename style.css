@@ -1036,3 +1036,14 @@ i {
     background-color: #99bd03!important;
 }
 /* >>>>>>> new_branch */
+
+.customer-details {
+    margin-left: 70px;
+    color: #99bd03;
+}
+
+.customer-details-span {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    font-style: italic;
+}

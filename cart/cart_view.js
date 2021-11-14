@@ -227,7 +227,7 @@ export default class CartView extends View {
         this.createCart();
     }
 
-    checkout = ( ) => {
+    checkout = ( { customName,  customPhone, time} ) => {
 
         const storageData = allStorage();
         const ordersData = getOrders();
@@ -235,7 +235,7 @@ export default class CartView extends View {
         let id, price, qty, card;
         let name, manufactures, region, weight;
         let packageType;
-
+        const orderId = ordersData.length+1;
         const totalAmount = +storageData.total;
         const totalProdList = storageData.values;
 
@@ -254,8 +254,8 @@ export default class CartView extends View {
 
         if (totalProdList.length !== 0) {
             const orderFinal = {};
-            totalProdList.map((el, index) => {
-                const order = { 'id': +el.id, 'price': +el.price, 'qty': +el.qty, 'name': el.card.name, 'manufactures': el.card.manufactures, 'packageType': el.card.packageType, 'region': el.card.region, 'weight': +el.card.weight, 'totalAmount': totalAmount };
+            totalProdList.forEach((el, index) => {
+                const order = { 'orderId': orderId, 'customName': customName, 'customPhone': customPhone, 'time': time, 'id': +el.id, 'price': +el.price, 'qty': +el.qty, 'name': el.card.name, 'manufactures': el.card.manufactures, 'packageType': el.card.packageType, 'region': el.card.region, 'weight': +el.card.weight, 'totalAmount': totalAmount };
                 orderFinal[index] = order;
             })
 
@@ -265,7 +265,7 @@ export default class CartView extends View {
             this.dom.cartTotalPrice.innerText = 0;
             this.dom.totalModalCart.innerText = '$0'
 
-            totalProdList.map((el) => {
+            totalProdList.forEach((el) => {
                 if (el.id !== null || el.id !== undefined) {
                     localStorage.removeItem(`product-id-${el.id}`)
                 }
@@ -291,7 +291,7 @@ export default class CartView extends View {
             order.products.push(el.card);
         })
        
-        this.checkout();
+        this.checkout( order );
         return order;
     }
 }

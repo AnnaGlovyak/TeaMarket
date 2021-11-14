@@ -1,7 +1,8 @@
 export default function renderHistoryModal( ...data ) {
 
     return `<div class="item row justify-content-around render-history-modal">
-                <div class="description col-7 align-self-center">
+
+                <div class="description col-4 col-md-6 align-self-center">
                     <span style="text-decoration: underline;">${ data[0].name }, ${ data[0].weight }g</span>
                 </div>
 

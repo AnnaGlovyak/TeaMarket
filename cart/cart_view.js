@@ -284,7 +284,7 @@ export default class CartView extends View {
         order.customName = this.dom.customName.value;
         order.customPhone = this.dom.customPhone.value;
         order.total = this.dom.cartTotalPrice.innerText;
-        order.time = date.toDateString();
+        order.time = date.toLocaleDateString();
 
         const localStorageData = allStorage();
         localStorageData.values.forEach( el => {

@@ -81,7 +81,6 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="d-flex justify-content-md-end justify-content-between">
                                 <button id="cart-header-btn" type="button" class="btn btn-shop" onclick="document.querySelector('.shop').style.display='block'">
-                                <!-- <button id="cart-header-btn" type="button" class="btn btn-shop"> -->
                                     <i class="fas fa-shopping-bag"></i>
                                     <span id="cart-span" class="shop-count">0</span>
                                     <span id="cart-button">0</span> USD
@@ -103,7 +102,52 @@
                                 <input id="search-input-id" type="text" placeholder="Keyword Search" class="form-control" />
                             </div>
                         </section>
-                        <section class="panel">
+                        <section class="burger-menu panel d-block d-md-none">
+                            <div class="d-flex justify-content-between">
+                                <header class="panel-heading">Filter</header>
+                                <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+                                aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="navbar-content">
+                                <div class="panel-body ">
+                                    <ul class="nav prod-cat">
+                                        <li class="category" data-value="tea">
+                                            <i class="fa fa-angle-right"></i> Tea
+                                            <ul class="nav">
+                                                <li class="kind" data-value="black">- Black tea</li>
+                                                <li class="kind" data-value="green">- Green tea</li>
+                                                <li class="kind" data-value="white">- White tea</li>
+                                            </ul>
+                                        </li>
+                                        <li class="category" data-value="coffee">
+                                            <i class="fa fa-angle-right"></i> Coffee
+                                            <ul class="nav">
+                                                <li class="kind" data-value="beans">- Beans coffee</li>
+                                                <li class="kind" data-value="ground">- Ground coffee</li>
+                                                <li class="kind" data-value="instant">- Instant coffee</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <br>
+                                <div class="filter">
+                                    <button class="btn btn-filter-sort">Sort by price</button>
+                                    <header class="range-heading">or use range</header>
+                                    <div class="panel-body">
+                                        <form role="form product-form">
+                                            <div class="form-group">
+                                                <label for="customRange3">min price: <span class="filter-price-min"></span> $</label>
+                                                <input type="range" class="form-range filter-price" name="price" min="0" step="10" id="customRange3">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="panel d-none d-md-block">
                             <header class="panel-heading">Category</header>
                             <div class="panel-body">
                                 <ul class="nav prod-cat">
@@ -177,17 +221,16 @@
                         <div class="row justify-content-center title-order">Create an order</div>
                         <form class="order-form">
                             <div class="row justify-content-space-between order-info">
-                                <div class="col-6">
+                                <div class="col-sm-6">
                                     <input type="text" class="form-control custom-name" placeholder="First name" aria-label="First name" pattern="[a-zA-Zа-яА-Я]+" minlength="3" maxlength="10" required>
                                     <input type="text" class="form-control custom-phone" placeholder="+380123456789" id="phone" aria-label="Phone" pattern="^\+380\d{3}\d{2}\d{2}\d{2}$" required>
                                 </div>
-                                <div class="col-6 d-flex flex-column justify-content-between align-items-end">
+                                <div class="cart-total col-sm-6 d-flex flex-column justify-content-between align-items-end mt-4 mt-sm-0">
                                     <div class="total-title">Total:</div>
                                     <div class="total-sum" id="total">$0</div>
                                 </div>
                             </div>
                         <!-- Footer -->
-
                             <div class="row">
                                 <div class="modal-footer">
                                     <button class="btn btn-order">Order</button>

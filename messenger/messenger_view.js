@@ -20,7 +20,7 @@ Total: <b>${ data.total } $</b>\n
     parseProducts = ( products ) => {
         let productsHTML = '';
         products.forEach( prod => {
-            productsHTML += `<u>${ prod.name }:</u> ${ prod.price } $,\n`
+            productsHTML += `<u>${ prod.name }:</u> ${ prod.price } $,  ${ prod.qty } pcs\n`
         });
         return productsHTML;
     }

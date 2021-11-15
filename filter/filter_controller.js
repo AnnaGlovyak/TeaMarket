@@ -9,11 +9,13 @@ export default class FilterController{
         Publisher.subscribe( Publisher.events.readyFiltredData, this.getFiltredData)
     }
     
-    changeCategory( event ){
+    changeCategory =( event ) =>{
         const filter = {
             name: event.target.className,
             value: event.target.attributes['data-value'].value
         }
+
+        this.view.changeCategoryColor( event );
 
         Publisher.notify( Publisher.events.clickCategFiltr, filter );
         return filter;

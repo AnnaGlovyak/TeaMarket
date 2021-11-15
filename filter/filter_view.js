@@ -18,6 +18,38 @@ export default class FilterView extends View{
         {
             name: 'navBarBtn',
             selector: '.navbar-toggler'
+        },
+        {
+            name: 'tea0',
+            selector: '#tea-0'
+        },
+        {
+            name: 'tea1',
+            selector: '#tea-1'
+        },
+        {
+            name: 'tea2',
+            selector: '#tea-2'
+        },
+        {
+            name: 'tea3',
+            selector: '#tea-3'
+        },
+        {
+            name: 'cof0',
+            selector: '#cof-0'
+        },
+        {
+            name: 'cof1',
+            selector: '#cof-1'
+        },
+        {
+            name: 'cof2',
+            selector: '#cof-2'
+        },
+        {
+            name: 'cof3',
+            selector: '#cof-3'
         }
     ]
 
@@ -68,6 +100,15 @@ export default class FilterView extends View{
     toggleNavBar = () => {
         this.dom.navbarContent = document.querySelector('.navbar-content');
         this.dom.navbarContent.classList.toggle('navbar-active');
+    }
+
+    changeCategoryColor = (event) => {
+        
+        const arr = [ this.dom.tea0, this.dom.tea1, this.dom.tea2, this.dom.tea3, this.dom.cof0, this.dom.cof1, this.dom.cof2, this.dom.cof3 ];
+        
+        arr.forEach(el => el.style = "color: inherit")
+
+        event.path[0].style = "color: #fc5959";
     }
 
 }

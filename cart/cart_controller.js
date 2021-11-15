@@ -21,6 +21,6 @@ export default class CartController {
         const sendData = this.view.createOrder();
         Publisher.notify( Publisher.events.sendMessage, sendData );
         event.preventDefault();
-        document.getElementById('id02').style.display='none';//need to replace
+        document.getElementById('id02').style.display='none';
     }
 }

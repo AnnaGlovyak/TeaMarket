@@ -1,4 +1,3 @@
-// import { showFilterForCategory } from './filterSwitcher.js';
 import ProductController from './products/products_controller.js';
 import ModalController from './modal/modal_controller.js';
 import FilterController from './filter/filter_controller.js';
@@ -18,5 +17,3 @@ const messenger = new MessengerController();
 const history = new HistoryController();
 
 products.init();
-
-// showFilterForCategory();

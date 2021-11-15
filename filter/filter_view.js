@@ -61,8 +61,8 @@ export default class FilterView extends View{
         const mimValue = this.dom.price.value;
         this.dom.filterMinPrice.innerText = mimValue;
         this.dom.price.setAttribute( 'title', mimValue );
-        const lastProductInSort = this.data.findIndex( el => +el.price >= +mimValue );
-        return this.data.slice( lastProductInSort, this.data.length );
+        const firstProductInSort = this.data.findIndex( el => +el.price >= +mimValue );
+        return this.data.slice( firstProductInSort, this.data.length );
     }
 
     toggleNavBar = () => {
